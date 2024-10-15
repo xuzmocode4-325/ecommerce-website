@@ -751,11 +751,23 @@ select {
 
 .container {
   width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 12px;
+  padding-left: 12px;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 340px) {
   .container {
-    max-width: 640px;
+    max-width: 340px;
+  }
+}
+
+@media (min-width: 540px) {
+  .container {
+    max-width: 540px;
+    padding-right: 32px;
+    padding-left: 32px;
   }
 }
 
@@ -765,21 +777,9 @@ select {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1186px) {
   .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
+    max-width: 1186px;
   }
 }
 
@@ -787,17 +787,98 @@ select {
   position: static;
 }
 
+.fixed {
+  position: fixed;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.-right-10 {
+  right: -2.5rem;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.-left-5 {
+  left: -1.25rem;
+}
+
+.-top-5 {
+  top: -1.25rem;
+}
+
+.left-\[-100\%\] {
+  left: -100%;
+}
+
+.left-\[0\] {
+  left: 0;
+}
+
+.top-\[-100\%\] {
+  top: -100%;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.block {
+  display: block;
 }
 
 .flex {
   display: flex;
 }
 
-.h-screen {
-  height: 100vh;
+.contents {
+  display: contents;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.min-h-\[80vh\] {
+  min-height: 80vh;
+}
+
+.w-32 {
+  width: 8rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.rotate-90 {
+  --tw-rotate: 90deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .items-center {
@@ -808,24 +889,131 @@ select {
   justify-content: center;
 }
 
-.bg-gray-50 {
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.bg-green-950 {
   --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+  background-color: rgb(5 46 22 / var(--tw-bg-opacity));
 }
 
-.font-serif {
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+.bg-green-950\/80 {
+  background-color: rgb(5 46 22 / 0.8);
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
+.font-amita {
+  font-family: Amita, serif;
+}
+
+.font-jost {
+  font-family: Jost, sans-serif;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .leading-normal {
   line-height: 1.5;
 }
 
-.tracking-normal {
-  letter-spacing: 0em;
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.opacity-90 {
+  opacity: 0.9;
+}
+
+.backdrop-blur-sm {
+  --tw-backdrop-blur: blur(4px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}
+
+.nav-link {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  transition-duration: 300ms;
+}
+
+.nav-link:hover {
+  --tw-text-opacity: 1;
+  color: rgb(234 179 8 / var(--tw-text-opacity));
+}
+
+@media (min-width: 340px) {
+  .sm\:h-20 {
+    height: 5rem;
+  }
+
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .lg\:static {
+    position: static;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
+
+  .lg\:min-h-fit {
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+
+  .lg\:w-auto {
+    width: auto;
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+
+  .lg\:bg-transparent {
+    background-color: transparent;
+  }
 }

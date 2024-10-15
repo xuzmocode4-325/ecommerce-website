@@ -42,7 +42,24 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
+        screens: {
+            sm: "340px", 
+            md: "540px",
+            lg: "768px",
+            xl: "1186px",
+        },
         extend: {},
+        fontFamily: {
+            jost: ["Jost", "sans-serif"],
+            amita: ["Amita", "serif"]
+        },
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: "12px", 
+                md: "32px", 
+            }
+        }
     },
     plugins: [
         /**
@@ -52,6 +69,7 @@ module.exports = {
          */
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
+        require('@tailwindcss/aspect-ratio'),
         require('@tailwindcss/aspect-ratio'),
     ],
 }

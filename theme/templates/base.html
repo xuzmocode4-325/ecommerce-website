@@ -2,18 +2,98 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-    <title>Django Tailwind</title>
-		<meta charset="UTF-8">
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>{% block page_title %}Plantfantasia - Your Home for Beautiful House Plants{% endblock %}</title>
+		<!-- Favicon -->
+		<link 
+			rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" 
+			integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" 
+			crossorigin="anonymous" referrerpolicy="no-referrer" 
+		/>
 		{% tailwind_css %}
+		<!-- SEO Meta Tags -->
+		<meta name="description" content="
+			{% block meta-description %}
+			Plantfantasia is your ultimate destination for a wide variety of beautiful house plants. 
+			Discover the perfect greenery to enhance your home today!
+			{% endblock %}">
+		<meta name="keywords" content="
+		{% block meta-keywords %}
+			house plants
+			indoor gardening
+			plant care
+			potted plants
+			plant accessories
+			eco-friendly plants
+			home decor
+			plant shop
+		{% endblock %}">
+		<meta name="author" content="Plantfantasia">
+	
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:title" content="{% block og-title %}Plantfantasia - Your Home for Beautiful House Plants{% endblock %}">
+		<meta property="og:site_name" content="Plantfantasia">
+		<meta property="og:description" content="
+		{% block og-description %}
+			Explore Plantfantasia for a stunning selection of house plants that bring life to your space. 
+			Shop now and find your perfect green companion!
+		{% endblock %}">
+		<meta property="og:image" content="{% block og-image %}{% endblock %}">
+		<meta property="og:url" content="{{ request.get_full_path }}">
+		<meta property="og:type" content="website">
+	
+		<!-- Twitter Card Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@plantfantasia">
+		<meta name="twitter:title" content="{% block twitter-title %}Plantfantasia - Your Home for Beautiful House Plants{% endblock %}">
+		<meta name="twitter:description" content="
+		{% block twitter-description %}
+			Discover a wide range of house plants at Plantfantasia. 
+			Elevate your indoor space with our unique selections!
+		{% endblock %}">
+		<meta name="twitter:image" content="{% block twitter-image %}{% endblock %}">
+		<meta name="twitter:url" content="{{ request.get_full_path }}">
 	</head>
 
-	<body class="bg-gray-50 font-serif leading-normal tracking-normal">
-		<div class="container mx-auto">
-			<section class="flex items-center justify-center h-screen">
-				<h1 class="text-5xl">Django + Tailwind = ❤️</h1>
-			</section>
-		</div>
+	<body class=" bg-green-950 font-jost text-white mx-auto font-serif leading-normal tracking-wider">
+		<header class="bg-green-950 fixed w-full top-0 left-0 z-50" id="navbar">
+			<nav class="container flex items-center justify-between h-16 sm:h-20">
+				<div class="font-amita text-xl sm:text-3xl italic">PlantFantasia</div>
+				
+				<div id="nav-menu" class="absolute top-0 left-[-100%] min-h-[80vh]
+				 	w-full bg-green-950/80 backdrop-blur-sm flex items-center justify-center
+					duration-500 overflow-hidden lg:static lg:min-h-fit lg:bg-transparent
+					lg:w-auto ">
+					<ul class="flex flex-col items-center lg:flex-row gap-8">
+						<li><a href="" class="nav-link">Home</a></li>	
+						<li><a href="" class="nav-link">About</a></li>	
+						<li><a href="" class="nav-link">Popular</a></li>	
+						<li><a href="" class="nav-link">Review</a></li>	
+					</ul>
+					<div class="absolute bottom-0 -right-10 opacity-90 lg:hidden">
+						<img class="w-32" src="/media/images/leaf-1.png" alt="leaf-image">
+					</div>
+					<div class="absolute -top-5 -left-5 rotate-90 opacity-90 lg:hidden">
+						<img class="w-32" src="/media/images/leaf-2.png" alt="leaf-image">
+					</div>
+				</div>
+				<div class="text-xl sm:xext-3xl cursor-pointer z-50 lg:hidden">
+					<i id="hamburger" class="ri-menu-5-line"></i>
+				</div>
+			</nav>
+		</header>
+		<main id="">
+			{% block contents %}
+			{% endblock %}
+		</main>
+		<footer>
+			<!--newsletter-->
+			<!--social icon-->
+			<!--content-->
+			<!--copyright-->
+			<!--floral image-->
+		</footer>
+		<script src="{% static 'js/main.js'%}"></script>
 	</body>
 </html>

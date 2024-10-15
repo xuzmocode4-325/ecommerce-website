@@ -27,10 +27,6 @@ SECRET_KEY = 'django-insecure-&rj3^jf0hjr46kln(03yer6ih%4ti5c_kt02wu6!e71!wyfp6(
 DEBUG = True
 
 ALLOWED_HOSTS = []
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
-
 
 # Application definition
 
@@ -124,10 +120,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS =  [os.path.join(BASE_DIR, 'theme', 'static')]
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'theme', 'static', 'media')
 
 # Default primary key field type
@@ -137,3 +134,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Django Tailwind Settings
 TAILWIND_APP_NAME = 'theme'
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
