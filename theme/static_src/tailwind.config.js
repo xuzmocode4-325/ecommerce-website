@@ -48,10 +48,33 @@ module.exports = {
             lg: "768px",
             xl: "1186px",
         },
-        extend: {},
+        extend: {
+            keyFrames: {
+                shift: {
+                    "50%": {
+                        transform: "translateY(-1rem)"
+                    }
+                },
+                rotation: {
+                    "0%": { transform: "rotate(Odeg)" },
+                    "100%": { transform: "rotate(360deg)" }
+                },
+                scaleUp: {
+                    "0%":{ transform: "scale(0.8)" },
+                    "50%":{ transform: "scale(1.2)" },
+                    "0%":{ transform: "scale(0.8)" }
+                }
+            },
+            animation: {
+                movingY: "shift 3s linear infinite",
+                rotating: "rotation 15s linear infinite",
+                scaling: "scaleUp 5s linear infinite",
+            },
+        },
         fontFamily: {
             jost: ["Jost", "sans-serif"],
-            amita: ["Amita", "serif"]
+            amita: ["Amita", "serif"],
+            satisfy: ["Satisfy", "cursive"]
         },
         container: {
             center: true,

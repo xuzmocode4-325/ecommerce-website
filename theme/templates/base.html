@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		{% tailwind_css %}
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{% block page_title %}Plantfantasia - Your Home for Beautiful House Plants{% endblock %}</title>
@@ -11,55 +12,12 @@
 			integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" 
 			crossorigin="anonymous" referrerpolicy="no-referrer" 
 		/>
-		{% tailwind_css %}
-		<!-- SEO Meta Tags -->
-		<meta name="description" content="
-			{% block meta-description %}
-			Plantfantasia is your ultimate destination for a wide variety of beautiful house plants. 
-			Discover the perfect greenery to enhance your home today!
-			{% endblock %}">
-		<meta name="keywords" content="
-		{% block meta-keywords %}
-			house plants
-			indoor gardening
-			plant care
-			potted plants
-			plant accessories
-			eco-friendly plants
-			home decor
-			plant shop
-		{% endblock %}">
-		<meta name="author" content="Plantfantasia">
-	
-		<!-- Open Graph Meta Tags -->
-		<meta property="og:title" content="{% block og-title %}Plantfantasia - Your Home for Beautiful House Plants{% endblock %}">
-		<meta property="og:site_name" content="Plantfantasia">
-		<meta property="og:description" content="
-		{% block og-description %}
-			Explore Plantfantasia for a stunning selection of house plants that bring life to your space. 
-			Shop now and find your perfect green companion!
-		{% endblock %}">
-		<meta property="og:image" content="{% block og-image %}{% endblock %}">
-		<meta property="og:url" content="{{ request.get_full_path }}">
-		<meta property="og:type" content="website">
-	
-		<!-- Twitter Card Meta Tags -->
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:site" content="@plantfantasia">
-		<meta name="twitter:title" content="{% block twitter-title %}Plantfantasia - Your Home for Beautiful House Plants{% endblock %}">
-		<meta name="twitter:description" content="
-		{% block twitter-description %}
-			Discover a wide range of house plants at Plantfantasia. 
-			Elevate your indoor space with our unique selections!
-		{% endblock %}">
-		<meta name="twitter:image" content="{% block twitter-image %}{% endblock %}">
-		<meta name="twitter:url" content="{{ request.get_full_path }}">
-	</head>
 
+	</head>
 	<body class=" bg-green-950 font-jost text-white mx-auto font-serif leading-normal tracking-wider">
 		<header class="bg-green-950 fixed w-full top-0 left-0 z-50" id="navbar">
 			<nav class="container flex items-center justify-between h-16 sm:h-20">
-				<div class="font-amita text-xl sm:text-3xl italic">PlantFantasia</div>
+				<div class="font-satisfy text-xl sm:text-3xl italic">PlantFantasia</div>
 				
 				<div id="nav-menu" class="absolute top-0 left-[-100%] min-h-[80vh]
 				 	w-full bg-green-950/80 backdrop-blur-sm flex items-center justify-center

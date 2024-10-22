@@ -1,32 +1,81 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block page_title %}{% endblock %}
-
-<!-- SEO Meta Tags -->
-{% block meta-description %}
-{%endblock%}
-{% block meta-keywords %}
-{% endblock %}
-
- <!-- Open Graph Meta Tags -->
-{% block og-title %}
-{% endblock %}
-{% block og-description %}
-{% endblock %}
-{% block og-image %}
-{% endblock %}
-
-<!-- Twitter Card Meta Tags -->
-{% block twitter-title %}
-{% endblock %}
-{% block twitter-description %}
-{% endblock %}
-{% block twitter-image %}
-{% endblock %}
 
 <!-- Visible Page Content -->
 {% block contents %}
-    <section id="#home">
-        
+    <section id="home" class="relative">
+        <div class="container">
+            <!-- blob 1 -->
+            <div class="w-64 h-64 bg-green-700 rounded-full blur-3xl -z-10 opacity-40 absolute top-1/2 left-1/2 
+            transform -translate-x-1/2 -translate-y-1/2">
+            </div>
+            <!-- blob 2 -->
+            <div class="w-64 h-64 bg-green-700 rounded-full blur-3xl -z-10 opacity-40 absolute
+            transform right-0 bottom-0">
+            </div>
+            <div class="flex flex-col items-center gap-5 lg:flex-row">
+                <!-- content -->
+                <div class="w-full space-y-5 lg:w-1/2">
+                    <h1>
+                        <span class="text-yellow-500">Plants</span> make a
+                        <br>positive <span class="text-yellow-500">impact</span>
+                        on <br> your environment
+                    </h1>
+
+                    <p class="text-slate-100 text-xl font-satisfy">
+                        Plants are indispensable allies in creating a sustainable environment. 
+                        Their contributions to air quality, climate regulation, soil conservation, 
+                        biodiversity support, water cycle management, carbon sequestration, 
+                        and mental health underscore their importance in our lives. 
+                        By nurturing plants in our surroundings—whether through gardening, 
+                        reforestation efforts, or simply appreciating nature—we can foster 
+                        a healthier planet for ourselves and future generations.
+                    </p>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <button class="btn border active:scale-95 hover:opacity-90 border-yellow-500 bg-yellow-500 rounded-md px-5 py-2 duration-300">
+                            <span class="font-bold">Shop Now</span>
+                            <i class="ri-leaf-line"></i>
+                        </button>
+
+                        <button class="btn border active:scale-95 hover:opacity-90 hover:bg-yellow-500 border-yellow-500 bg-transparent rounded-md px-5 py-2 duration-500">
+                            <span class="font-bold">Learn More</span>
+                            <i class="ri-leaf-line"></i>
+                        </button>
+                    </div>
+
+                    <p class="font-thin text-xs font-satisfy">
+                        Free Trial - Try out the PlantFantasia for 30 Days
+                    </p>
+
+                    <div class="flex items-center gap-6 text-lg md:text-xl lg:text-2xl">
+                        <i class="ri-facebook-fill hover:text-yellow-500 text-slate-300 cursor-pointer"></i>
+                        <i class="ri-twitter-x-line hover:text-yellow-500 text-slate-300 cursor-pointer"></i>
+                        <i class="ri-instagram-line hover:text-yellow-500 text-slate-300 cursor-pointer"></i>
+                        <i class="ri-linkedin-fill hover:text-yellow-500 text-slate-300 cursor-pointer"></i>
+                        <i class="ri-pinterest-line hover:text-yellow-500 text-slate-300 cursor-pointer"></i>
+                        <i class="ri-reddit-line hover:text-yellow-500 text-slate-300 cursor-pointer"></i>
+                    </div>
+                </div>
+                <!-- image -->
+                <div class="w-full relative lg:w-1/2">
+                    <img src="{% static 'store/img/home.png'%}" alt="">
+                    <!-- leaf -->
+                    <div class="absolute right-0 top-7 animate-pulse">
+                        <i class="ri-leaf-line text-yellow-500 opacity-50 text-3xl md:text-6xl"></i>
+                    </div>
+                    <!-- flower -->
+                    <div class="absolute right-0 bottom-7 animate-pulse">
+                        <i class="ri-flower-line text-yellow-500 opacity-50 text-3xl md:text-6xl animate-rotating"></i>
+                    </div>
+                    <!-- plant -->
+                    <div class="absolute left-0 bottom-7 animate-pulse">
+                        <i class="ri-plant-line text-yellow-500 opacity-50 text-3xl md:text-6xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <div id="services">
 
