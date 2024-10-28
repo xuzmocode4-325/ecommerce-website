@@ -2,22 +2,23 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		{% tailwind_css %}
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{% block page_title %}Plantfantasia - Your Home for Beautiful House Plants{% endblock %}</title>
-		<!-- Favicon -->
+		<!-- Remix Icon -->
 		<link 
 			rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" 
 			integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" 
 			crossorigin="anonymous" referrerpolicy="no-referrer" 
 		/>
-
+		<!-- Swiper CSS-->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+		{% tailwind_css %}
 	</head>
 	<body class=" bg-green-950 font-jost text-white mx-auto font-serif leading-normal tracking-wider">
 		<header class="bg-green-950 fixed w-full top-0 left-0 z-50" id="navbar">
 			<nav class="container flex items-center justify-between h-16 sm:h-20">
-				<div class="font-satisfy text-xl sm:text-3xl italic">PlantFantasia</div>
+				<div class="font-amatic font-light text-xl sm:text-3xl italic">Plant Fantasia</div>
 				
 				<div id="nav-menu" class="absolute top-0 left-[-100%] min-h-[80vh]
 				 	w-full bg-green-950/80 backdrop-blur-sm flex items-center justify-center
@@ -52,6 +53,8 @@
 			<!--copyright-->
 			<!--floral image-->
 		</footer>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		<script src="{% static 'js/main.js'%}"></script>
+
 	</body>
 </html>

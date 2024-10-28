@@ -73,8 +73,9 @@ module.exports = {
         },
         fontFamily: {
             jost: ["Jost", "sans-serif"],
-            amita: ["Amita", "serif"],
-            satisfy: ["Satisfy", "cursive"]
+            amatic: ["Amatic SC", "serif"],
+            satisfy: ["Satisfy", "cursive"],
+            poiret: ["Poiret One", "sans-serif"]
         },
         container: {
             center: true,

@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 
@@ -30,7 +31,7 @@
 }
 
 .title {
-    @apply font-satisfy text-yellow-500
+    @apply font-amatic text-yellow-500
 }
 .nav-link {
     @apply text-lg font-bold duration-300;
@@ -42,4 +43,12 @@
 
 section {
     @apply py-20 md:py-28
+}
+
+.popular-card:hover img {
+    @apply -top-8;
+}
+
+.swiper-pagination-bullet {
+    @apply bg-green-500 w-3 h-3
 }

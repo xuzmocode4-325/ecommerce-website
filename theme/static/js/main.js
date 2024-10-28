@@ -18,3 +18,36 @@ navLink.forEach( link => {
         hamburger.classList.toggle('ri-close-large-fill')
     })
 })
+
+
+// Swiper
+
+const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    speed: 200,
+    spaceBetween: 45,
+    autoplay: {
+        delay: 12000, 
+        disableOnInteraction: false,
+    },
+  
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+
+    grabCursor: true,
+    breakpoints: {
+        640: {
+            slidesPerView: 1
+        },
+        768: {
+            slidesPerView: 2
+        }, 
+        1280: {
+            slidesPerView: 4
+        },
+    }
+  
+  });

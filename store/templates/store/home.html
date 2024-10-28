@@ -19,11 +19,10 @@
                 <div class="w-full space-y-5 lg:w-1/2">
                     <h1>
                         <span class="text-yellow-500">Plants</span> make a
-                        <br>positive <span class="text-yellow-500">impact</span>
-                        on <br> your environment
+                        <br>positive <span class="text-yellow-500">impact</span> <br> on your environment
                     </h1>
 
-                    <p class="text-slate-100 text-xl font-satisfy">
+                    <p class="text-slate-100 text-xl font-amatic">
                         Plants are indispensable allies in creating a sustainable environment. 
                         Their contributions to air quality, climate regulation, soil conservation, 
                         biodiversity support, water cycle management, carbon sequestration, 
@@ -45,7 +44,7 @@
                         </button>
                     </div>
 
-                    <p class="font-thin text-xs font-satisfy">
+                    <p class="font-thin text-xs font-amatic">
                         Free Trial - Try out the PlantFantasia for 30 Days
                     </p>
 
@@ -87,7 +86,7 @@
                     <i class="ri-truck-line text-3xl md:text-4xl xl:text-5xl"></i>
                     <p class="md:text-lg  font-bold"> Fast <br> Delivery </p>
                 </div>
-                <p class="font-satisfy"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
+                <p class="font-amatic"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
              </div>
             <!-- card 2 -->
              <div class="border border-green-900 p-5 cursor-pointer rounded-md
@@ -96,7 +95,7 @@
                     <i class="ri-customer-service-line text-3xl md:text-4xl xl:text-5xl"></i>
                     <p class="md:text-lg  font-bold"> Great <br> Service </p>
                 </div>
-                <p class="font-satisfy"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
+                <p class="font-amatic"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
              </div>
             <!-- card 3 -->
              <div class="border border-green-900 p-5 cursor-pointer rounded-md
@@ -105,7 +104,7 @@
                     <i class="ri-plant-line text-3xl md:text-4xl xl:text-5xl"></i>
                     <p class="md:text-lg  font-bold"> Quality <br> Plants </p>
                 </div>
-                <p class="font-satisfy"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
+                <p class="font-amatic"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
              </div>
             <!-- card 4 -->
              <div class="border border-green-900 p-5 cursor-pointer rounded-md
@@ -114,7 +113,7 @@
                     <i class="ri-money-dollar-circle-line text-3xl md:text-4xl xl:text-5xl"></i>
                     <p class="md:text-lg  font-bold"> Value <br> For Money </p>
                 </div>
-                <p class="font-satisfy"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
+                <p class="font-amatic"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
              </div>
         </div>
     </div>
@@ -122,7 +121,7 @@
     <section id="about" class="relative overflow-hidden">
         <div>
             <img src="{% static 'store/img/leaf-3.png' %}" alt="leaf image"
-            class="absolute -top-8 -right-12 w-40 md:w-52 xl:w-64 -z-50 opacity-20">
+            class="absolute -top-8 -right-12 w-40 md:w-52 xl:w-64 -z-50 opacity-20 hidden">
         </div>
 
         <div class="flex flex-col items-center gap-3 text-center mb-10 md:mb-20">
@@ -146,7 +145,7 @@
                             <span class="text-yellow-500">organic</span>
                              garden
                         </h3>
-                        <p class="text-slate-300 font-satisfy">
+                        <p class="text-slate-300 font-amatic">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                             Totam, cumque nobis! Ducimus inventore dicta explicabo 
                             perspiciatis fuga nam ipsam ratione commodi, 
@@ -174,7 +173,7 @@
                             <span class="text-yellow-500">maintain</span>
                             <br> your plants
                         </h3>
-                        <p class="text-slate-300 font-satisfy">
+                        <p class="text-slate-300 font-amatic">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                             Totam, cumque nobis! Ducimus inventore dicta explicabo 
                             perspiciatis fuga nam ipsam ratione commodi, 
@@ -187,9 +186,220 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </section>
-    <section id="popular"></section>
-    <section id="review"></section>
+
+    <!-- Popular -->
+    <section id="popular" class="bg-green-900">
+        <div class="flex flex-col items-center gap-3 text-center mb-40 md:mb-32">
+            <h2 class="title">Trending Plants</h2>
+            <p class="max-w-2xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem excepturi magni impedit.</p>
+        </div>
+
+        <div class="container w-full grid grid-cols-1 gap-x-8 gap-y-36 md:grid-cols-2 
+            xl:grid-cols-4">
+            <!-- card 1 -->
+             <div class="bg-green-950 p-10 pt-24 rounded-md relative popular-card lex flex-col justify-between">
+                <img src="{% static 'media/images/cart-1.png' %}" alt=""
+                class="w-56 absolute -top-5 left-1/2 transform 
+                -translate-x-1/2 -translate-y-1/2 duration-500">
+                <p class="italic">Nephrolepos exaltata</p>
+                <h3>Boston Fern</h3>
+                <div class="text-yellow-500 text-xs py-3">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                    <i class="ri-star-line text-gray-400"></i>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <p class="text-xl">$50.00</p>
+                    <button class="bg-yellow-500 px-2 py-1 text-xl rounded-sm
+                        hover:scale-125 transition-all duration-500">
+                        <i class="ri-shopping-cart-fill"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- card 2 -->
+             <div class="bg-green-950 p-10 pt-24 rounded-md relative popular-card flex flex-col justify-between">
+                <img src="{% static 'media/images/cart-2.png' %}" alt=""
+                class="w-56 absolute -top-5 left-1/2 transform 
+                -translate-x-1/2 -translate-y-1/2 duration-500">
+                <p class="italic">Ficus elastica</p>
+                <h3>Rubber Plant</h3>
+                <div class="text-yellow-500 text-xs py-3">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                    <i class="ri-star-line text-gray-400"></i>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <p class="text-xl">$50.00</p>
+                    <button class="bg-yellow-500 px-2 py-1 text-xl rounded-sm 
+                        hover:scale-125 transition-all duration-500">
+                        <i class="ri-shopping-cart-fill"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- card 3 -->
+             <div class="bg-green-950 p-10 pt-24 rounded-md relative popular-card flex flex-col justify-between">
+                <img src="{% static 'media/images/cart-3.png' %}" alt=""
+                class="w-56 absolute -top-5 left-1/2 transform 
+                -translate-x-1/2 -translate-y-1/2 duration-500">
+                <p class="italic">Spathiphyllum wallisii</p>
+                <h3>Peace Lily</h3>
+                <div class="text-yellow-500 text-xs py-3">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                    <i class="ri-star-line text-gray-400"></i>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <p class="text-xl">$50.00</p>
+                    <button class="bg-yellow-500 px-2 py-1 text-xl rounded-sm
+                        hover:scale-125 transition-all duration-500">
+                        <i class="ri-shopping-cart-fill"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- card 4 -->
+             <div class="bg-green-950 p-10 pt-24 rounded-md relative popular-card flex flex-col justify-between">
+                <img src="{% static 'media/images/cart-4.png' %}" alt=""
+                class="w-56 absolute -top-5 left-1/2 transform 
+                -translate-x-1/2 -translate-y-1/2 duration-500">
+                <p class="italic">Adenium obesum</p>
+                <h3>Desert Rose</h3>
+                <div class="text-yellow-500 text-xs py-3">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                    <i class="ri-star-line text-gray-400"></i>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <p class="text-xl">$50.00</p>
+                    <button class="bg-yellow-500 px-2 py-1 text-xl rounded-sm
+                        hover:scale-125 transition-all duration-500">
+                        <i class="ri-shopping-cart-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Review -->
+    <section id="review" class="relative overflow-hidden mb-20">
+
+        <div>
+            <img src="{% static 'store/img/leaf-4.png' %}" alt="leaf image"
+            class="absolute -top-8 -left-12 w-40 md:w-52 xl:w-64 -z-50 opacity-20 hidden">
+        </div>
+
+        <div class="flex flex-col items-center gap-3 text-center mb-10 md:mb-10">
+            <h2 class="title">Customer Reviews</h2>
+            <p class="max-w-2xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem excepturi magni impedit.</p>
+        </div>
+        
+        <div class="container">
+            <div class="swiper py-12 flex flex-col gap-2">
+                <ul class="swiper-wrapper mb-10">
+                    <li class="swiper-slide">
+                        <div class="flex flex-col gap-5 bg-green-900
+                            rounded-md p-6">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                                Adipisci commodi accusantium delectus, modi sequi repudiandae, 
+                                maxime esse debitis cupiditate aut assumenda molestiae ut, 
+                                facere beatae.
+                            </p>
+                            <div class="flex items-center">
+                                <img src="{% static 'media/images/review-1.jpg' %}" alt=""
+                                class="w-16 h-16 rounded-full">
+                                <div class="ml-2">
+                                    <p class="text-yellow-500 uppercase">Johanna Doe</p>
+                                    <p>Designer</p>
+                                </div>
+                                <i class="ri-double-quotes-r text-4xl ml-auto"></i>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <div class="flex flex-col gap-5 bg-green-900
+                            rounded-md p-6">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                                Adipisci commodi accusantium delectus, modi sequi repudiandae, 
+                                maxime esse debitis cupiditate aut assumenda molestiae ut, 
+                                facere beatae.
+                            </p>
+                            <div class="flex items-center">
+                                <img src="{% static 'media/images/review-2.jpg' %}" alt=""
+                                class="w-16 h-16 rounded-full">
+                                <div class="ml-2">
+                                    <p class="text-yellow-500 uppercase">John Doe</p>
+                                    <p>Designer</p>
+                                </div>
+                                <i class="ri-double-quotes-r text-4xl ml-auto"></i>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <div class="flex flex-col gap-5 bg-green-900
+                            rounded-md p-6">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                                Adipisci commodi accusantium delectus, modi sequi repudiandae, 
+                                maxime esse debitis cupiditate aut assumenda molestiae ut, 
+                                facere beatae.
+                            </p>
+                            <div class="flex items-center">
+                                <img src="{% static 'media/images/review-3.jpg' %}" alt=""
+                                class="w-16 h-16 rounded-full">
+                                <div class="ml-2">
+                                    <p class="text-yellow-500 uppercase">Johanna Doe</p>
+                                    <p>Designer</p>
+                                </div>
+                                <i class="ri-double-quotes-r text-4xl ml-auto"></i>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <div class="flex flex-col gap-5 bg-green-900
+                            rounded-md p-6">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                                Adipisci commodi accusantium delectus, modi sequi repudiandae, 
+                                maxime esse debitis cupiditate aut assumenda molestiae ut, 
+                                facere beatae.
+                            </p>
+                            <div class="flex items-center">
+                                <img src="{% static 'media/images/review-4.jpg' %}" alt=""
+                                class="w-16 h-16 rounded-full">
+                                <div class="ml-2">
+                                    <p class="text-yellow-500 uppercase">Johanna Doe</p>
+                                    <p>Designer</p>
+                                </div>
+                                <i class="ri-double-quotes-r text-4xl ml-auto"></i>
+                            </div>
+                            
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
