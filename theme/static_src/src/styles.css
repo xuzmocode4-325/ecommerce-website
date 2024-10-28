@@ -34,7 +34,7 @@
     @apply font-amatic text-yellow-500
 }
 .nav-link {
-    @apply text-lg font-bold duration-300;
+    @apply text-lg font-light duration-300;
 }
 
 .nav-link:hover {

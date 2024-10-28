@@ -872,6 +872,10 @@ h6 {
   position: relative;
 }
 
+.-left-12 {
+  left: -3rem;
+}
+
 .-left-5 {
   left: -1.25rem;
 }
@@ -928,10 +932,6 @@ h6 {
   top: 1.75rem;
 }
 
-.-left-12 {
-  left: -3rem;
-}
-
 .-z-10 {
   z-index: -10;
 }
@@ -953,6 +953,10 @@ h6 {
   margin-bottom: 2.5rem;
 }
 
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
 .mb-40 {
   margin-bottom: 10rem;
 }
@@ -963,10 +967,6 @@ h6 {
 
 .ml-auto {
   margin-left: auto;
-}
-
-.mb-20 {
-  margin-bottom: 5rem;
 }
 
 .block {
@@ -1394,7 +1394,7 @@ h6 {
 .nav-link {
   font-size: 1.125rem;
   line-height: 1.75rem;
-  font-weight: 700;
+  font-weight: 300;
   transition-duration: 300ms;
 }
 
