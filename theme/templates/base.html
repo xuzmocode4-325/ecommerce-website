@@ -1,6 +1,8 @@
 {% load static tailwind_tags %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,10 +17,11 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 		{% tailwind_css %}
 	</head>
+
 	<body class=" bg-green-950 font-jost text-white mx-auto font-serif leading-normal tracking-wider">
 		<header class="bg-green-950 fixed w-full top-0 left-0 z-50" id="navbar">
 			<nav class="container flex items-center justify-between h-16 sm:h-20">
-				<div class="font-amatic font-light text-xl sm:text-3xl italic inline-flex items-center">
+				<div class="font-poiret font-light text-xl sm:text-3xl italic inline-flex items-center">
 					<img class="w-16 h-16 " src="{% static 'media/images/logo.png' %}"></img>Plant Fantasia
 				</div>
 				
@@ -44,20 +47,23 @@
 				</div>
 			</nav>
 		</header>
+
 		<main id="">
 			{% block contents %}
 			{% endblock %}
 		</main>
-		<footer class="bg-yellow-100 text-center text-green-950 pt-20 pb-10 md:pt-28 relative overflow-b-hidden">
+
+		<footer class="bg-yellow-100 text-green-950 pt-20 pb-10 md:pt-28 relative">
+			
 			<!--newsletter-->
 			<div class="container text-white absolute top-0 right-0 left-0 
 				-translate-y-1/2">
 				<div class="bg-green-900 px-10 pt-5 pb-10 space-y-5 rounded-md">
-					<h3>
+					<h4>
 						<span class="text-yellow-500">
 							Subscribe 
 						</span> to our budding newsletter
-					</h3>
+					</h4>
 					<div class="flex flex-col md:flex-row gap-1">
 						<input type="email" placeholder="Your Email Address" required="true"
 						class="w-full pxy-5 py-3 text-green-900 rounded-md outline-none">
@@ -69,8 +75,9 @@
 					</div>
 				</div>
 			</div>
+
 			<!--social icon-->
-			<div class=" container mt-20 md:mt-16 mb-10">
+			<div class="container mt-20 md:mt-16 mb-10">
 				<div class="border-b border-green-900 relative">
 					<div class="absolute top-0 transform -translate-y-1/2 left-0 right-0 max-w-56 mx-auto">
 						<div class="bg-yellow-100 text-lg text-center space-x-2 mx-2">
@@ -84,16 +91,18 @@
 					</div>
 				</div>
 			</div>
-			<!--content-->
 
+			<!--content-->
 			<div class="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 text-center md:text-start">
+				
 				<!-- Item 1 -->
 				<div>
-					<div class="text-7xl flex flex-col sm:text-2xl items-center justify-center">
+					<div class="text-7xl flex flex-col sm:text-2xl items-center justify-center z-50">
 						<img class="w-32 h-32 flex-1" src="{% static 'media/images/logo.svg' %}"></img> 
-						<p class="font-amatic">Plant Fantasia </p>
+						<p class="font-poiret">Plant Fantasia </p>
 					</div>
 				</div>
+
 				<!-- Item 2 -->
 				<div class="text-center">
 					<p class="mb-4 font-bold text-xl">Quick Links</p>
@@ -105,6 +114,7 @@
 						<a href="#">Shipping</a>
 					</div>
 				</div>
+
 				<!-- Item 3 -->
 				<div class="text-center">
 					<p class="mb-4 font-bold text-xl">Popular Services</p>
@@ -115,6 +125,7 @@
 						<a href="#">Landscape Design</a>
 					</div>
 				</div>
+
 				<!-- Item 4 -->
 				<div class="text-center">
 					<p class="mb-4 font-bold text-xl">Contact Us</p>
@@ -123,20 +134,28 @@
 						<a href="mailto:info@plantfantasia.com">
 							info@plantfantasia.com
 						</a>
+						<br>
 						<a>
-							23 Willoshade Lane <br>
+							777 Willoshade Lane <br>
 							Verdant Village, Evergreen County
-							Florana 41289
+							Florana 412929
 						</a>
 					</div>
 				</div>
 			</div>
-			<!--copyright-->
+
+			<!-- copyright -->
 			<div class="container mt-10 opacity-50">
-				<p clss="text-center font-thin opacity-20">
-					Copyright &copy; 2024 PlantFantasia. <br> All rights reserved.
+				<p class="text-center font-thin tracking-widest">
+					Copyright &copy; 2024 Plant Fantasia. <br> All rights reserved.
 				</p>
 			</div>
+
+			<!-- floral images -->
+			<div class="absolute bottom-0 left-0 opacity-20 pointer-events-none">
+				<img class="w-full lg:w-1/2" src="{% static 'media/images/floral.png' %}" alt="">
+			</div>
+
 		</footer>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		<script src="{% static 'js/main.js'%}"></script>
