@@ -18,7 +18,9 @@
 	<body class=" bg-green-950 font-jost text-white mx-auto font-serif leading-normal tracking-wider">
 		<header class="bg-green-950 fixed w-full top-0 left-0 z-50" id="navbar">
 			<nav class="container flex items-center justify-between h-16 sm:h-20">
-				<div class="font-amatic font-light text-xl sm:text-3xl italic">Plant Fantasia</div>
+				<div class="font-amatic font-light text-xl sm:text-3xl italic inline-flex items-center">
+					<img class="w-16 h-16 " src="{% static 'media/images/logo.png' %}"></img>Plant Fantasia
+				</div>
 				
 				<div id="nav-menu" class="absolute top-0 left-[-100%] min-h-[80vh]
 				 	w-full bg-green-950/80 backdrop-blur-sm flex items-center justify-center
@@ -46,15 +48,97 @@
 			{% block contents %}
 			{% endblock %}
 		</main>
-		<footer>
+		<footer class="bg-yellow-100 text-center text-green-950 pt-20 pb-10 md:pt-28 relative overflow-b-hidden">
 			<!--newsletter-->
+			<div class="container text-white absolute top-0 right-0 left-0 
+				-translate-y-1/2">
+				<div class="bg-green-900 px-10 pt-5 pb-10 space-y-5 rounded-md">
+					<h3>
+						<span class="text-yellow-500">
+							Subscribe 
+						</span> to our budding newsletter
+					</h3>
+					<div class="flex flex-col md:flex-row gap-1">
+						<input type="email" placeholder="Your Email Address" required="true"
+						class="w-full pxy-5 py-3 text-green-900 rounded-md outline-none">
+						<button class="flex flex-row gap-4 sm:gap-2 items-center justify-center bg-green-950 px-5 py-3 rounded-md hoverLopacity-80
+						duration-500 mt-2 sm:mt-0  hover:bg-yellow-500 hover:text-green-950">
+							<span class="">Subscribe</span>
+							<i class="ri-send-plane-2-fill"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 			<!--social icon-->
+			<div class=" container mt-20 md:mt-16 mb-10">
+				<div class="border-b border-green-900 relative">
+					<div class="absolute top-0 transform -translate-y-1/2 left-0 right-0 max-w-56 mx-auto">
+						<div class="bg-yellow-100 text-lg text-center space-x-2 mx-2">
+							<i class="ri-facebook-fill hover:text-yellow-500 text-green-900 cursor-pointer"></i>
+							<i class="ri-linkedin-fill hover:text-yellow-500 text-green-900 cursor-pointer"></i>
+							<i class="ri-twitter-x-line hover:text-yellow-500 text-green-900 cursor-pointer"></i>
+							<i class="ri-pinterest-line hover:text-yellow-500 text-green-900 cursor-pointer"></i>
+							<i class="ri-reddit-line hover:text-yellow-500 text-green-900 cursor-pointer"></i>
+							<i class="ri-instagram-line hover:text-yellow-500 text-green-900 cursor-pointer"></i>
+						</div>
+					</div>
+				</div>
+			</div>
 			<!--content-->
+
+			<div class="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 text-center md:text-start">
+				<!-- Item 1 -->
+				<div>
+					<div class="text-7xl flex flex-col sm:text-2xl items-center justify-center">
+						<img class="w-32 h-32 flex-1" src="{% static 'media/images/logo.svg' %}"></img> 
+						<p class="font-amatic">Plant Fantasia </p>
+					</div>
+				</div>
+				<!-- Item 2 -->
+				<div class="text-center">
+					<p class="mb-4 font-bold text-xl">Quick Links</p>
+					<div class="flex flex-col gap-1">
+						<a href="#">Plants</a>
+						<a href="#">Flowers</a>
+						<a href="#">Gardening Tips</a>
+						<a href="#">Seeds</a>
+						<a href="#">Shipping</a>
+					</div>
+				</div>
+				<!-- Item 3 -->
+				<div class="text-center">
+					<p class="mb-4 font-bold text-xl">Popular Services</p>
+					<div class="flex flex-col gap-1">
+						<a href="#">Tree Planting</a>
+						<a href="#">Grass Cutting</a>
+						<a href="#">Weed Control</a>
+						<a href="#">Landscape Design</a>
+					</div>
+				</div>
+				<!-- Item 4 -->
+				<div class="text-center">
+					<p class="mb-4 font-bold text-xl">Contact Us</p>
+					<div class="flex flex-col gap-1">
+						<a href="tel+27696508853">+2769 650 8853</a>
+						<a href="mailto:info@plantfantasia.com">
+							info@plantfantasia.com
+						</a>
+						<a>
+							23 Willoshade Lane <br>
+							Verdant Village, Evergreen County
+							Florana 41289
+						</a>
+					</div>
+				</div>
+			</div>
 			<!--copyright-->
-			<!--floral image-->
+			<div class="container mt-10 opacity-50">
+				<p clss="text-center font-thin opacity-20">
+					Copyright &copy; 2024 PlantFantasia. <br> All rights reserved.
+				</p>
+			</div>
 		</footer>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		<script src="{% static 'js/main.js'%}"></script>
-
 	</body>
 </html>
