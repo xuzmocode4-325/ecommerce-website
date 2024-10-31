@@ -7,19 +7,19 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{% block page_title %}Plantfantasia - Your Home for Beautiful House Plants{% endblock %}</title>
-		<!-- Remix Icon -->
+		<!-- remix icon -->
 		<link 
 			rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" 
 			integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" 
 			crossorigin="anonymous" referrerpolicy="no-referrer" 
 		/>
-		<!-- Swiper CSS-->
+		<!-- swiper css-->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 		{% tailwind_css %}
 	</head>
 
 	<body class=" bg-green-950 font-jost text-white mx-auto font-serif leading-normal tracking-wider">
-		<header class="bg-green-950 fixed w-full top-0 left-0 z-50" id="navbar">
+		<header id="navbar" class="bg-green-950 fixed w-full top-0 left-0 z-50" id="navbar">
 			<nav class="container flex items-center justify-between h-16 sm:h-20">
 				<div class="font-poiret font-light text-xl sm:text-3xl italic inline-flex items-center">
 					<img class="w-16 h-16 " src="{% static 'media/images/logo.png' %}"></img>Plant Fantasia
@@ -30,10 +30,10 @@
 					duration-500 overflow-hidden lg:static lg:min-h-fit lg:bg-transparent
 					lg:w-auto ">
 					<ul class="flex flex-col items-center lg:flex-row gap-8">
-						<li><a href="" class="nav-link">Home</a></li>	
-						<li><a href="" class="nav-link">About</a></li>	
-						<li><a href="" class="nav-link">Popular</a></li>	
-						<li><a href="" class="nav-link">Review</a></li>	
+						<li><a href="#home" class="nav-link">Home</a></li>	
+						<li><a href="#about" class="nav-link">About</a></li>	
+						<li><a href="#trending" class="nav-link">Trending</a></li>	
+						<li><a href="#reviews" class="nav-link">Reviews</a></li>	
 					</ul>
 					<div class="absolute bottom-0 -right-10 opacity-90 lg:hidden">
 						<img class="w-32" src="/media/images/leaf-1.png" alt="leaf-image">
@@ -77,7 +77,7 @@
 			</div>
 
 			<!--social icon-->
-			<div class="container mt-20 md:mt-16 mb-10">
+			<div class="footer-icon container mt-20 md:mt-16 mb-10">
 				<div class="border-b border-green-900 relative">
 					<div class="absolute top-0 transform -translate-y-1/2 left-0 right-0 max-w-56 mx-auto">
 						<div class="bg-yellow-100 text-lg text-center space-x-2 mx-2">
@@ -93,7 +93,7 @@
 			</div>
 
 			<!--content-->
-			<div class="container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 text-center md:text-start">
+			<div class="footer-content container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 text-center md:text-start">
 				
 				<!-- Item 1 -->
 				<div>
@@ -145,19 +145,28 @@
 			</div>
 
 			<!-- copyright -->
-			<div class="container mt-10 opacity-50">
+			<div class="copyright-text container mt-10 opacity-50">
 				<p class="text-center font-thin tracking-widest">
 					Copyright &copy; 2024 Plant Fantasia. <br> All rights reserved.
 				</p>
 			</div>
 
 			<!-- floral images -->
-			<div class="absolute bottom-0 left-0 opacity-20 pointer-events-none">
+			<div class="absolute bottom-0 left-0 opacity-20 pointer-events-none footer-floral">
 				<img class="w-full lg:w-1/2" src="{% static 'media/images/floral.png' %}" alt="">
 			</div>
 
+			<!-- scroll up -->
+			<a href="#" class="fixed right-4 bottom-4 bg-green-950 text-yellow-200 border border-yellow-200
+				inline-block px-3 py-1 md:px-4 rounded-md text-lg z-50 hover:-translate-y-2 duration-300" 
+				id="scroll-up">
+				<i class="ri-arrow-up-line"></i>
+			</a>
+
 		</footer>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+		<script src="{% static 'js/scrollreveal.min.js'%}"></script>
 		<script src="{% static 'js/main.js'%}"></script>
 	</body>
 </html>

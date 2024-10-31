@@ -52,3 +52,8 @@ section {
 .swiper-pagination-bullet {
     @apply bg-green-500 w-3 h-3
 }
+
+
+.active {
+    @apply text-yellow-500
+}

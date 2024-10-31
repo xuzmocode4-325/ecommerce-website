@@ -14,16 +14,16 @@
             <div class="w-64 h-64 bg-green-700 rounded-full blur-3xl -z-10 opacity-40 absolute
             transform right-0 bottom-0">
             </div>
-            <div class="flex flex-col items-center gap-5 lg:flex-row">
+            <div class="flex flex-col items-center gap-5 lg:flex-row pt-5">
                 <!-- content -->
-                <div class="w-full space-y-5 lg:w-1/2">
+                <div class="home-data w-full space-y-5 lg:w-1/2">
                     <h1>
                         <span class="text-yellow-500">Plants</span> can profoundly <br>
                         <span class="text-yellow-500">enhance</span> your life!
                     </h1>
 
                     <p class="text-slate-100 text-xl font-poiret">
-                        Welcome to Plant Fantasia, where plant fantasies come true. Plant Fantasia is your ultimate destination for all things botanical! We are dedicated to bringing the beauty of nature into your home with a diverse selection of stunning plants that inspire and uplift.
+                        Welcome to Plant Fantasia, where plant fantasies come true. Your ultimate destination for all things botanical, dedicated to bringing the beauty of nature into your home.
                     </p>
 
                     <div class="flex flex-col md:flex-row gap-4">
@@ -53,7 +53,7 @@
                 </div>
                 <!-- image -->
                 <div class="w-full relative lg:w-1/2">
-                    <img src="{% static 'store/img/home.png'%}" alt="">
+                    <img src="{% static 'store/img/home.png'%}" alt="" class="home-image">
                     <!-- leaf -->
                     <div class="absolute right-0 top-7 animate-pulse">
                         <i class="ri-leaf-line text-yellow-500 opacity-50 text-3xl md:text-6xl"></i>
@@ -70,58 +70,60 @@
             </div>
         </div>
     </section>
-    <!-- Services -->
-    <div id="services" class="bg-white text-green-900 py-20">
-        <div class="container w-full grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
-            <!-- card 1 -->
-             <div class="border border-green-900 p-5 cursor-pointer rounded-md
-             hover:shadow-2xl hover:-translate-y-1 duration-300 ease-in-out">
-                <div class="flex items-center gap-5 space-y-5">
-                    <i class="ri-truck-line text-3xl md:text-4xl xl:text-5xl"></i>
-                    <p class="md:text-lg  font-bold"> Fast <br> Delivery </p>
+
+         <!-- Services -->
+         <div id="services" class="bg-white text-green-900 py-10">
+            <div class="container w-full grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+                <!-- card 1 -->
+                <div class="service-card border border-green-900 p-5 cursor-pointer rounded-md
+                hover:shadow-2xl hover:-translate-y-1 duration-300 ease-in-out">
+                    <div class="flex items-center gap-5 space-y-5">
+                        <i class="ri-truck-line text-3xl md:text-4xl xl:text-5xl"></i>
+                        <p class="md:text-lg  font-bold"> Fast <br> Delivery </p>
+                    </div>
+                    <p class="font-poiret"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
                 </div>
-                <p class="font-poiret"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
-             </div>
-            <!-- card 2 -->
-             <div class="border border-green-900 p-5 cursor-pointer rounded-md
-             hover:shadow-2xl hover:-translate-y-1 duration-300 ease-in-out">
-                <div class="flex items-center gap-5 space-y-5">
-                    <i class="ri-customer-service-line text-3xl md:text-4xl xl:text-5xl"></i>
-                    <p class="md:text-lg  font-bold"> Great <br> Service </p>
+                <!-- card 2 -->
+                <div class="service-card border border-green-900 p-5 cursor-pointer rounded-md
+                hover:shadow-2xl hover:-translate-y-1 duration-300 ease-in-out">
+                    <div class="flex items-center gap-5 space-y-5">
+                        <i class="ri-customer-service-line text-3xl md:text-4xl xl:text-5xl"></i>
+                        <p class="md:text-lg  font-bold"> Great <br> Service </p>
+                    </div>
+                    <p class="font-poiret"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
                 </div>
-                <p class="font-poiret"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
-             </div>
-            <!-- card 3 -->
-             <div class="border border-green-900 p-5 cursor-pointer rounded-md
-             hover:shadow-2xl hover:-translate-y-1 duration-300 ease-in-out">
-                <div class="flex items-center gap-5 space-y-5">
-                    <i class="ri-plant-line text-3xl md:text-4xl xl:text-5xl"></i>
-                    <p class="md:text-lg  font-bold"> Quality <br> Plants </p>
+                <!-- card 3 -->
+                <div class="service-card border border-green-900 p-5 cursor-pointer rounded-md
+                hover:shadow-2xl hover:-translate-y-1 duration-300 ease-in-out">
+                    <div class="flex items-center gap-5 space-y-5">
+                        <i class="ri-plant-line text-3xl md:text-4xl xl:text-5xl"></i>
+                        <p class="md:text-lg  font-bold"> Quality <br> Plants </p>
+                    </div>
+                    <p class="font-poiret"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
                 </div>
-                <p class="font-poiret"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
-             </div>
-            <!-- card 4 -->
-             <div class="border border-green-900 p-5 cursor-pointer rounded-md
-             hover:shadow-2xl hover:-translate-y-1 duration-300 ease-in-out">
-                <div class="flex items-center gap-5 space-y-5">
-                    <i class="ri-money-dollar-circle-line text-3xl md:text-4xl xl:text-5xl"></i>
-                    <p class="md:text-lg  font-bold"> Value <br> For Money </p>
+                <!-- card 4 -->
+                <div class="service-card border border-green-900 p-5 cursor-pointer rounded-md
+                hover:shadow-2xl hover:-translate-y-1 duration-300 ease-in-out">
+                    <div class="flex items-center gap-5 space-y-5">
+                        <i class="ri-money-dollar-circle-line text-3xl md:text-4xl xl:text-5xl"></i>
+                        <p class="md:text-lg  font-bold"> Value <br> For Money </p>
+                    </div>
+                    <p class="font-poiret"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
                 </div>
-                <p class="font-poiret"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id, incidunt?</p>
-             </div>
-        </div>
-    </div>
-    <!-- About Us -->
-    <section id="about" class="relative overflow-hidden">
-        <div>
-            <img src="{% static 'store/img/leaf-3.png' %}" alt="leaf image"
-            class="absolute -top-8 -right-12 w-40 md:w-52 xl:w-64 -z-50 opacity-20 hidden">
+            </div>
         </div>
 
-        <div class="flex flex-col items-center gap-3 text-center mb-10 md:mb-20">
+    <!-- About Us -->
+    <section id="about" class="relative overflow-hidden">
+        <!-- <div>
+            <img src="{% static 'store/img/leaf-3.png' %}" alt="leaf image"
+            class="absolute -top-8 -right-12 w-40 md:w-52 xl:w-64 -z-50 opacity-20 hidden">
+        </div> -->
+
+        <div class="flex flex-col items-center gap-3 text-center mb-10 md:mb-20 about-top">
             <h2 class="title">About Us</h2>
             <p class="max-w-2xl px-4">
-                At PlantFantasia, we pride ourselves on offering a carefully curated range of plants that cater to every taste and style. Whether you’re a seasoned plant enthusiast or just starting your green journey, you’ll find something special here. From vibrant flowering plants to exotic foliage, each selection is chosen for its beauty and character.
+                We pride ourselves on offering a carefully curated range of plants that cater to unique tastes and styles. Whether you’re a seasoned plant enthusiast or just starting your green journey, there is something special for you to find here. From vibrant flowering plants to exotic foliage, each selection is chosen for its beauty and character.
             </p>
         </div>
 
@@ -129,12 +131,12 @@
             <!-- item 1 -->
             <div class="flex flex-col items-center lg:flex-row gap-5">
                 <!-- image -->
-                <div class="w-full lg:w-1/2">
+                <div class="w-full lg:w-1/2 about-img_1">
                     <img src="{%static 'store/img/plant-1.png'%}" alt="about_image"
                     class="w-full sm:w-2/3 lg:w-full xl:w-2/3 mx-auto">
                 </div>
                 <!-- content -->
-                <div class="w-full lg:w-1/2">
+                <div class="about-content-1 w-full lg:w-1/2">
                     <div class="space-y-5">
                         <h3> 
                             Start your garden <br>
@@ -149,12 +151,12 @@
             <!-- item 2 -->
             <div class="flex flex-col items-center lg:flex-row-reverse gap-5">
                 <!-- image -->
-                <div class="w-full lg:w-1/2">
+                <div class="w-full lg:w-1/2 about-img_2">
                     <img src="{%static 'store/img/plant-2.png'%}" alt="about_image"
                     class="w-full sm:w-2/3 lg:w-full xl:w-2/3 mx-auto">
                 </div>
                 <!-- content -->
-                <div class="w-full lg:w-1/2">
+                <div class="about-content-2 w-full lg:w-1/2">
                     <div class="space-y-5">
                         <h3> 
                             Maintain your garden
@@ -169,9 +171,9 @@
         </div>
     </section>
 
-    <!-- Popular -->
-    <section id="popular" class="bg-green-900">
-        <div class="flex flex-col items-center gap-3 text-center mb-40 md:mb-32">
+    <!-- Trending -->
+    <section id="trending" class="bg-green-900">
+        <div class="trending-top flex flex-col items-center gap-3 text-center mb-40 md:mb-32">
             <h2 class="title">Trending Plants</h2>
             <p class="max-w-2xl px-4">
                 Plants offer much more than just aesthetic appeal for your home; they enhance air quality, elevate your mood, and foster a tranquil environment. Explore how incorporating greenery can turn your living space into a peaceful sanctuary with our curated selection of favorites available in our store.
@@ -181,7 +183,7 @@
         <div class="container w-full grid grid-cols-1 gap-x-8 gap-y-36 md:grid-cols-2 
             xl:grid-cols-4">
             <!-- card 1 -->
-             <div class="bg-green-950 p-10 pt-24 rounded-md relative popular-card lex flex-col justify-between">
+             <div class="popular-card bg-green-950 p-10 pt-24 rounded-md relative popular-card lex flex-col justify-between">
                 <img src="{% static 'media/images/cart-1.png' %}" alt=""
                 class="w-56 absolute -top-5 left-1/2 transform 
                 -translate-x-1/2 -translate-y-1/2 duration-500">
@@ -205,7 +207,7 @@
             </div>
 
             <!-- card 2 -->
-             <div class="bg-green-950 p-10 pt-24 rounded-md relative popular-card flex flex-col justify-between">
+             <div class="popular-card bg-green-950 p-10 pt-24 rounded-md relative popular-card flex flex-col justify-between">
                 <img src="{% static 'media/images/cart-2.png' %}" alt=""
                 class="w-56 absolute -top-5 left-1/2 transform 
                 -translate-x-1/2 -translate-y-1/2 duration-500">
@@ -229,7 +231,7 @@
             </div>
 
             <!-- card 3 -->
-             <div class="bg-green-950 p-10 pt-24 rounded-md relative popular-card flex flex-col justify-between">
+             <div class="popular-card bg-green-950 p-10 pt-24 rounded-md relative popular-card flex flex-col justify-between">
                 <img src="{% static 'media/images/cart-3.png' %}" alt=""
                 class="w-56 absolute -top-5 left-1/2 transform 
                 -translate-x-1/2 -translate-y-1/2 duration-500">
@@ -253,7 +255,7 @@
             </div>
 
             <!-- card 4 -->
-             <div class="bg-green-950 p-10 pt-24 rounded-md relative popular-card flex flex-col justify-between">
+             <div class="popular-card bg-green-950 p-10 pt-24 rounded-md relative popular-card flex flex-col justify-between">
                 <img src="{% static 'media/images/cart-4.png' %}" alt=""
                 class="w-56 absolute -top-5 left-1/2 transform 
                 -translate-x-1/2 -translate-y-1/2 duration-500">
@@ -279,21 +281,21 @@
     </section>
 
     <!-- Review -->
-    <section id="review" class="relative overflow-hidden mb-20">
+    <section id="reviews" class="relative overflow-hidden mb-20">
 
         <div>
             <img src="{% static 'store/img/leaf-3.png' %}" alt="leaf image"
             class="absolute -top-8 -left-12 w-40 md:w-52 xl:w-64 -z-50 opacity-20 hidden">
         </div>
 
-        <div class="flex flex-col items-center gap-3 text-center mb-10 md:mb-10">
+        <div class="review-top flex flex-col items-center gap-3 text-center mb-10 md:mb-10">
             <h2 class="title">Customer Reviews</h2>
             <p class="max-w-2xl px-4">
                 Shopping at PlantFantasia is easy and enjoyable. Browse our user-friendly website to find your perfect plants, accessories, and more. Enjoy fast shipping and hassle-free returns, ensuring a seamless shopping experience from start to finish.
             <p>
         </div>
         
-        <div class="container">
+        <div class="container review-swiper">
             <div class="swiper py-12 flex flex-col gap-2">
                 <ul class="swiper-wrapper mb-10">
                     <li class="swiper-slide">
@@ -370,7 +372,7 @@
                             </p>
                             <div class="flex items-center">
                                 <img src="{% static 'media/images/review-4.jpg' %}" alt=""
-                                class="w-16 h-16 rounded-full">
+                                class="w-16 h-16 rounded-full ">
                                 <div class="ml-2">
                                     <p class="text-sm text-yellow-500 uppercase text-ellipsis overflow-hidden">Johanna Doe</p>
                                     <p>Designer</p>
