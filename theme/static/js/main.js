@@ -1,5 +1,4 @@
-// toggle button
-
+/* toggle button */
 const navMenu = document.getElementById('nav-menu')
 const navLink = document.querySelectorAll('.nav-link')
 const hamburger = document.getElementById('hamburger')
@@ -21,7 +20,6 @@ navLink.forEach( link => {
 
 
 /* Swiper */
-
 const swiper = new Swiper('.swiper', {
     // Optional parameters
     speed: 200,
@@ -53,11 +51,8 @@ const swiper = new Swiper('.swiper', {
   });
 
   /*  Scroll Up */
-
   const scrollUp = () => {
     const scrollUpBtn = document.getElementById('scroll-up')
-
-    //console.log(this.scrollY)
 
     if (this.scrollY >= 250) {
         scrollUpBtn.classList.remove('-bottom-1/2')
@@ -76,8 +71,6 @@ const swiper = new Swiper('.swiper', {
   const scrollHeader = () => {
     const header = document.getElementById('navbar')
 
-    //console.log(this.scrollY)
-
     if (this.scrollY >= 50) {
         header.classList.add('border-b', 'border-yellow-500')
     } else {
@@ -89,19 +82,15 @@ const swiper = new Swiper('.swiper', {
   window.addEventListener('scroll', scrollHeader)
 
   /* Active Link */
-
   const activeLink = function() {
     const sections  = document.querySelectorAll('section')
-    //console.log(sections)
     const navLinks = document.querySelectorAll('.nav-link')
-    //console.log(navLinks) 
 
     let current = 'home'
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        //console.log(sectionTop)
-      
+
         console.log(this.scrollY)
 
         if (this.scrollY >= sectionTop - 60) {
@@ -141,4 +130,4 @@ const swiper = new Swiper('.swiper', {
   sr.reveal(`.about-img_1, .about-content-2`, { origin: 'left' })
 
   sr.reveal('.copyright-text', {delay: 500, origin:'bottom'})
-  sr.reveal('.footer-floral', {delay: 1000, origin:'bottom'})
+  sr.reveal('.footer-floral', {delay: 1000, origin:'left'})
