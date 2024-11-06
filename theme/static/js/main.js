@@ -2,7 +2,8 @@
 const navMenu = document.getElementById('nav-menu')
 const navLink = document.querySelectorAll('.nav-link')
 const hamburger = document.getElementById('hamburger')
-const scrollUpBtn = document.get
+const categoryBtn = document.getElementById('category-btn')
+const categoryList = document.getElementById('category-list')
 
 hamburger.addEventListener('click', ()=> {
     navMenu.classList.toggle('left-0')
@@ -16,6 +17,10 @@ navLink.forEach( link => {
         navMenu.classList.toggle('left-[-100%]')
         hamburger.classList.toggle('ri-close-large-fill')
     })
+})
+
+categoryBtn.addEventListener('click', () => {
+   // categoryList.classList.toggle('hidden')
 })
 
 
@@ -90,8 +95,6 @@ const swiper = new Swiper('.swiper', {
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-
-        console.log(this.scrollY)
 
         if (this.scrollY >= sectionTop - 60) {
             current = section.getAttribute('id')

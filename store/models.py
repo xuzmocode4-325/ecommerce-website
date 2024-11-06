@@ -2,6 +2,13 @@ from django.db import models
 
 # Create your models here.
 
+class Tag(models.Model):
+    tag = models.CharField(max_length=128)
+    slug = models.SlugField(max_length=128, unique=True)
+
+    def __str__(self):
+        return self.tag
+
 
 class Category(models.Model):
     name = models.CharField(max_length=128, db_index=True)
@@ -12,11 +19,12 @@ class Category(models.Model):
 
 
     def __str__(self):
-        return self.names
+        return self.name
 
 
 class Product(models.Model):
     title = models.CharField(max_length=250)
+    category = models.ForeignKey(Category, related_name='product', on_delete=models.CASCADE, null=True)
     brand= models.CharField(max_length=250, default='unbranded')
     description = models.TextField(blank=True)
     slug = models.SlugField(max_length=150, unique=True)
@@ -25,7 +33,6 @@ class Product(models.Model):
 
     class Meta:
         verbose_name_plural = 'products'
-
 
     def __str__(self):
         return self.title
