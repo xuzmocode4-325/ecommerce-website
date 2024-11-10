@@ -8,29 +8,38 @@
     </div>
     
     <div id="nav-menu" class="absolute top-0 left-[-100%] min-h-[80vh]
-         w-full bg-green-950/80 backdrop-blur-sm flex items-center justify-center
-        duration-500 overflow-hidden lg:static lg:min-h-fit lg:bg-transparent
+        w-full bg-green-950/80 backdrop-blur-sm flex items-center justify-center
+        duration-500 lg:static lg:min-h-fit lg:bg-transparent
         lg:w-auto">
         <ul class="flex flex-col items-center justify-center lg:flex-row gap-4">  
             <!-- Dropdown for Categories -->
-            <li class="relative group">
-                <button id="category-btn" class="flex items-center px-2 py-2 text-white hover:text-yellow-500 rounded-md outline-none transition-all duration-500">
+            <li>
+                <button id="category-btn" class="peer text-center flex items-center px-2 py-2 mx-auto text-white hover:text-yellow-500 rounded-md outline-none transition-all duration-500">
                     Categories
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
                 </button>
                 <!-- Dropdown Menu -->
-                <div id="category-list" class="hidden left-0 w-full mt-1 rounded-md">
-                    <ul class="py-2">
+                <div id="category-list" class="hidden w-full rounded-md z-50 border-none">
+                    <ul class="text-center lg:absolute lg:w-full lg:-translate-x-1/4 lg:bg-green-950 lg:top-[60px]">
                         {% for category in categories %}
-                        <li>
-                            <a href="{% url 'categories' category.slug %}" class="transition-all duration-300 block px-4 py-2 text-white-800 hover:bg-yellow-500 hover:text-white">
+                        <li class="">
+                            <a href="{% url 'categories' category.slug %}" class="transition-all duration-300 inline-block px-4 mb-4 text-white-800 hover:text-yellow-500">
                                 {{ category.name }}
                             </a>
                         </li>
                         {% endfor %}
                     </ul>
+                    <!-- <ul class="text-center md:hidden">
+                        {% for category in categories %}
+                        <li class="">
+                            <a href="{% url 'categories' category.slug %}" class="transition-all duration-300 px-4 py-2 text-white-800 hover:text-yellow-500">
+                                {{ category.name }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul> -->
                 </div>
             </li>  
             <li><a href="#r" class="nav-link">Login</a></li>

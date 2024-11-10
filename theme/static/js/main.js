@@ -20,7 +20,8 @@ navLink.forEach( link => {
 })
 
 categoryBtn.addEventListener('click', () => {
-   // categoryList.classList.toggle('hidden')
+   categoryList.classList.toggle('hidden')
+   //console.log('category-btn clicked')
 })
 
 
