@@ -12,9 +12,10 @@
         duration-500 lg:static lg:min-h-fit lg:bg-transparent
         lg:w-auto">
         <ul class="flex flex-col items-center justify-center lg:flex-row gap-4">  
+            <li><a href="#" class="nav-link">Blog</a></li>
             <!-- Dropdown for Categories -->
             <li>
-                <button id="category-btn" class="peer text-center flex items-center px-2 py-2 mx-auto text-white hover:text-yellow-500 rounded-md outline-none transition-all duration-500">
+                <button id="category-btn" class="peer text-center flex items-center mx-auto text-white hover:text-yellow-500 rounded-md outline-none transition-all duration-500">
                     Categories
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -22,7 +23,7 @@
                 </button>
                 <!-- Dropdown Menu -->
                 <div id="category-list" class="hidden w-full rounded-md z-50 border-none">
-                    <ul class="text-center lg:absolute lg:w-full lg:-translate-x-1/4 lg:bg-green-950 lg:top-[60px]">
+                    <ul class="text-center lg:absolute lg:w-full lg:-translate-x-1/4 lg:bg-green-950 lg:top-[60px] rounded-b-lg mt-2">
                         {% for category in categories %}
                         <li class="">
                             <a href="{% url 'categories' category.slug %}" class="transition-all duration-300 inline-block px-4 mb-4 text-white-800 hover:text-yellow-500">
@@ -42,7 +43,7 @@
                     </ul> -->
                 </div>
             </li>  
-            <li><a href="#r" class="nav-link">Login</a></li>
+            <li><a href="#" class="nav-link">Login</a></li>
             <li><a href="#" class="nav-link">Sign Up</a></li>    
             <li>
                 <a href="#" class="hover:bg-yellow-500 border border-yellow-500 px-2 py-0.5 rounded-sm

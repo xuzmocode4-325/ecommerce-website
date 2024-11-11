@@ -19,10 +19,13 @@ navLink.forEach( link => {
     })
 })
 
-categoryBtn.addEventListener('click', () => {
-   categoryList.classList.toggle('hidden')
-   //console.log('category-btn clicked')
-})
+if (categoryBtn) {
+    categoryBtn.addEventListener('click', () => {
+        categoryList.classList.toggle('hidden')
+        //console.log('category-btn clicked')
+    })
+}
+
 
 
 /* Swiper */
