@@ -1,7 +1,7 @@
 {% load static %}
 <nav class="mx-4 flex items-center justify-between  h-16 sm:h-20">
     <div class="group font-poiret font-light text-lg sm:text-xl">
-        <a class="inline-flex items-center" href="{% url 'store' %}">
+        <a class="inline-flex items-center" href="{% url 'home' %}">
             &nbsp; <img class="peer w-14 h-14 group-hover:-rotate-45 transition-transform duration-500 ease" src="{% static 'media/images/logo.png' %}">
             <p class="group-hover:scale-110 translate-x-1 ransition-transform duration-500 ease">Plant Fantasia</p>
         </a>
@@ -12,11 +12,11 @@
         duration-500 overflow-hidden lg:static lg:min-h-fit lg:bg-transparent
         lg:w-auto">
         <ul class="flex flex-col items-center justify-center lg:flex-row gap-4">
-            <li><a href="{% url 'store' %}" class="nav-link active">Home</a></li>	
+            <li><a href="{% url 'home' %}" class="nav-link active">Home</a></li>	
             <li><a href="#about" class="nav-link">About</a></li>	
             <li><a href="#trending" class="nav-link">Trending</a></li>	
             <li><a href="#reviews" class="nav-link">Reviews</a></li>
-            <li><a href="{% url 'shop' %}" class="nav-link">Shop</a></li>	
+            <li><a href="{% url 'store' %}" class="nav-link">Shop</a></li>	
         </ul>
         <div class="absolute bottom-0 -right-10 opacity-90 lg:hidden">
             <img class="w-32" src="/media/images/leaf-1.png" alt="leaf-image">

@@ -1,0 +1,56 @@
+{% extends 'shop.html' %}
+{% load static %}
+{% block contents %}
+<section id="home" class="relative min-h-[90vh]">
+    <div class="container">
+        <!-- blob 1 -->
+        <div class="w-64 h-64 bg-green-700 rounded-full blur-3xl -z-10 opacity-40 absolute top-1/2 left-1/2 
+        transform -translate-x-1/2 -translate-y-1/2">
+        </div>
+        <!-- blob 2 -->
+        <div class="w-64 h-64 bg-green-700 rounded-full blur-3xl -z-10 opacity-40 absolute
+        transform right-0 bottom-0">
+        </div>
+            <div class="flex flex-row">
+                <div class="bg-white">
+                    <img class="" alt="Responsive image" src=""> <!-- Product image -->
+                </div>
+                <div class="">
+                    <h1 class=""> <!-- Product title --> Title </h1>
+                    <strong> <!-- Product brand --> Brand </strong>
+                    <hr>
+                    <br>
+                    <p> <!-- Product description --> Description </p>
+                    <div class="border border-yellow-500">
+                        <div class="">
+                            <div class="">
+                                <div class=""> Price </div>
+                                <div class=""><span class="">$ <!-- Product price --> {Price} </span></div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="">
+                                <div class="">
+                                    <label for="select">Qty</label>
+                                    &nbsp; 
+                                    <select id="select">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <button type="button" id="add-button" value="" class="btn btn-secondary btn-sm">
+                                        Add to cart 
+                                    </button> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

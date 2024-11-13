@@ -1,20 +1,20 @@
 {% load static %}
 <nav class="mx-4 flex items-center justify-between h-16 sm:h-20">
     <div class="group font-poiret font-light text-lg sm:text-xl">
-        <a class="inline-flex items-center" href="{% url 'store' %}">
+        <a class="inline-flex items-center" href="{% url 'home' %}">
             &nbsp; <img class="peer w-14 h-14 group-hover:-rotate-45 transition-transform duration-500 ease" src="{% static 'media/images/logo.png' %}">
             <p class="group-hover:scale-110 translate-x-1 transition-transform duration-500 ease">Plant Fantasia</p>
         </a>
     </div>
     
     <div id="nav-menu" class="absolute top-0 left-[-100%] min-h-[80vh]
-        w-full bg-green-950/80 backdrop-blur-sm flex items-center justify-center
-        duration-500 lg:static lg:min-h-fit lg:bg-transparent
-        lg:w-auto">
+        w-full bg-green-950/80 backdrop-blur-sm md:backdrop-blur-none 
+        flex items-center justify-center duration-500 lg:static lg:min-h-fit 
+        lg:bg-transparent lg:w-auto overflow-x-hidden overflow-y-visible z-40">
         <ul class="flex flex-col items-center justify-center lg:flex-row gap-4">  
-            <li><a href="#" class="nav-link">Blog</a></li>
+            <li><a href="#" class="nav-link mb-4">Blog</a></li>
             <!-- Dropdown for Categories -->
-            <li>
+            <li class="">
                 <button id="category-btn" class="peer text-center flex items-center mx-auto text-white hover:text-yellow-500 rounded-md outline-none transition-all duration-500">
                     Categories
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -22,11 +22,11 @@
                     </svg>
                 </button>
                 <!-- Dropdown Menu -->
-                <div id="category-list" class="hidden w-full rounded-md z-50 border-none">
-                    <ul class="text-center lg:absolute lg:w-full lg:-translate-x-1/4 lg:bg-green-950 lg:top-[60px] rounded-b-lg mt-2">
+                <div id="category-list" class="w-full top-20 rounded-md hidden z-50 bg-none lg:absolute lg:border lg:border-white lg:bg-green-950 lg:left-0 lg:right-0 lg:px-8 lg:py-2">
+                    <ul class="text-center rounded-b-lg mt-2 z-50 flex flex-row flex-wrap items-center justify-center">
                         {% for category in categories %}
                         <li class="">
-                            <a href="{% url 'categories' category.slug %}" class="transition-all duration-300 inline-block px-4 mb-4 text-white-800 hover:text-yellow-500">
+                            <a href="{% url 'categories' category.slug %}" class="transition-all duration-300 inline-block px-4 mb-4 text-white-800 hover:text-yellow-500 lg:z-50">
                                 {{ category.name }}
                             </a>
                         </li>
