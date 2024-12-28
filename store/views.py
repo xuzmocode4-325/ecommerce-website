@@ -23,5 +23,5 @@ class CategoriesView(ListView):
     queryset = Category.objects.all()
 
 class ProductInfoView(DetailView):
-    template_name = 'store/product.html'
+    template_name = 'store/single-product.html'
     context_object_name = 'product'
