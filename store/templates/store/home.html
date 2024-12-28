@@ -28,13 +28,17 @@
 
                     <div class="flex flex-col md:flex-row gap-4">
                         <button class="btn border active:scale-95 hover:opacity-90 border-yellow-500 bg-yellow-500 rounded-md px-5 py-2 duration-300">
-                            <span class="font-bold">Shop Now</span>
-                            <i class="ri-leaf-line"></i>
+                            <a href="{% url 'store' %}" class="w-full h-full">
+                                <span class="font-bold">Shop Now</span>
+                                <i class="ri-leaf-line"></i>
+                            </a>
                         </button>
 
                         <button class="btn border active:scale-95 hover:opacity-90 hover:bg-yellow-500 border-yellow-500 bg-transparent rounded-md px-5 py-2 duration-500">
-                            <span class="font-bold">Learn More</span>
-                            <i class="ri-leaf-line"></i>
+                            <a href="{% url 'home' %}">
+                                <span class="font-bold">Learn More</span>
+                                <i class="ri-leaf-line"></i>
+                            </a>
                         </button>
                     </div>
 

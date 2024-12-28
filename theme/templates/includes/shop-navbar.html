@@ -12,17 +12,18 @@
         flex items-center justify-center duration-500 lg:static lg:min-h-fit 
         lg:bg-transparent lg:w-auto overflow-x-hidden overflow-y-visible z-40">
         <ul class="flex flex-col items-center justify-center lg:flex-row gap-4">  
+            <li><a href="{% url 'home' %}" class="nav-link mb-4">Home</a></li>
             <li><a href="#" class="nav-link mb-4">Blog</a></li>
             <!-- Dropdown for Categories -->
-            <li class="">
-                <button id="category-btn" class="peer text-center flex items-center mx-auto text-white hover:text-yellow-500 rounded-md outline-none transition-all duration-500">
+            <!-- <li class=""> -->
+                <!-- <button id="category-btn" class="peer text-center flex items-center mx-auto text-white hover:text-yellow-500 rounded-md outline-none transition-all duration-500">
                     Categories
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
-                </button>
+                </button> -->
                 <!-- Dropdown Menu -->
-                <div id="category-list" class="w-full top-20 rounded-md hidden z-50 bg-none lg:absolute lg:border lg:border-white lg:bg-green-950 lg:left-0 lg:right-0 lg:px-8 lg:py-2">
+                <!-- <div id="category-list" class="w-full top-20 rounded-md hidden z-50 bg-none lg:absolute lg:border lg:border-white lg:bg-green-950 lg:left-0 lg:right-0 lg:px-8 lg:py-2">
                     <ul class="text-center rounded-b-lg mt-2 z-50 flex flex-row flex-wrap items-center justify-center">
                         {% for category in categories %}
                         <li class="">
@@ -31,7 +32,7 @@
                             </a>
                         </li>
                         {% endfor %}
-                    </ul>
+                    </ul> -->
                     <!-- <ul class="text-center md:hidden">
                         {% for category in categories %}
                         <li class="">
@@ -41,10 +42,10 @@
                         </li>
                         {% endfor %}
                     </ul> -->
-                </div>
-            </li>  
-            <li><a href="#" class="nav-link">Login</a></li>
-            <li><a href="#" class="nav-link">Sign Up</a></li>    
+                <!-- </div>
+            </li>   -->
+            <!-- <li><a href="#" class="nav-link">Login</a></li>
+            <li><a href="#" class="nav-link">Sign Up</a></li>     -->
             <li>
                 <a href="#" class="hover:bg-yellow-500 border border-yellow-500 px-2 py-0.5 rounded-sm
                 hover:scale-110 transition-all duration-500">

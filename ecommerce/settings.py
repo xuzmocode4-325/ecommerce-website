@@ -28,25 +28,25 @@ SECRET_KEY = 'django-insecure-&rj3^jf0hjr46kln(03yer6ih%4ti5c_kt02wu6!e71!wyfp6(
 SECRET_KEY = os.getenv('DJANGO_KEY', get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =  os.getenv('DEBUG', 'False') == 'True'
+DEBUG =  os.getenv('DEBUG', 'False')
 if DEBUG:
     print("Warning: DEBUG mode is enabled!")
-    META_SITE_PROTOCOL = 'http'
+    # META_SITE_PROTOCOL = 'http'
 
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1, localhost:8000').split(",")
 ADMINS = [("Admin", "admin@xuzmonomi.com"), ("Katlego", "katlegothobye@yahoo.com")]
 
 # Deployment Configuration 
-if not DEBUG:
-    # SSL Settings
-    META_SITE_PROTOCOL = 'https'
-    SECURE_HSTS_PRELOAD = True
-    SECURE_HSTS_SECONDS = 31536000
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_SSL_REDIRECT = True
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-    CSRF_TRUSTED_ORIGINS = [f"https://{host.strip()}" for host in ALLOWED_HOSTS if host.strip()]
+# if not DEBUG:
+#     # SSL Settings
+#     META_SITE_PROTOCOL = 'https'
+#     SECURE_HSTS_PRELOAD = True
+#     SECURE_HSTS_SECONDS = 31536000
+#     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+#     SECURE_SSL_REDIRECT = True
+#     SESSION_COOKIE_SECURE = True
+#     CSRF_COOKIE_SECURE = True
+#     CSRF_TRUSTED_ORIGINS = [f"https://{host.strip()}" for host in ALLOWED_HOSTS if host.strip()]
 
     # Email Settings
     # DEFAULT_FROM_EMAIL = os.getenv('USER')
@@ -63,11 +63,11 @@ if not DEBUG:
     # EMAIL_USE_SSL = True #os.getenv('SSL') == 'True'
     # EMAIL_PORT = 465 #if EMAIL_USE_SSL else 587 
 
-else:
-    SECURE_SSL_REDIRECT = False
-    SESSION_COOKIE_SECURE = False
-    CSRF_COOKIE_SECURE = False
-    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# else:
+#     SECURE_SSL_REDIRECT = False
+#     SESSION_COOKIE_SECURE = False
+#     CSRF_COOKIE_SECURE = False
+#     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
 # Application definition

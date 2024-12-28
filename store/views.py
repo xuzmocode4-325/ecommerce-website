@@ -1,11 +1,16 @@
 from typing import Any
-from . models import Category
+from . models import Category, Product
 from django.views.generic import TemplateView, ListView, DetailView
 
 
 
 class ShopIndexView(TemplateView):
     template_name = 'store/store.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products'] = Product.objects.all()
+        return context 
 
 class HomePageView(TemplateView):
     template_name = "store/home.html"
@@ -17,6 +22,6 @@ class CategoriesView(ListView):
     context_object_name = 'categories'
     queryset = Category.objects.all()
 
-
 class ProductInfoView(DetailView):
     template_name = 'store/product.html'
+    context_object_name = 'product'
