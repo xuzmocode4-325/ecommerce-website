@@ -1,24 +1,31 @@
-{% extends 'shop.html' %}
+{% extends 'base.html' %}
 {% load static %}
+
+{% block styles %}
+<!-- Link to the external stylesheet for the store's styles -->
+<link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
+{% endblock %}
+
 {% block contents %}
 <section id="home" class="relative min-h-[90vh]">
     <div class="container mb-16 md:mb-4 lg:mb-2">
-        <!-- blob 1 -->
+        <!-- Decorative blob 1: A blurred green circle positioned in the center -->
         <div class="w-64 h-64 bg-green-700 rounded-full blur-3xl -z-10 opacity-40 absolute top-1/2 left-1/2 
         transform -translate-x-1/2 -translate-y-1/2">
         </div>
-        <!-- blob 2 -->
+        <!-- Decorative blob 2: A blurred green circle positioned at the bottom right -->
         <div class="w-64 h-64 bg-green-700 rounded-full blur-3xl -z-10 opacity-40 absolute
         transform right-0 bottom-0">
         </div>
         <div class="">
-            <!-- content -->
+            <!-- Main content area -->
             <h5 class="mb-3">All Products</h5>
             <hr>
             <br>
             <div class="
                 grid grid-cols grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
                 xl:grid-cols-4 text-center gap-4 transition-all duration-300">
+                <!-- Loop through each product and include the product card template -->
                 {% for product in products %}
                     {% include 'store/includes/product-card.html' %}
                 {% endfor %}
@@ -27,4 +34,3 @@
     </div>
 </section>
 {% endblock %}
-
