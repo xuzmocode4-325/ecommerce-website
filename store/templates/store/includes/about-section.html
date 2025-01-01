@@ -1,0 +1,61 @@
+{% load static %}
+
+<section id="about" class="relative overflow-hidden">
+    <!-- Background image of a leaf, currently hidden for design purposes -->
+    <!-- <div>
+        <img src="{% static 'store/img/leaf-3.png' %}" alt="leaf image"
+        class="absolute -top-8 -right-12 w-40 md:w-52 xl:w-64 -z-50 opacity-20 hidden">
+    </div> -->
+
+    <!-- About Us section header with introductory text -->
+    <div class="flex flex-col items-center gap-3 text-center mb-10 md:mb-20 about-top">
+        <h2 class="title">About Us</h2>
+        <p class="max-w-2xl px-4">
+            We pride ourselves on offering a carefully curated range of plants that cater to unique tastes and styles. Whether you’re a seasoned plant enthusiast or just starting your green journey, there is something special for you to find here. From vibrant flowering plants to exotic foliage, each selection is chosen for its beauty and character.
+        </p>
+    </div>
+
+    <!-- Container for the about section items -->
+    <div class="container space-y-10 xl:space-y-0">
+        <!-- Item 1: Information about starting a garden organically -->
+        <div class="flex flex-col items-center lg:flex-row gap-5">
+            <!-- Image associated with item 1 -->
+            <div class="w-full lg:w-1/2 about-img_1">
+                <img src="{%static 'store/img/plant-1.png'%}" alt="about_image"
+                class="w-full sm:w-2/3 lg:w-full xl:w-2/3 mx-auto">
+            </div>
+            <!-- Content associated with item 1 -->
+            <div class="about-content-1 w-full lg:w-1/2">
+                <div class="space-y-5">
+                    <h3> 
+                        Start your garden <br>
+                        <span class="text-yellow-500">organically</span>
+                    </h3>
+                    <p class="text-slate-300 font-poiret">
+                        We source plants from trusted growers committed to quality and sustainability. Each grower follows strict standards to ensure vibrant, healthy plants produced responsibly. Before shipping, each plant is inspected to ensure it arrives at your doorstep healthy and ready to thrive.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Item 2: Information about maintaining a garden naturally -->
+        <div class="flex flex-col items-center lg:flex-row-reverse gap-5">
+            <!-- Image associated with item 2 -->
+            <div class="w-full lg:w-1/2 about-img_2">
+                <img src="{%static 'store/img/plant-2.png'%}" alt="about_image"
+                class="w-full sm:w-2/3 lg:w-full xl:w-2/3 mx-auto">
+            </div>
+            <!-- Content associated with item 2 -->
+            <div class="about-content-2 w-full lg:w-1/2">
+                <div class="space-y-5">
+                    <h3> 
+                        Maintain your garden
+                        <span class="text-yellow-500">naturally</span>
+                    </h3>
+                    <p class="text-slate-300 font-poiret">
+                        Our team is passionate about plants and is here to help you every step of the way. Whether you need care tips or advice on selecting the right plant for your space, we’ve got you covered. We believe in protecting our planet. That’s why we use sustainable packaging materials and prioritize eco-conscious shipping methods.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
