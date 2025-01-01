@@ -33,7 +33,7 @@ if DEBUG:
     print("Warning: DEBUG mode is enabled!")
     # META_SITE_PROTOCOL = 'http'
 
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1, localhost:8000').split(",")
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1, localhost').split(",")
 ADMINS = [("Admin", "admin@xuzmonomi.com"), ("Katlego", "katlegothobye@yahoo.com")]
 
 # Deployment Configuration 
@@ -73,7 +73,6 @@ ADMINS = [("Admin", "admin@xuzmonomi.com"), ("Katlego", "katlegothobye@yahoo.com
 # Application definition
 
 INSTALLED_APPS = [
-    'shop',
     'theme',
     'store',
     'tailwind',
