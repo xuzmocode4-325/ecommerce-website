@@ -1,11 +1,13 @@
 {% load static %}
 <section id="reviews" class="relative overflow-hidden mb-20">
 
+    <!-- Decorative leaf image positioned absolutely -->
     <div>
         <img src="{% static 'store/img/leaf-3.png' %}" alt="leaf image"
         class="absolute -top-8 -left-12 w-40 md:w-52 xl:w-64 -z-50 opacity-20 hidden">
     </div>
 
+    <!-- Section header with title and description -->
     <div class="review-top flex flex-col items-center gap-3 text-center mb-10 md:mb-10">
         <h2 class="title">Customer Reviews</h2>
         <p class="max-w-2xl px-4">
@@ -13,9 +15,11 @@
         <p>
     </div>
     
+    <!-- Container for the review swiper component -->
     <div class="container review-swiper">
         <div class="swiper py-12 flex flex-col gap-2">
             <ul class="swiper-wrapper mb-10">
+                <!-- Individual review slide -->
                 <li class="swiper-slide">
                     <div class="flex flex-col gap-5 bg-green-900
                         rounded-md p-6">
@@ -37,6 +41,7 @@
                         
                     </div>
                 </li>
+                <!-- Additional review slides -->
                 <li class="swiper-slide">
                     <div class="flex flex-col gap-5 bg-green-900
                         rounded-md p-6">
@@ -102,6 +107,7 @@
                 </li>
             </ul>
 
+            <!-- Pagination for the swiper component -->
             <div class="swiper-pagination"></div>
         </div>
     </div>
