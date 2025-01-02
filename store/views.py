@@ -24,17 +24,40 @@ class HomePageView(TemplateView):
         return context
 
 
-class CategoriesView(ListView):
-    template_name = "store/categories.html"
-    model = Category
-    context_object_name = 'categories'
-    queryset = Category.objects.all()
+# class CategoriesView(ListView):
+#     template_name = "store/categories.html"
+#     model = Category
+#     context_object_name = 'category'
+#     queryset = Category.objects.all()
+
+#     def get(self, request, *args, **kwargs):
+#         if kwargs.get('slug') == 'all-products':
+#             return redirect('store')  # Redirect to home page
+
+#         return super().get(request, *args, **kwargs)  # Proceed with 
+
+class CategoryProductsView(ListView):
+    template_name = 'store/categories.html'  # Create this template
+    model = Product
+    context_object_name = 'products'
 
     def get(self, request, *args, **kwargs):
         if kwargs.get('slug') == 'all-products':
             return redirect('store')  # Redirect to home page
 
         return super().get(request, *args, **kwargs)  # Proceed with 
+
+    def get_queryset(self):
+        # Get the slug from the URL and filter products by category
+        slug = self.kwargs['slug']
+        return Product.objects.filter(category__slug=slug)  # Assuming Product has a ForeignKey to Category
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()  # Include categories in context for navigation
+        context['selected_category'] = Category.objects.get(slug=self.kwargs['slug'])  # Get the selected category
+        return context
+
 
 class ProductInfoView(DetailView):
     model = Product
