@@ -1,4 +1,5 @@
 from typing import Any
+from django.shortcuts import redirect
 from . models import Category, Product
 from django.views.generic import TemplateView, ListView, DetailView
 
@@ -28,6 +29,12 @@ class CategoriesView(ListView):
     model = Category
     context_object_name = 'categories'
     queryset = Category.objects.all()
+
+    def get(self, request, *args, **kwargs):
+        if kwargs.get('slug') == 'all-products':
+            return redirect('store')  # Redirect to home page
+
+        return super().get(request, *args, **kwargs)  # Proceed with 
 
 class ProductInfoView(DetailView):
     model = Product
