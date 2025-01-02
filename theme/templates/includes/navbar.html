@@ -14,22 +14,39 @@
     <div id="nav-menu" class="absolute top-0 left-[-100%] min-h-[80vh]
         w-full bg-green-950/80 backdrop-blur-sm md:backdrop-blur-none 
         flex items-center justify-center duration-500 lg:static lg:min-h-fit 
-        lg:bg-transparent lg:w-auto overflow-x-hidden overflow-y-visible z-40">
-        <ul class="flex flex-col items-center justify-center lg:flex-row gap-4">  
+        lg:bg-transparent lg:w-auto overflow-x-hidden overflow-y-auto z-40">
+        <ul class="flex flex-col items-center justify-center lg:flex-row  gap-0.5 lg:gap-4 group p-1">  
             <!-- Home link -->
-            <li><a href="{% url 'home' %}" class="nav-link mb-4">Home</a></li>
+            <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
             <!-- Store link with dropdown for categories -->
-            <li class="relative group">
-                <a href="{% url 'store' %}" class="nav-link mb-4">Store</a>
-                <ul class="absolute left-0 hidden group-hover:block bg-white text-black mt-2 rounded-md shadow-lg">
-                    {% for category in categories %}
-                        <!-- Category links -->
-                        <li><a href="{% url 'categories' category.slug %}" class="block px-4 py-2 hover:bg-yellow-500">{{ category.name }}</a></li>
-                    {% endfor %}
-                </ul>
+            <li class="m-auto" id="category-btn">
+                <div class="inline-block text-center">
+                    <div class="flex items-center justify-center -mb-1 lg:mb-0">
+                      <button type="button" class="group nav-link flex items-center" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                        <p class="flex-1 text-center">Store</p>
+                        <svg class="-mr-1 size-5 block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                          <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                        </svg>
+                      </button>
+                    </div>
+                    <div id="category-list" class="lg:absolute hidden transition-all duration-500  ease-in-out lg:right-8 z-10 lg:mt-2 w-56 origin-top-right rounded-md lg:bg-green-950" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                      <div class="py-1 lg:text-left" role="none">
+                        <!-- Active: "bg-gray-100 text-gray-900 outline-none", Not Active: "text-gray-700" -->
+                        {% for category in categories %}
+                            <a href="{% url 'categories' category.slug %}" class="dropdown-link block px-4 py-0.5 lg:py-2" role="menuitem" tabindex="-1" id="menu-item-0">{{ category.name}}</a>
+                        {% endfor %}
+                        <form method="POST" action="#" role="none">
+                          <button type="submit" class="dropdown-link block w-full px-4 py-2" role="menuitem" tabindex="-1" id="menu-item-3">
+                            <i class="ri-logout-box-line"></i>
+                            Sign out
+                        </button>
+                        </form>
+                      </div>
+                    </div>
+                </div> 
             </li>
             <!-- Blog link -->
-            <li><a href="#" class="nav-link mb-4">Blog</a></li>
+            <li><a href="#" class="nav-link">Blog</a></li>
             <!-- Shopping cart icon with hover effect -->
             <li>
                 <a href="#" class="hover:bg-yellow-500 border border-yellow-500 px-2 py-0.5 rounded-sm
@@ -46,6 +63,7 @@
             <img class="w-32" src="/media/images/leaf-2.png" alt="leaf-image">
         </div>
     </div>
+
     <!-- Hamburger menu icon for mobile view -->
     <div class="text-xl sm:text-3xl cursor-pointer z-50 lg:hidden">
         <i id="hamburger" class="ri-menu-5-line"></i>
