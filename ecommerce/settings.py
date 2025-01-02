@@ -73,6 +73,7 @@ ADMINS = [("Admin", "admin@xuzmonomi.com"), ("Katlego", "katlegothobye@yahoo.com
 # Application definition
 
 INSTALLED_APPS = [
+    'blog',
     'theme',
     'store',
     'tailwind',
