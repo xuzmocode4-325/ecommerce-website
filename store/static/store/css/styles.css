@@ -1,7 +1,0 @@
-.relative .group-hover\:block {
-    display: none;
-}
-
-.relative:hover .group-hover\:block {
-    display: block;
-}
