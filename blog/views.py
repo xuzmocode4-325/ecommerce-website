@@ -2,27 +2,44 @@ from typing import Any
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.views import View
-from django.views.generic import ListView, TemplateView, DetailView
+from django.views.generic import ListView, TemplateView
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Post
+from .models import Post, Topic
 from .forms import CommentForm
 
 # Create your views here
 
-
-class BlogHomeView(TemplateView):
+class BlogIndexView(TemplateView):
     template_name = "blog/index.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["posts"] = Post.objects.all().order_by('-created_at')[:9]
+        context['topics'] = Topic.objects.all()
+        context['posts'] = Post.objects.all().order_by('-created_at')[:9]
         return context
 
-
-class BlogPostsView(ListView):
-    template_name = "blog/posts.html"
+class BlogTopicsView(ListView):
+    template_name = 'blog/topics.html'  # Create this template
     model = Post
-    context_object_name = "posts"
+    context_object_name = 'posts'
+
+    def get(self, request, *args, **kwargs):
+        if kwargs.get('slug') == 'all-posts':
+            return redirect('blog')  # Redirect to home page
+
+        return super().get(request, *args, **kwargs)  # Proceed with 
+
+    def get_queryset(self):
+        # Get the slug from the URL and filter products by Topic
+        slug = self.kwargs['slug']
+        topic = get_object_or_404(Topic, slug=slug)
+        return Post.objects.filter(topic=topic)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['topics'] = Topic.objects.all()  # Include categories in context for navigation
+        context['selected_topic'] = get_object_or_404(Topic, slug=self.kwargs['slug'])
+        return context
 
 
 class BlogDetailView(View):
