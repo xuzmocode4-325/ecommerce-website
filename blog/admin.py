@@ -8,7 +8,7 @@ class TagAdmin(admin.ModelAdmin):
     pass
 
 class TopicAdmin(admin.ModelAdmin):
-    pass
+    prepopulated_fields = {'slug': ('name',)}
 
 # Customizing the Post admin view
 class PostAdmin(admin.ModelAdmin):
