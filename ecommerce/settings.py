@@ -73,10 +73,11 @@ ADMINS = [("Admin", "admin@xuzmonomi.com"), ("Katlego", "katlegothobye@yahoo.com
 # Application definition
 
 INSTALLED_APPS = [
-    'blog',
-    'theme',
-    'store',
-    'tailwind',
+    'blog', # django app
+    'cart', # django app
+    'theme', # django app
+    'store', # django app
+    'tailwind', # django extension
     'django_browser_reload',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -110,7 +111,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'theme.context_processors.categories_processor'
+                'theme.context_processors.categories_processor', # updated
+                'cart.context_processors.cart' # updated
             ],
         },
     },
