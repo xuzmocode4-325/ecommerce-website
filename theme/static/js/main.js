@@ -5,6 +5,8 @@ const header = document.getElementById('navbar')
 const hamburger = document.getElementById('hamburger')
 const categoryBtn = document.getElementById('category-btn')
 const categoryList = document.getElementById('category-list')
+const sortBtn = document.getElementById('sort-button')
+const sortList = document.getElementById('sort-list')
 
 hamburger.addEventListener('click', ()=> {
     navMenu.classList.toggle('left-0')
@@ -24,6 +26,13 @@ if (categoryBtn) {
     categoryBtn.addEventListener('click', () => {
         categoryList.classList.toggle('hidden')
         //console.log('category-btn clicked')
+    })
+}
+
+if (sortBtn) {
+    sortBtn.addEventListener('click', () => {
+        console.log(sortList)
+        sortList.classList.toggle('hidden')
     })
 }
 
@@ -89,13 +98,17 @@ window.addEventListener('scroll', scrollHeader)
 
 /* Scroll Dropdown */ 
 
-const hideCategoryListOnScroll = () => {
+const hideListsOnScroll = () => {
     if (!categoryList.classList.contains('hidden')) {
         categoryList.classList.add('hidden');
     }
+
+    if (!sortList.classList.contains('hidden')) {
+        sortList.classList.add('hidden')
+    }
 };
 
-window.addEventListener('scroll', hideCategoryListOnScroll);
+window.addEventListener('scroll', hideListsOnScroll);
 
 /* Scroll Reveal */
 

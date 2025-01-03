@@ -29,7 +29,7 @@
                         </svg>
                       </button>
                     </div>
-                    <div id="category-list" class="lg:absolute hidden transition-all duration-500  ease-in-out lg:right-8 z-10 lg:mt-2 w-56 origin-top-right rounded-md lg:bg-green-950" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                    <div id="category-list" class="lg:absolute hidden transition-all duration-500  ease-in-out lg:right-8 z-10 lg:mt-2 w-56 origin-top-right rounded-md lg:bg-green-900" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                       <div class="py-1 lg:text-left" role="none">
                         <!-- Active: "bg-gray-100 text-gray-900 outline-none", Not Active: "text-gray-700" -->
                         {% for category in categories %}
@@ -46,7 +46,7 @@
                 </div> 
             </li>
             <!-- Blog link -->
-            <li><a href="#" class="nav-link">Blog</a></li>
+            <li><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
             <!-- Shopping cart icon with hover effect -->
             <li>
                 <a href="#" class="hover:bg-yellow-500 border border-yellow-500 px-2 py-0.5 rounded-sm
