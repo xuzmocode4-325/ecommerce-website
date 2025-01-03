@@ -1,18 +1,17 @@
 from typing import Any
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from . models import Category, Product
 from django.views.generic import TemplateView, ListView, DetailView
 
 
 
-class ShopIndexView(TemplateView):
+class StoreIndexView(TemplateView):
     template_name = 'store/store.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['products'] = Product.objects.all()
         context['categories'] = Category.objects.all() 
-        #print(context['categories'])
         return context 
 
 class HomePageView(TemplateView):
@@ -22,19 +21,6 @@ class HomePageView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["categories"] = Category.objects.all()
         return context
-
-
-# class CategoriesView(ListView):
-#     template_name = "store/categories.html"
-#     model = Category
-#     context_object_name = 'category'
-#     queryset = Category.objects.all()
-
-#     def get(self, request, *args, **kwargs):
-#         if kwargs.get('slug') == 'all-products':
-#             return redirect('store')  # Redirect to home page
-
-#         return super().get(request, *args, **kwargs)  # Proceed with 
 
 class CategoryProductsView(ListView):
     template_name = 'store/categories.html'  # Create this template
@@ -50,12 +36,13 @@ class CategoryProductsView(ListView):
     def get_queryset(self):
         # Get the slug from the URL and filter products by category
         slug = self.kwargs['slug']
-        return Product.objects.filter(category__slug=slug)  # Assuming Product has a ForeignKey to Category
-
+        category = get_object_or_404(Category, slug=slug)
+        return Product.objects.filter(category=category)
+       
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()  # Include categories in context for navigation
-        context['selected_category'] = Category.objects.get(slug=self.kwargs['slug'])  # Get the selected category
+        context['selected_category'] = get_object_or_404(Category, slug=self.kwargs['slug'])
         return context
 
 
