@@ -1,0 +1,48 @@
+<div class="mb-4 border product-item flex flex-col md:flex-row w-full bg-none rounded-md">
+
+    <div class="order-first md:w-1/4 lg:w-1/5 flex justify-center p-1 rounded-md bg-slate-400">
+        <img class="w-full h-full border rounded-md" alt="Responsive image" src=""> <!-- Product image -->
+    </div>
+
+    <div class="md:w-3/4 lg:w-4/5 p-3">
+        <a href="#" class="no-underline text-gray-900"> <!-- Product get absolute url -->
+            <h1 class="text-lg pt-2"> <!-- Product title --> </h1>
+        </a>
+
+        <div class="border rounded-md">
+            <div class="border-b">
+                <div class="flex p-3 items-start">
+                    <div class="w-1/2 text-left">Product</div>
+                    <div class="w-1/2 text-right">
+                        <span class="text-lg font-bold">$ <!-- Product price --> </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div class="p-3 text-left">
+                    <label for="select">Qty</label>
+                    &nbsp; 
+                    <select id="" class="border rounded p-1 w-12">
+                        <option selected="">
+                            {{item.qty}}
+                        </option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                    </select>
+                    <br><br>
+
+                    <button type="button" id="update-button" class="bg-green-800 transition-all duration-300 text-white text-sm px-3 py-1 rounded hover:bg-yellow-500">
+                        Update
+                    </button>
+                    &nbsp;
+                    <button type="button" id="delete-button" class="bg-gray-500 transition-all duration-300 text-white text-sm px-3 py-1 rounded hover:bg-red-500">
+                        Remove
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
