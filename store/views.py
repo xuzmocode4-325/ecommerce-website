@@ -6,7 +6,7 @@ from django.views.generic import TemplateView, ListView, DetailView
 
 
 class StoreIndexView(TemplateView):
-    template_name = 'store/store.html'
+    template_name = 'store/store-index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -15,7 +15,7 @@ class StoreIndexView(TemplateView):
         return context 
 
 class HomePageView(TemplateView):
-    template_name = "store/home.html"
+    template_name = "store/home-page.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -23,7 +23,7 @@ class HomePageView(TemplateView):
         return context
 
 class CategoryProductsView(ListView):
-    template_name = 'store/categories.html'  # Create this template
+    template_name = 'store/category-index.html'  # Create this template
     model = Product
     context_object_name = 'products'
 
@@ -48,5 +48,5 @@ class CategoryProductsView(ListView):
 
 class ProductInfoView(DetailView):
     model = Product
-    template_name = 'store/single-product.html'
+    template_name = 'store/product-info.html'
     context_object_name = 'product'
