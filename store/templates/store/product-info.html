@@ -53,7 +53,7 @@
 
                     <div class="w-full text-center mt-2">
                         <!-- Add to cart button -->
-                        <button type="button" id="add-button" value="" 
+                        <button type="button" id="add-button" value="{{ product.id }}" 
                                 class="bg-gray-500 text-white px-3 py-1 rounded-md text-sm hover:bg-gray-600">
                             Add to cart
                         </button>
@@ -64,4 +64,11 @@
     </div>
 </div>
 
+{% endblock %}
+{% block scripts %}
+    <script 
+        src="{% static 'store/js/add-button.js' %}" 
+        data-cart-add-url="{% url 'cart-add' %}"
+        data-csrf-token="{{ csrf_token }}">
+    </script>
 {% endblock %}
