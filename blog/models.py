@@ -9,7 +9,19 @@ class Author(models.Model):
     pass
 
 class Topic(models.Model):
-    pass
+    name = models.CharField(max_length=128, db_index=True)
+    slug = models.SlugField(max_length=130, unique=True)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 class Post(models.Model):
     title = models.CharField(max_length=150)
