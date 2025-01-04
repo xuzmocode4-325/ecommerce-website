@@ -99,12 +99,16 @@ window.addEventListener('scroll', scrollHeader)
 /* Scroll Dropdown */ 
 
 const hideListsOnScroll = () => {
-    if (!categoryList.classList.contains('hidden')) {
-        categoryList.classList.add('hidden');
+    if (categoryList) {
+        if (!categoryList.classList.contains('hidden')) {
+            categoryList.classList.add('hidden');
+        }
     }
 
-    if (!sortList.classList.contains('hidden')) {
-        sortList.classList.add('hidden')
+    if (sortList) {
+        if (!sortList.classList.contains('hidden')) {
+            sortList.classList.add('hidden')
+        }
     }
 };
 
