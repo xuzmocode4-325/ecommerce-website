@@ -27,11 +27,16 @@ class CartAddView(View):
                 product = get_object_or_404(Product, id=product_id)
                 cart.add(product=product, product_qty=product_qty)
 
+                cart_qty = cart.__len__()
+
                 response = JsonResponse({
                     'status': 'success',
                     'product_name': product.title,
-                    'product_qty': product_qty
+                    'product_qty': product_qty,
+                    'cart_qty': cart_qty
                 })
+
+                
 
                 return response
             else:
