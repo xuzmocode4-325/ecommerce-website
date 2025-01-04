@@ -3,7 +3,7 @@ class="popular-card bg-green-950 min-h-64 rounded-md relative popular-card flex 
         <div class="bg-black/50 absolute top-0 left-0 w-full h-full rounded-md"></div>
       
             <div class="absolute bottom-0 left-0 right-0 flex flex-col pb-2 items-center gap-2 mb-0.5">
-                <a href="{% url 'single-product' product.slug %}" class="cursor-pointer">
+                <a href="{% url 'product-info' product.slug %}" class="cursor-pointer">
                     <p class="italic">{{ product.category }}</p>
                     <h4>{{ product.title }}</h4>
                     <div class="text-yellow-500 text-xs py-3">
