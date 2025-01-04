@@ -28,10 +28,16 @@ const addToCart = async (event) => {
 
         if (!response.ok) {
             throw new Error('Network response was not ok');
+        } else {
+            const json = await response.json();
+            //console.log(json); 
+    
+            document.getElementById("cart-qty-mobile").innerText = `(${json.cart_qty})`
+            document.getElementById("cart-qty-web").innerText = json.cart_qty
+            
         }
 
-        const json = await response.json();
-        console.log(json); 
+       
 
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
