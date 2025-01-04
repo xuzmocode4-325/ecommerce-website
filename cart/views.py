@@ -8,8 +8,11 @@ from django.views.generic import TemplateView, ListView, DetailView
 
 # Create your views here.
 
-class CartSummaryView(TemplateView):
+class CartSummaryView(ListView):
     template_name = 'cart/cart-index.html'
+    model = Cart
+    context_object_name = 'cart'
+    
     
 class CartAddView(View):
     def post(self, request, *args, **kwargs):
@@ -35,8 +38,6 @@ class CartAddView(View):
                     'product_qty': product_qty,
                     'cart_qty': cart_qty
                 })
-
-                
 
                 return response
             else:
