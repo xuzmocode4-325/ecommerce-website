@@ -13,6 +13,16 @@
 			integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" 
 			crossorigin="anonymous" referrerpolicy="no-referrer" 
 		/>
+		<!-- swiper css-->
+		<link
+ 		rel="stylesheet"
+  		href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+		/>
+		<!-- google fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet">
+		
 		<!-- django_tailwind -->
 		{% tailwind_css %}
 		<!-- custom template styles block -->
@@ -20,7 +30,7 @@
 		{% endblock %}
 	</head>
 
-	<body class=" bg-green-950 font-jost text-white mx-auto font-serif transition-all duration-300 leading-normal tracking-wider">
+	<body class=" bg-green-950 font-jost text-white mx-auto transition-all duration-300 leading-normal tracking-wider">
 		<header id="navbar" class="bg-green-950 fixed w-full top-0 left-0 z-50" id="navbar">
 			{% include 'includes/navbar.html'%}
 		</header>
@@ -33,6 +43,7 @@
 		<footer class="bg-yellow-100 text-green-950 pt-20 pb-10 md:pt-28 relative">
 			{% include 'includes/footer.html'%}
 		</footer>
+		<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 		<script src="{% static 'js/scrollreveal.min.js'%}"></script>
