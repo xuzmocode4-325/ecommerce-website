@@ -17,31 +17,10 @@
                     <div aria-labelledby="products-heading" class="pb-12 pt-6">
                         <h2 id="products-heading" class="sr-only">Products</h2>
                         <!-- Cart UI -->
-                        <div class="grid grid-cols-1 lg:gap-x-8 gap-y-10 lg:grid-cols-4">
-                            <!-- Checkout section  -->
+                        <div class="grid grid-cols-1 lg:gap-x-8 gap-y-10 lg:grid-cols-5">
+                            <!-- Checkout section large screen  -->
                             <div class="hidden lg:block">
-                                <!-- Promo code input -->
-                                <div class="active:scale-95 flex border duration-300 transition-all border-green-900 bg-green-900 hover:border-blue-500 hover:bg-blue-500 overflow-hidden rounded-md">
-                                    <input type="text" placeholder="Promo Code"
-                                        class="w-full rounded-md outline-none bg-white text-gray-600 text-sm px-4 py-2 m-[1px]" />
-                                    <button type='button' class="relative group px-2 text-sm text-white">
-                                        Apply
-                                    </button>
-                                </div>
-                    
-                                <!-- Order summary -->
-                                <ul class="text-gray-50 mt-8 space-y-4">
-                                    <li class="flex flex-wrap gap-4 text-base">Discount <span class="ml-auto font-bold">$0.00</span></li>
-                                    <li class="flex flex-wrap gap-4 text-base">Shipping <span class="ml-auto font-bold">$2.00</span></li>
-                                    <li class="flex flex-wrap gap-4 text-base">Tax <span class="ml-auto font-bold">$4.00</span></li>
-                                    <li class="flex flex-wrap gap-4 text-base font-bold">Cart Total <span class="ml-auto">$52.00</span></li>
-                                </ul>
-                        
-                                <!-- Checkout and continue shopping buttons -->
-                                <div class="mt-8 space-y-2">
-                                    <button type="button" class="text-sm py-2.5 w-full transition-colors duration-300 font-semibold tracking-wide bg-yellow-500 hover:opacity-90 text-white rounded-md">Checkout</button>
-                                    <button type="button" class="text-sm py-2.5 w-full font-semibold tracking-wide bg-transparent text-gray-50 border border-gray-300 rounded-md">Continue Shopping  </button>
-                                </div>
+                                {% include 'cart/includes/cart-checkout-section.html' %}
                             </div>
                             <!-- Cart item list -->
                             <div class="col-span-3">
@@ -56,29 +35,9 @@
                             </div>
                             <!-- Checkout section small -->
                             <div class="lg:hidden">
-                                <!-- Promo code input -->
-                                <div class="active:scale-95 flex border duration-300 transition-all border-green-900 bg-green-900 hover:border-blue-500 hover:bg-blue-500 overflow-hidden rounded-md">
-                                    <input type="text" placeholder="Promo Code"
-                                        class="w-full rounded-md outline-none bg-white text-gray-600 text-sm px-4 py-2 m-[1px]" />
-                                    <button type='button' class="relative group px-2 text-sm text-white">
-                                        Apply
-                                    </button>
-                                </div>
-                    
-                                <!-- Order summary -->
-                                <ul class="text-gray-50 mt-8 space-y-4">
-                                    <li class="flex flex-wrap gap-4 text-base">Discount <span class="ml-auto font-bold">$0.00</span></li>
-                                    <li class="flex flex-wrap gap-4 text-base">Shipping <span class="ml-auto font-bold">$2.00</span></li>
-                                    <li class="flex flex-wrap gap-4 text-base">Tax <span class="ml-auto font-bold">$4.00</span></li>
-                                    <li class="flex flex-wrap gap-4 text-base font-bold">Cart Total <span class="ml-auto">$52.00</span></li>
-                                </ul>
-                        
-                                <!-- Checkout and continue shopping buttons -->
-                                <div class="mt-8 space-y-2">
-                                    <button type="button" class="text-sm py-2.5 w-full transition-colors duration-300 font-semibold tracking-wide bg-yellow-500 hover:opacity-90 text-white rounded-md">Checkout</button>
-                                    <button type="button" class="text-sm py-2.5 w-full font-semibold tracking-wide bg-transparent text-gray-50 border border-gray-300 rounded-md">Continue Shopping  </button>
-                                </div>
+                                {% include 'cart/includes/cart-checkout-section.html' %}
                             </div>
+                            
                         </div>
                     </div>
                 </div>
