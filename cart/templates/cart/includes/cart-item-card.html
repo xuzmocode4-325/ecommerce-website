@@ -1,48 +1,62 @@
-<div class="mb-4 border product-item flex flex-col md:flex-row w-full bg-none rounded-md">
+<!-- Individual cart item -->
+<div class="grid grid-cols-3 items-center gap-2 bg-green-900 rounded-md">
+    <div class="col-span-2 flex md:items-center items-start md:gap-4 gap-2">
+        <!-- Product image -->
+        <div class="w-32 h-32 shrink-0 bg-green-900 p-1 rounded-md">
+            <img src="{{product.image.url}}" class="w-full h-full object-cover rounded-md" />
+        </div>
 
-    <div class="order-first md:w-1/4 lg:w-1/5 flex justify-center p-1 rounded-md bg-slate-400">
-        <img class="w-full h-full border rounded-md" alt="Responsive image" src=""> <!-- Product image -->
-    </div>
-
-    <div class="md:w-3/4 lg:w-4/5 p-3">
-        <a href="#" class="no-underline text-gray-900"> <!-- Product get absolute url -->
-            <h1 class="text-lg pt-2"> <!-- Product title --> </h1>
-        </a>
-
-        <div class="border rounded-md">
-            <div class="border-b">
-                <div class="flex p-3 items-start">
-                    <div class="w-1/2 text-left">Product</div>
-                    <div class="w-1/2 text-right">
-                        <span class="text-lg font-bold">$ <!-- Product price --> </span>
-                    </div>
-                </div>
+        <!-- Product details -->
+        <div>
+            <div class="flex flex-wrap lg:flex-col">
+                <a href="{{item.url}}">
+                    <p class="text-base text-left font-bold text-white font-barriecito hover:text-yellow-500">{{product.title}}</p>
+                </a>
+                <p class="font-thin text-sm text-left">{{product.description}}</p>
             </div>
+          
+            
 
-            <div class="flex">
-                <div class="p-3 text-left">
-                    <label for="select">Qty</label>
-                    &nbsp; 
-                    <select id="" class="border rounded p-1 w-12">
-                        <option selected="">
-                            {{item.qty}}
-                        </option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                    </select>
-                    <br><br>
-
-                    <button type="button" id="update-button" class="bg-green-800 transition-all duration-300 text-white text-sm px-3 py-1 rounded hover:bg-yellow-500">
-                        Update
-                    </button>
-                    &nbsp;
-                    <button type="button" id="delete-button" class="bg-gray-500 transition-all duration-300 text-white text-sm px-3 py-1 rounded hover:bg-red-500">
-                        Remove
+            <!-- Size and quantity controls -->
+            <div class="flex gap-4 mt-2">
+                <!-- Quantity selector -->
+                <div>
+                    <button type="button"
+                        class="flex items-center border-2 border-gray-300 text-white text-xs outline-none bg-transparent rounded-lg">
+                        <div class="hover:bg-gray-300 transition-all duration-300 ease-linear hover:text-green-950 p-1 rounded-l-md border-1 border-gray-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 fill-current" viewBox="0 0 124 124">
+                                <path d="M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z" data-original="#000000"></path>
+                            </svg>
+                        </div>
+                        <span class="mx-2.5">{{item.qty}}</span>
+                        <div class="hover:bg-gray-300 transition-all duration-300 ease-linear hover:text-green-950 p-2.5 rounded-r-md border-1 border-gray-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-2.5 fill-current" viewBox="0 0 42 42">
+                                <path d="M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" data-original="#000000"></path>
+                            </svg>
+                        </div>
+                       
                     </button>
                 </div>
             </div>
+
+            <!-- Card controls-->
+             <div class="hidden md:flex gap-2 mt-1  text-red-500 items-center cursor-pointer">
+                <i class="ri-delete-bin-line"></i>
+                <h6 class="text-xs cursor-pointer mt-0.5">Remove</h6>
+             </div>
+          
         </div>
     </div>
+    <!-- Product price -->
+    <div class=" col-span-3 md:col-span-1 flex flex-col items-center md:ml-auto md:block leading-tight md:mr-2">
+        <p class="text-xs text-left md:text-sm md:text-right text-white p-2 items-start">Price ${{product.price}}</p>
+        <p class="text-xs md:text-sm md:text-right font-bold text-green-900 rounded-lg bg-white p-1.5 items-end">Subtotal ${{item.total}}</p>
+        <!-- Card controls-->
+        <div class="flex md:hidden gap-2 items-center text-red-500 cursor-pointer mt-1">
+            <i class="ri-delete-bin-line"></i>
+            <h6 class="text-xs cursor-pointer mt-0.5">Remove</h6>
+        </div>
+    </div>
+
+    
 </div>
