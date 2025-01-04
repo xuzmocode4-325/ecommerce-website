@@ -17,48 +17,82 @@
     
     <!-- Navigation menu -->
     <div id="nav-menu" class="absolute top-0 left-[-100%] min-h-[80vh]
-        w-full bg-green-950/80 backdrop-blur-sm md:backdrop-blur-none 
+        w-full bg-green-950/90 backdrop-blur-sm md:backdrop-blur-none 
         flex items-center justify-center duration-500 lg:static lg:min-h-fit 
         lg:bg-transparent lg:w-auto overflow-x-hidden overflow-y-auto z-40">
-        <ul class="flex flex-col items-center justify-center lg:flex-row  gap-0.5 lg:gap-4 group p-1">  
+        <ul class="flex flex-col items-center justify-center lg:flex-row  gap-0.5 lg:gap-4 group lg:p-3.5">  
             <!-- Home link -->
             <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
             <!-- Store link with dropdown for categories -->
             <li class="m-auto" id="category-btn">
                 <div class="inline-block text-center">
                     <div class="flex items-center justify-center -mb-1 lg:mb-0">
-                      <button type="button" class="group nav-link flex items-center" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                        <p class="flex-1 text-center">Store</p>
-                        <svg class="-mr-1 size-5 block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                      <button type="button" class="group relative nav-link flex items-center" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                        <p class="flex-1 text-center lg:mr-2">Store</p>
+                        <svg class="mr-1 size-5 block absolute right-0 lg:right-1/2 translate-x-6 lg:translate-x-10" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
                           <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
                         </svg>
                       </button>
                     </div>
-                    <div id="category-list" class="lg:absolute hidden transition-all duration-500  ease-in-out lg:right-8 z-10 lg:mt-2 w-56 origin-top-right rounded-md lg:bg-green-900" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                      <div class="py-1 lg:text-left" role="none">
-                        <!-- Active: "bg-gray-100 text-gray-900 outline-none", Not Active: "text-gray-700" -->
-                        {% for category in categories %}
-                            <a href="{% url 'categories' category.slug %}" class="dropdown-link block px-4 py-0.5 lg:py-2" role="menuitem" tabindex="-1" id="menu-item-0">{{ category.name}}</a>
-                        {% endfor %}
-                        <form method="POST" action="#" role="none">
-                          <button type="submit" class="dropdown-link block w-full px-4 py-2 lg:text-left" role="menuitem" tabindex="-1" id="menu-item-3">
-                            <i class="ri-logout-box-line"></i>
-                            Sign out
-                        </button>
-                        </form>
-                      </div>
+                    <div id="category-list" class="mt-2 lg:mt-4 mb-0.5 p-2 lg:absolute hidden transition-opacity duration-500 ease-in-out lg:right-8 z-10 w-56 origin-top-right rounded-md lg:bg-green-900 " role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                        <div class="lg:text-left flex flex-col gap-0.5 lg:gap-1 mb-0" role="none">
+                            <!-- Active: "bg-gray-100 text-gray-900 outline-none", Not Active: "text-gray-700" -->
+                            {% for category in categories %}
+                                <a href="{% url 'categories' category.slug %}" class="dropdown-link block whitespace-nowrap m-0" role="menuitem" tabindex="-1" id="menu-item-0">{{ category.name}}</a>
+                            {% endfor %}
+                            <!-- web session handler -->
+                            <form class="hidden lg:block" method="POST" action="#" role="none">
+                                <button type="submit" class="dropdown-link text-left block w-full lg:text-left" role="menuitem" tabindex="-1" id="menu-item-3">
+                                    <i class="ri-logout-box-line"></i>
+                                    Sign out
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div> 
             </li>
             <!-- Blog link -->
             <li><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
             <!-- Shopping cart icon with hover effect -->
-            <li>
-                <a href="{% url 'cart-summary' %}" class="hover:bg-yellow-500 border border-yellow-500 px-2 py-0.5 rounded-sm
+            <li class="relative hidden lg:block group">
+                <a href="{% url 'cart-summary' %}" class="hover:bg-yellow-500 border border-yellow-500 p-2 rounded-sm
                 hover:scale-110 transition-all duration-500">
-                    <i class="ri-shopping-cart-fill"></i>
+                    <i class="ri-shopping-cart-fill text-lg group-hover:scale-110"></i> 
                 </a>
+                <p  id="cart-qty-web"
+                    class="bg-white origin-left text-left text-green-950 absolute right-0 top-0
+                    translate-x-2 -translate-y-3.5 text-xs border px-1 rounded-lg z-20">
+                    {% with qty_value=cart|length %}
+                        {% if qty_value > 0 %}
+                            {{qty_value}}
+                        {% else %}
+                            0
+                        {% endif %}
+                    {% endwith %}
+                </p>
             </li>  
+            <!--mobile cart link and cart notification text-->
+            <li class="lg:hidden">
+                <a href="{% url 'cart-summary' %}" class="nav-link">
+                    Cart&nbsp;
+                    <span  id="cart-qty-mobile">
+                    ({% with qty_value=cart|length %}
+                        {% if qty_value > 0 %}
+                            {{qty_value}}
+                        {% else %}
+                            0
+                        {% endif %}
+                    {% endwith %})
+                    </span>
+                </a>
+            </li>
+            <!--mobile session handler -->
+            <form class="lg:hidden" method="POST" action="#" role="none">
+                <button type="submit" class="nav-link " role="menuitem" tabindex="-1" id="menu-item-3">
+                    <i class="ri-logout-box-line"></i>
+                    Sign out
+                </button>
+            </form>
         </ul>
         <!-- Decorative leaf images for mobile view -->
         <div class="absolute bottom-0 -right-10 opacity-90 lg:hidden">
