@@ -2583,6 +2583,11 @@ h6 {
   color: rgb(209 213 219 / var(--tw-text-opacity));
 }
 
+.text-red-300 {
+  --tw-text-opacity: 1;
+  color: rgb(252 165 165 / var(--tw-text-opacity));
+}
+
 .no-underline {
   text-decoration-line: none;
 }
