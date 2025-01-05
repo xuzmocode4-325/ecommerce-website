@@ -13,20 +13,8 @@ class Cart():
         # generate a new session for new user
         if 'session_key' not in request.session:
             cart = self.session['session_key'] = {}
-
         self.cart = cart
 
-    def add(self, product, product_qty):
-        product_id = str(product.id)
-
-        if product_id in self.cart: 
-            self.cart[product_id]['qty'] = product_qty
-        else:
-            self.cart[product_id] = {
-                'price': str(product.price),
-                'qty': product_qty}
-            
-        self.session.modified = True
 
     def __len__(self):
         return sum(item['qty'] for item in self.cart.values())
@@ -41,11 +29,43 @@ class Cart():
             cart[str(product.id)]['product'] = product
             cart[str(product.id)]['url'] = reverse('product-info', args=[product.slug])
 
-        print(cart)
         for item in cart.values():
             item['price'] = Decimal(item['price'])
             item['total'] = item['price'] * item['qty']
             yield item
+
+
+    def add(self, product, product_qty):
+        product_id = str(product.id)
+
+        if product_id in self.cart: 
+            self.cart[product_id]['qty'] = product_qty
+        else:
+            self.cart[product_id] = {
+                'price': str(product.price),
+                'qty': product_qty}
+        self.session.modified = True
+
+
+    def delete(self, product_id):
+        product_id = str(product_id)
+
+        if product_id in self.cart:
+            del self.cart[product_id]
+
+        self.session.modified = True
+
+    
+    def update(self, product_id, product_qty):
+        product_id = str(product_id)
+        product_qty = product_qty
+
+        if product_id in self.cart:
+            self.cart[product_id]['qty'] = product_qty
+
+        self.session.modified = True
+
     
     def get_total(self):
         return sum(Decimal(item['price']) * item['qty'] for item in self.cart.values())
+
