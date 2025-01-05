@@ -19,7 +19,7 @@
                         <!-- Cart UI -->
                         <div class="grid grid-cols-1 lg:gap-x-8 gap-y-10 lg:grid-cols-5">
                             <!-- Checkout section large screen  -->
-                            <div class="hidden lg:block">
+                            <div class="hidden lg:block col-span-2">
                                 {% include 'cart/includes/cart-checkout-section.html' %}
                             </div>
                             <!-- Cart item list -->
@@ -37,7 +37,6 @@
                             <div class="lg:hidden">
                                 {% include 'cart/includes/cart-checkout-section.html' %}
                             </div>
-                            
                         </div>
                     </div>
                 </div>
@@ -46,5 +45,14 @@
     </div>
  </section>           
 
+{% endblock %}
+{% block scripts %}
+    <!-- Script for cart item management functionalities (delete & update) -->
+    <script 
+        src="{% static 'cart/js/handle-cart.js' %}" 
+        data-cart-delete-url="{% url 'cart-delete' %}"
+        data-cart-update-url="{% url 'cart-update' %}"
+        data-csrf-token="{{ csrf_token }}">
+    </script>
 {% endblock %}
 
