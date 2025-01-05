@@ -53,7 +53,7 @@ const addToCart = async (event) => {
      * Retrieves the selected product quantity from the quantity div.
      * @type {string}
      */
-    const productQuantity = document.querySelector('#item-quantity').textContent;
+    const productQuantity = document.querySelector('#item-qty').textContent;
 
   
     if (productQuantity && productQuantity >= 1 && productQuantity <= 10) {
@@ -111,7 +111,7 @@ const handleItemQuantity = function(arg) {
      * Retrieves the selected product quantity from the quantity div.
      * @type {string}
      */
-    const productQuantity = document.querySelector('#item-quantity')
+    const productQuantity = document.querySelector('#item-qty')
     const currentValue = productQuantity.textContent;
 
     console.log(`Current Quantity: ${currentValue}, Change: ${arg}`);
