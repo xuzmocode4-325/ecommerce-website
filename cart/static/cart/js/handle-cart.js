@@ -32,7 +32,7 @@ const deleteFromCart = async function(event) {
             const json = await response.json();
             console.log(json); 
 
-            location.reload();
+            location.reload(true);
     
             document.getElementById("cart-qty-mobile").innerText = `(${json.cart_qty})`;
             document.getElementById("cart-qty-web").innerText = json.cart_qty;
