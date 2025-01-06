@@ -39,7 +39,7 @@ class UserRegisterView(FormView):
                 'account/registration/email-verification.html', {
                 'user': user,
                 'domain': current_site.domain,
-                'uid': urlsafe_base64_decode(force_bytes(user.pk)),
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': user_tokenizer_generate.make_token(user)  
             })
 
