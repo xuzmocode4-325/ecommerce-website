@@ -1,8 +1,9 @@
 
 from django.urls import reverse_lazy
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from django.views.generic import TemplateView, FormView
+
+from django.views.generic import TemplateView, FormView, View
 from . forms import CreateUserForm
 from django.contrib.auth.models import User
 
@@ -23,12 +24,6 @@ class UserRegisterView(FormView):
     template_name = 'account/registration/register.html'
     success_url = reverse_lazy('email-verification-sent')
     form_class = CreateUserForm
-
-    def get_context_data(self, uidb64, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['uid'] = force_str(urlsafe_base64_decode(uidb64))
-        context['artwork'] = get_artwork('starfield')
-        return context
 
     def form_valid(self, form):
         try:
@@ -58,9 +53,22 @@ class UserRegisterView(FormView):
             logger.exception(f'An error occurred in form_valid: {e}')
             return render(self.request, 'index/error_500.html', status=500)
         
-class EmailVerificationView(TemplateView):
-    template_name = 'account/registration/email-verification.html'
-    pass
+class EmailVerificationView(View):
+    def get(self, request, uidb64, token, *args, **kwargs):
+        try:
+            # Decode the uidb64 to get the original user id
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = User.objects.get(pk=uid)
+        except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+            user = None
+
+        if user is not None and user_tokenizer_generate.check_token(user, token):
+            user.is_active = True
+            user.save()
+            return redirect('email-verification-success')
+        else:
+            return redirect('email-verification-success')
+    
 
 class EmailVerificationFailView(TemplateView):
     template_name = 'account/registration/email-verification-fail.html'
