@@ -77,6 +77,7 @@ INSTALLED_APPS = [
     'cart', # django app
     'theme', # django app
     'store', # django app
+    'account', #django app
     'tailwind', # django package
     'mathfilters', # django package
     'django_browser_reload',
