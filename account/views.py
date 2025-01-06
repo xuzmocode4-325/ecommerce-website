@@ -4,5 +4,6 @@ from django.views.generic import TemplateView
 
 # Create your views here.
 
-def register(request):
-    return HttpResponse('Account setup!')
+class UserRegisterView(TemplateView):
+    template_name = 'account/index.html'
+    pass
