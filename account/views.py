@@ -2,7 +2,6 @@
 from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
 
-
 from django.views.generic import TemplateView, FormView, View
 from . forms import CreateUserForm
 from django.contrib.auth.models import User
