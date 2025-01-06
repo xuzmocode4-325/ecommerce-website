@@ -5,5 +5,4 @@ from django.views.generic import TemplateView
 # Create your views here.
 
 class UserRegisterView(TemplateView):
-    template_name = 'account/index.html'
-    pass
+    template_name = 'account/registration/register.html'
