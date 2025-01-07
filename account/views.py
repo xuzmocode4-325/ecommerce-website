@@ -42,7 +42,7 @@ class UserRegisterView(FormView):
                 'token': user_tokenizer_generate.make_token(user)  
             })
 
-            user.email_user(subject=subject, message=message)
+            user.email_user(subject=subject, message=message, fail_silently=False)
 
             logger.info('User saved successfully.')
 
