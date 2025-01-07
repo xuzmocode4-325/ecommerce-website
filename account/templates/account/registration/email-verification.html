@@ -5,19 +5,19 @@
 {% block contents %}
 <section id="home" class="relative min-h-[90vh] mt-20">
     <div class="container m-auto flex flex-col xl:flex-row gap-12 items-center justify-center">
-       {% autoescape off %}
-       Hi, 
+    {% autoescape off %}
+        Hi, 
 
-       Someone just tried to register on the Plant Fantasia website. 
+        Someone just tried to register on the Plant Fantasia website. 
 
-       If that was you, well you must be a huge plant fanatic. 
+        If that was you, well you must be a huge plant fanatic. 
 
-       Please verify your email by clicking on the link below. 
+        Please verify your email by clicking on the link below. 
 
-       Let's get growing!
+        Let's get growing!
 
-       http://{{domain}}{% url 'email-verification' uidb64=uid token=token %}
-       {% autoescape %}
+        http://{{domain}}{% url 'email-verification' uidb64=uid token=token %}
+    {% endautoescape %}
     </div>
 </section>
 {% endblock %}
