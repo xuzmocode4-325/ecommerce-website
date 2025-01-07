@@ -3,6 +3,13 @@
 
 {% block contents %}
 <section id="home" class="relative min-h-[90vh] mt-20 flex items-center justify-center">
-    <h1 class="font-barriecito text-center">An email verification link was sent to your email!</h1>
+    
+    <div class="flex flex-col items-center max-w-xl gap-4 p-8 border rounded-md shadow-md shadow-neutral-950">
+        <i class="ri-mail-send-line text-7xl"></i> 
+        <h1 class="text-center font-thin">E-mail verification sent.</h1>
+        <hr>
+        <p class="font-light">Click the link to activate your account.</p>
+    </div>
+    
 </section>
 {% endblock %}

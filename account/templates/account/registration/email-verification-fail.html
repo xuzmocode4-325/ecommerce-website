@@ -3,6 +3,11 @@
 
 {% block contents %}
 <section id="home" class="relative min-h-[90vh] mt-20 flex items-center justify-center">
-    <h1 class="font-barriecito text-center">"We were unable to verify your email address."</h1>
+    <div class="flex flex-col items-center max-w-xl gap-4 p-8 border rounded-md shadow-md shadow-neutral-950">
+        <i class="ri-prohibited-line text-7xl"></i>
+        <h1 class="text-center font-thin">E-mail verification failed.</h1>
+        <hr>
+        <p class="font-light text-center">Please re-click the verification link or repeat the registration process if the issue persists.</p>
+    </div>
 </section>
 {% endblock %}

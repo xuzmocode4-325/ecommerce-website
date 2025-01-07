@@ -3,6 +3,11 @@
 
 {% block contents %}
 <section id="home" class="relative min-h-[90vh] mt-20 flex items-center justify-center">
-    <h1 class="font-barriecito text-center">Your e-mail address has been verified successfully!</h1>
+    <div class="flex flex-col items-center max-w-xl gap-4 p-8 border rounded-md shadow-md shadow-neutral-950">
+        <i class="ri-checkbox-circle-line text-7xl"></i>
+        <h1 class="text-center font-thin">Your e-mail has been verified successfully.</h1>
+        <hr>
+        <p class="font-light">Proceed to login.</p>
+    </div>
 </section>
 {% endblock %}
