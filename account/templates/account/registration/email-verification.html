@@ -1,23 +1,13 @@
+{% autoescape off %}
+    Hi, 
 
-{% extends 'account-base.html' %}
-{% load static %}
+    Someone just tried to register on the Plant Fantasia website. 
 
-{% block contents %}
-<section id="home" class="relative min-h-[90vh] mt-20">
-    <div class="container m-auto flex flex-col xl:flex-row gap-12 items-center justify-center">
-    {% autoescape off %}
-        Hi, 
+    If that was you, well you must be a huge plant fanatic. 
 
-        Someone just tried to register on the Plant Fantasia website. 
+    Please verify your email by clicking on the link below. 
 
-        If that was you, well you must be a huge plant fanatic. 
+    Let's get growing!
 
-        Please verify your email by clicking on the link below. 
-
-        Let's get growing!
-
-        http://{{domain}}{% url 'email-verification' uidb64=uid token=token %}
-    {% endautoescape %}
-    </div>
-</section>
-{% endblock %}
+    http://{{domain}}{% url 'email-verification' uidb64=uid token=token %}
+{% endautoescape %}
