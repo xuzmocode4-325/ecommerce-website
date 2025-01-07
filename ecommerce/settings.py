@@ -186,4 +186,24 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+# Email Settings
+
+DEFAULT_FROM_EMAIL = os.getenv('USER')
+SERVER_EMAIL = os.getenv('USER')
+EMAIL_HOST_USER = os.getenv('USER')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv('SMTP')
+EMAIL_HOST_PASSWORD = os.getenv('PASS')
+
+if not EMAIL_HOST:
+    raise Exception("SMTP credentials: Mail Host Error")
+
+if not EMAIL_HOST_USER:
+    raise Exception("SMTP credentials: Host User Error")
+
+if not EMAIL_HOST_PASSWORD:
+    raise Exception("SMTP credentials: Password Error")
+
+EMAIL_SUBJECT_PREFIX = os.getenv('EMAIL_SUBJECT', '[Django]')
+EMAIL_USE_SSL = True #os.getenv('SSL') == 'True'
+EMAIL_PORT = 465 #if EMAIL_USE_SSL else 587 
