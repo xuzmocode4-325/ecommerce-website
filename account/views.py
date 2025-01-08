@@ -131,3 +131,5 @@ class UserLoginView(FormView):
             return self.form_invalid(form)
 
 
+class DashboardView(TemplateView):
+    template_name = 'account/dashboard.html'
