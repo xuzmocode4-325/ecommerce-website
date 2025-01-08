@@ -1,17 +1,19 @@
 from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
-
-from django.views.generic import TemplateView, FormView, View
-from django.contrib.auth.models import User
-from django.contrib.sites.shortcuts import get_current_site
-
-from . forms import CreateUserForm
-from . helpers import send_email_with_fallback
-from .token import user_tokenizer_generate
-
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+
+from django.views.generic import TemplateView, FormView, View
+
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User, auth
+from django.contrib.sites.shortcuts import get_current_site
+
+from . forms import CreateUserForm, LoginForm
+from . helpers import send_email_with_fallback
+from . token import user_tokenizer_generate
+
 
 import logging
 
@@ -59,8 +61,8 @@ class UserRegisterView(FormView):
         except Exception as e:
             logger.exception(f'An error occurred in form_valid: {e}')
             return render(self.request, 'account/error_500.html', status=500)
-   
-        
+
+
 class EmailVerificationView(View):
     def get(self, request, *args, **kwargs):
         uid = kwargs.get('uidb64')
@@ -95,16 +97,37 @@ class EmailVerificationView(View):
             return redirect('email-verification-fail')
 
      
-    
-
 class EmailVerificationFailView(TemplateView):
     template_name = 'account/registration/email-verification-fail.html'
-    pass
+
 
 class EmailVerificationSentView(TemplateView):
     template_name = 'account/registration/email-verification-sent.html'
-    pass
+
 
 class EmailVerifiedView(TemplateView):
     template_name = 'account/registration/email-verified.html'
-    pass
+
+
+class UserLoginView(FormView): 
+    template_name = 'account/login.html'
+    success_url = reverse_lazy('store')
+    form_class = LoginForm
+
+    def form_valid(self, form):
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        
+        # Authenticate the user
+        user = authenticate(username=username, password=password)
+        
+        if user is not None:
+            # Log the user in
+            login(self.request, user)
+            return super().form_valid(form)
+        else:
+            # If authentication fails, add an error to the form
+            form.add_error(None, "Invalid username or password.")
+            return self.form_invalid(form)
+
+
