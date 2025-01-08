@@ -1,4 +1,4 @@
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_str
@@ -7,7 +7,7 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.views.generic import TemplateView, FormView, View
 
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User, auth
+from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
 
 from . forms import CreateUserForm, LoginForm
@@ -111,20 +111,20 @@ class EmailVerifiedView(TemplateView):
 
 class UserLoginView(FormView): 
     template_name = 'account/login.html'
-    success_url = reverse_lazy('store')
+    success_url = reverse_lazy('dashboard')
     form_class = LoginForm
 
     def form_valid(self, form):
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password')
-        
+
         # Authenticate the user
-        user = authenticate(username=username, password=password)
+        user = authenticate(self.request, username=username, password=password)
         
         if user is not None:
             # Log the user in
             login(self.request, user)
-            return super().form_valid(form)
+            return super().form_valid(form)  # Call to get_success_url will happen here
         else:
             # If authentication fails, add an error to the form
             form.add_error(None, "Invalid username or password.")
