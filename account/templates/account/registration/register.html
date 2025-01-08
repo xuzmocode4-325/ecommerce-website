@@ -9,7 +9,9 @@
         <div>
             <h1 class="font-barriecito">Start <span class="text-yellow-500">Growing</span> Today!</h1>
             <br>
-            <form class="max-w-md" action="{% url 'register'%}" autocomplete="off" method="POST" id="{{form.form_id}}">
+            <form 
+                class="max-w-md" action="{% url 'register'%}" method="POST" 
+                id="{{form.form_id}}" onsubmit="disableButton()">
                 {% csrf_token %}
                 {% for field in form %}
                     <div id="form-control" class="mb-2
@@ -40,4 +42,19 @@
         </div>
     </div>
 </section>
+{% endblock %}
+{% block scripts %}
+<script>
+    const disableButton = () => {
+        const submitBtn = document.getElementById('submit-button');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        
+        loadingSpinner.classList.remove("hidden");
+        loadingSpinner.classList.add("inline");
+    
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Sending...';
+    };
+    
+</script>
 {% endblock %}
