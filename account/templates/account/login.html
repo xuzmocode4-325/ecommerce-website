@@ -10,8 +10,8 @@
             <h1 class="font-barriecito text-center">Start <span class="text-yellow-500">Growing</span> Today!</h1>
             <br>
             <form 
-                class="max-w-md" action="{% url 'register'%}" method="POST" 
-                id="{{form.form_id}}" onsubmit="disableButton()">
+                class="max-w-md" method="POST" autocomplete="off"
+                id="{{form.form_id}}" action="{% url 'login' %}" onsubmit="disableButton()">
                 {% csrf_token %}
                 {% for field in form %}
                     <div id="form-control" class="mb-2
