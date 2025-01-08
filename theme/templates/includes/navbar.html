@@ -41,12 +41,14 @@
                                 <a href="{% url 'categories' category.slug %}" class="dropdown-link block whitespace-nowrap m-0" role="menuitem" tabindex="-1" id="menu-item-0">{{ category.name}}</a>
                             {% endfor %}
                             <!-- web session handler -->
-                            <form class="hidden lg:block" method="POST" action="#" role="none">
+                            <div class="hidden lg:block" method="POST" action="#" role="none">
                                 <button type="submit" class="dropdown-link text-left block w-full lg:text-left" role="menuitem" tabindex="-1" id="menu-item-3">
-                                    <i class="ri-logout-box-line"></i>
-                                    Sign out
+                                    <a href="{% url 'login' %}">
+                                        <i class="ri-logout-box-line"></i>
+                                        Login
+                                    </a>
                                 </button>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div> 
@@ -87,12 +89,14 @@
                 </a>
             </li>
             <!--mobile session handler -->
-            <form class="lg:hidden" method="POST" action="#" role="none">
+            <div class="lg:hidden" method="POST" action="#" role="none">
                 <button type="submit" class="nav-link " role="menuitem" tabindex="-1" id="menu-item-3">
-                    <i class="ri-logout-box-line"></i>
-                    Sign out
+                    <a href="{% url 'login' %}">
+                        <i class="ri-logout-box-line"></i>
+                        Login
+                    </a>
                 </button>
-            </form>
+            </div>
         </ul>
         <!-- Decorative leaf images for mobile view -->
         <div class="absolute bottom-0 -right-10 opacity-90 lg:hidden">
