@@ -1,13 +1,17 @@
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from django.utils.decorators import method_decorator
 
 from django.views.generic import TemplateView, FormView, View
 
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.views import LogoutView
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+
 from django.contrib.sites.shortcuts import get_current_site
 
 from . forms import CreateUserForm, LoginForm
@@ -21,6 +25,12 @@ logger = logging.getLogger(__name__)
 
 # Create your views here.
 
+# Create a custom decorator for class-based views
+def login_required_class(view):
+    @method_decorator(login_required(login_url='login'))
+    def wrapped_view(request, *args, **kwargs):
+        return view(request, *args, **kwargs)
+    return wrapped_view
 
 class UserRegisterView(FormView):
     template_name = 'account/registration/register.html'
@@ -109,7 +119,7 @@ class EmailVerifiedView(TemplateView):
     template_name = 'account/registration/email-verified.html'
 
 
-class UserLoginView(FormView): 
+class LoginView(FormView): 
     template_name = 'account/login.html'
     success_url = reverse_lazy('dashboard')
     form_class = LoginForm
@@ -130,6 +140,11 @@ class UserLoginView(FormView):
             form.add_error(None, "Invalid username or password.")
             return self.form_invalid(form)
 
-
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class DashboardView(TemplateView):
     template_name = 'account/dashboard.html'
+
+class LogoutView(LogoutView):
+
+    def get_success_url(self):
+        return reverse_lazy('store') 
