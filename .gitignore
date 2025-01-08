@@ -1,2 +1,3 @@
 .env 
 requirements.txt
+data/conn.ipynb
