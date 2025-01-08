@@ -210,9 +210,6 @@ else:
 
     if not EMAIL_HOST_PASSWORD:
         raise Exception("SMTP credentials: Password Error")
-    
-
-print(EMAIL_BACKEND)
 
 EMAIL_SUBJECT_PREFIX = os.getenv('EMAIL_SUBJECT', '[Django]')
 EMAIL_USE_SSL = True #os.getenv('SSL') == 'True'
