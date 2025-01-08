@@ -59,6 +59,7 @@ class UserRegisterView(FormView):
         except Exception as e:
             logger.exception(f'An error occurred in form_valid: {e}')
             return render(self.request, 'account/error_500.html', status=500)
+   
         
 class EmailVerificationView(View):
     def get(self, request, *args, **kwargs):
@@ -76,14 +77,12 @@ class EmailVerificationView(View):
         except (TypeError, ValueError, OverflowError) as e:
             logger.error(f"Error decoding UID: {e}")
             return render(self.request, 'account/error_500.html', status=500)
-        
 
         try:
             user = User.objects.get(pk=uid)
         except User.DoesNotExist:
             logger.error(f"User with ID {uid} does not exist.")
             return render(self.request, 'account/error_500.html', status=500)
-        
         
         try:
             # Decode the uidb64 to get the original user id
