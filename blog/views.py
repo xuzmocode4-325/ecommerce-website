@@ -19,7 +19,7 @@ class BlogIndexView(TemplateView):
         return context
 
 class BlogTopicsView(ListView):
-    template_name = 'blog/topics.html'  # Create this template
+    template_name = 'blog/index.html'  # Create this template
     model = Post
     context_object_name = 'posts'
 

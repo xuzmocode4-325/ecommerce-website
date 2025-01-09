@@ -1,16 +1,9 @@
-{% extends 'dashboard-base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block contents %}
-   
-    <header class="bg-green-900 shadow">
-        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <h1 class="text-3xl font-bold tracking-tight text-gray-100">Dashboard</h1>
-        </div>
-      </header>
-      <main>
-        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <!-- Your content -->
-        </div>
-      </main>
+{% include 'includes/main-navbar.html'%}
+<section id="home" class="relative min-h-[90vh] justify-center">
+</section>
+    
 {% endblock %}
