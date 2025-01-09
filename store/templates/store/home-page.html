@@ -4,6 +4,9 @@
 
 <!-- Visible Page Content -->
 {% block contents %}
+    <!--Navbar-->
+    {% include 'includes/main-navbar.html'%}
+
     <!--Hero Section-->
     {% include 'store/includes/hero-section.html' %}
 
@@ -18,4 +21,7 @@
 
     <!-- Review -->
     {% include 'store/includes/review-section.html' %}
+
+    <!--Footer-->
+    {% include 'includes/footer.html'%}
 {% endblock %}
