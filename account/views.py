@@ -150,7 +150,7 @@ class DashboardView(TemplateView):
 class LogoutView(LogoutView):
 
     def get_success_url(self):
-        return reverse_lazy('store') 
+        return reverse_lazy('home') 
     
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
@@ -177,3 +177,13 @@ class DeleteAccountView(TemplateView):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class SettingsView(TemplateView):
     template_name = 'account/settings.html'
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class DeleteAccountView(TemplateView):
+    template_name = 'account/delete.html'  # Ensure this template exists
+
+    def post(self, request, *args, **kwargs):
+        user = User.objects.get(id=request.user.id)
+        user.delete()
+        return redirect('store')
