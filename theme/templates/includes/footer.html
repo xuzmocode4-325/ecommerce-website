@@ -1,107 +1,113 @@
 {% load static %}
-<!--newsletter-->
-<div class="container text-white absolute top-0 right-0 left-0 
-    -translate-y-1/2">
-    <div class="bg-green-900 px-10 pt-5 pb-10 space-y-5 rounded-md">
-        <h4 class="font-barriecito">
-            <span class="text-yellow-500">
-                Subscribe 
-            </span> to our budding newsletter
-        </h4>
-        <div class="flex flex-col md:flex-row gap-1">
-            <input type="email" placeholder="Your Email Address" required="true"
-            class="w-full pxy-5 py-3 text-green-900 rounded-md outline-none">
-            <button class="flex flex-row gap-4 sm:gap-2 items-center justify-center bg-green-950 px-5 py-3 rounded-md hoverLopacity-80
-            duration-500 mt-2 sm:mt-0  hover:bg-yellow-500 hover:text-green-950">
-                <span class="">Subscribe</span>
-                <i class="ri-send-plane-2-fill"></i>
-            </button>
-        </div>
-    </div>
-</div>
-
-<!--social icon-->
-<div class="footer-icon container mt-20 md:mt-16 mb-10">
-    <div class="border-b border-green-900 relative">
-        <div class="absolute top-0 transform -translate-y-1/2 left-0 right-0 max-w-56 mx-auto">
-            <div class="bg-yellow-100 text-lg text-center space-x-2 mx-2">
-                <i class="ri-facebook-fill hover:text-yellow-500 text-green-900 cursor-pointer"></i>
-                <i class="ri-linkedin-fill hover:text-yellow-500 text-green-900 cursor-pointer"></i>
-                <i class="ri-twitter-x-line hover:text-yellow-500 text-green-900 cursor-pointer"></i>
-                <i class="ri-pinterest-line hover:text-yellow-500 text-green-900 cursor-pointer"></i>
-                <i class="ri-reddit-line hover:text-yellow-500 text-green-900 cursor-pointer"></i>
-                <i class="ri-instagram-line hover:text-yellow-500 text-green-900 cursor-pointer"></i>
+<footer class="bg-yellow-100 text-green-950 pt-20 pb-10 md:pt-28 relative">
+    <!--newsletter-->
+    <div class="container text-white absolute top-0 right-0 left-0 
+        -translate-y-1/2">
+        <div class="bg-green-900 px-10 pt-5 pb-10 space-y-5 rounded-md">
+            <h4 class="font-barriecito">
+                <span class="text-yellow-500">
+                    Subscribe 
+                </span> to our budding newsletter
+            </h4>
+            <div class="flex flex-col md:flex-row gap-1">
+                <input type="email" placeholder="Your Email Address" required="true"
+                class="w-full pxy-5 py-3 text-green-900 rounded-md outline-none">
+                <button class="flex flex-row gap-4 sm:gap-2 items-center justify-center bg-green-950 px-5 py-3 rounded-md hoverLopacity-80
+                duration-500 mt-2 sm:mt-0  hover:bg-yellow-500 hover:text-green-950">
+                    <span class="">Subscribe</span>
+                    <i class="ri-send-plane-2-fill"></i>
+                </button>
             </div>
         </div>
     </div>
-</div>
+    <!--social icon-->
+    <div class="footer-icon container mt-20 md:mt-16 mb-10">
+        <div class="border-b border-green-900 relative">
+            <div class="absolute top-0 transform -translate-y-1/2 left-0 right-0 max-w-56 mx-auto">
+                <div class="bg-yellow-100 text-lg text-center space-x-2 mx-2">
+                    <i class="ri-facebook-fill hover:text-yellow-500 text-green-900 cursor-pointer"></i>
+                    <i class="ri-linkedin-fill hover:text-yellow-500 text-green-900 cursor-pointer"></i>
+                    <i class="ri-twitter-x-line hover:text-yellow-500 text-green-900 cursor-pointer"></i>
+                    <i class="ri-pinterest-line hover:text-yellow-500 text-green-900 cursor-pointer"></i>
+                    <i class="ri-reddit-line hover:text-yellow-500 text-green-900 cursor-pointer"></i>
+                    <i class="ri-instagram-line hover:text-yellow-500 text-green-900 cursor-pointer"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--content-->
+    <div class="footer-content container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 text-center md:text-start">
+        
+        <!-- Item 1 -->
+        <div>
+            <div class="text-7xl flex flex-col sm:text-2xl items-center justify-center z-50">
+                <img class="w-32 h-32 flex-1" src="{% static 'media/images/logo.svg' %}"></img> 
+                <p class="font-barriecito">Plant Fantasia </p>
+            </div>
+        </div>
 
-<!--content-->
-<div class="footer-content container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 text-center md:text-start">
-    
-    <!-- Item 1 -->
-    <div>
-        <div class="text-7xl flex flex-col sm:text-2xl items-center justify-center z-50">
-            <img class="w-32 h-32 flex-1" src="{% static 'media/images/logo.svg' %}"></img> 
-            <p class="font-barriecito">Plant Fantasia </p>
+        <!-- Item 2 -->
+        <div class="text-center">
+            <p class="mb-4 text-xl font-thin font-jost">Blog Topics</p>
+            <div class="flex flex-col gap-1">
+                <a href="#">DIY Projects</a>
+                <a href="#">Plant Care Tips</a>
+                <a href="#">Product Reviews</a>
+                <a href="#">Plant Reccomendations</a>
+            </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="text-center">
+            <p class="mb-4 text-xl font-thin font-jost">Services</p>
+            <div class="flex flex-col gap-1">
+                <a href="#">Custom Terrarium Design</a>
+                <a href="#">Terrarium Care Packages</a>
+                <a href="#">Terrarium Building Workshops</a>
+                <a href="#">Terrarium Gallery</a>
+            </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="text-center">
+            <p class="mb-4 text-xl font-thin font-jost">Contact Us</p>
+            <div class="flex flex-col gap-1">
+                <!-- <a href="tel+27696508853">+2769 650 8853</a> -->
+                <a href="mailto:info@plantfantasia.com">
+                    info@plantfantasia.com
+                </a>
+                <br>
+                <!-- <a>
+                    777 Willoshade Lane <br>
+                    Verdant Village, Evergreen County
+                    Florana 412929
+                </a> -->
+            </div>
         </div>
     </div>
 
-    <!-- Item 2 -->
-    <div class="text-center">
-        <p class="mb-4 text-xl font-thin font-jost">Blog Topics</p>
-        <div class="flex flex-col gap-1">
-            <a href="#">DIY Projects</a>
-            <a href="#">Plant Care Tips</a>
-            <a href="#">Product Reviews</a>
-            <a href="#">Plant Reccomendations</a>
-        </div>
+    <!-- copyright -->
+    <div class="copyright-text container mt-10 opacity-50">
+        <p class="text-center font-thin tracking-widest">
+            Copyright &copy; 2024 Plant Fantasia. <br> All rights reserved.
+        </p>
     </div>
 
-    <!-- Item 3 -->
-    <div class="text-center">
-        <p class="mb-4 text-xl font-thin font-jost">Services</p>
-        <div class="flex flex-col gap-1">
-            <a href="#">Custom Terrarium Design</a>
-            <a href="#">Terrarium Care Packages</a>
-            <a href="#">Terrarium Building Workshops</a>
-            <a href="#">Terrarium Gallery</a>
-        </div>
+    <!-- floral images -->
+    <div class="absolute bottom-0 left-0 opacity-20 pointer-events-none footer-floral">
+        <img class="w-full lg:w-1/2" src="{% static 'media/images/floral.png' %}" alt="">
     </div>
 
-    <!-- Item 4 -->
-    <div class="text-center">
-        <p class="mb-4 text-xl font-thin font-jost">Contact Us</p>
-        <div class="flex flex-col gap-1">
-            <!-- <a href="tel+27696508853">+2769 650 8853</a> -->
-            <a href="mailto:info@plantfantasia.com">
-                info@plantfantasia.com
-            </a>
-            <br>
-            <!-- <a>
-                777 Willoshade Lane <br>
-                Verdant Village, Evergreen County
-                Florana 412929
-            </a> -->
-        </div>
-    </div>
-</div>
+    <!-- scroll up -->
+    <a href="#" class="fixed right-4 bottom-4 bg-green-950 text-yellow-200 border border-yellow-200
+        inline-block px-3 py-1 md:px-4 rounded-md text-lg z-50 hover:-translate-y-2 duration-300" 
+        id="scroll-up">
+        <i class="ri-arrow-up-line"></i>
+    </a>
+</footer>
 
-<!-- copyright -->
-<div class="copyright-text container mt-10 opacity-50">
-    <p class="text-center font-thin tracking-widest">
-        Copyright &copy; 2024 Plant Fantasia. <br> All rights reserved.
-    </p>
-</div>
 
-<!-- floral images -->
-<div class="absolute bottom-0 left-0 opacity-20 pointer-events-none footer-floral">
-    <img class="w-full lg:w-1/2" src="{% static 'media/images/floral.png' %}" alt="">
-</div>
 
-<!-- scroll up -->
-<a href="#" class="fixed right-4 bottom-4 bg-green-950 text-yellow-200 border border-yellow-200
-    inline-block px-3 py-1 md:px-4 rounded-md text-lg z-50 hover:-translate-y-2 duration-300" 
-    id="scroll-up">
-    <i class="ri-arrow-up-line"></i>
-</a>
+
+
+
