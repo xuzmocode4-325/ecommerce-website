@@ -1,0 +1,43 @@
+<section id="cart" class="relative min-h-[90vh] mt-20">
+    <div class="container mb-16 md:mb-4 lg:mb-2">
+        <!-- Decorative blob 1: A blurred green circle positioned in the center -->
+        <div class="w-64 h-64 bg-green-700 rounded-full blur-3xl -z-10 opacity-40 absolute top-1/2 left-1/2 
+        transform -translate-x-1/2 -translate-y-1/2">
+        </div>
+        <!-- Decorative blob 2: A blurred green circle positioned at the bottom right -->
+        <div class="w-64 h-64 bg-green-700 rounded-full blur-3xl -z-10 opacity-40 absolute
+        transform right-0 bottom-0">
+        </div>
+            <div class="bg-none text-white">
+                <div class="mx-auto max-w-7xl">
+                    {% include 'cart/includes/elements/cart-subheader.html' with title="Cart Items" %}
+                    <div aria-labelledby="products-heading" class="pb-12 pt-6">
+                        <h2 id="products-heading" class="sr-only">Products</h2>
+                        <!-- Cart UI -->
+                        <div class="grid grid-cols-1 lg:gap-x-8 gap-y-10 lg:grid-cols-5">
+                            <!-- Checkout section large screen  -->
+                            <div class="hidden lg:block col-span-2">
+                                {% include 'cart/includes/elements/cart-checkout-section.html' %}
+                            </div>
+                            <!-- Cart item list -->
+                            <div class="col-span-3">
+                                <div class="grid grid-cols grid-cols-1
+                                text-center gap-4 transition-all duration-300">
+                                {% for item in cart %}
+                                    {% with product=item.product %}
+                                        {% include 'cart/includes/elements/cart-item-card.html' %}
+                                    {% endwith %}
+                                {% endfor %}
+                                </div>
+                            </div>
+                            <!-- Checkout section small -->
+                            <div class="lg:hidden">
+                                {% include 'cart/includes/elements/cart-checkout-section.html' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </section> 
