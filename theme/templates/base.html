@@ -31,16 +31,8 @@
 	</head>
 
 	<body class=" bg-green-950 font-jost text-white mx-auto transition-all duration-300 leading-normal tracking-wider">
-		<header id="navbar" class="bg-green-950 fixed w-full top-0 left-0 z-50" id="navbar">
-			{% include 'includes/dashboard-navbar.html'%}
-		</header>
-
 		{% block contents %}
-		{% endblock %}
-
-		<footer class="bg-yellow-100 text-green-950 pt-20 pb-10 md:pt-28 relative">
-			{% include 'includes/footer.html'%}
-		</footer>
+		{% endblock %} 
 		<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
