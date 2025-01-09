@@ -5,55 +5,7 @@
 {% endblock%}
 
 {% block contents %} 
-    <section id="home" class="relative min-h-[90vh] mt-20">
-        <div class="container">
-            <!-- blob 1 -->
-            <div class="w-64 h-64 bg-green-700 rounded-full blur-3xl -z-10 opacity-40 absolute top-1/2 left-1/2 
-            transform -translate-x-1/2 -translate-y-1/2">
-            </div>
-            <!-- blob 2 -->
-            <div class="w-64 h-64 bg-green-700 rounded-full blur-3xl -z-10 opacity-40 absolute
-            transform right-0 bottom-0">
-            </div>
-            <!-- main content -->
-            <div class="bg-none text-white w-full">
-                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    {% include 'includes/subheader.html' with title="Blog Posts" %}
-                    <div aria-labelledby="products-heading" class="pb-12 pt-6">
-                        <h2 id="products-heading" class="sr-only">Blog Posts</h2>
-                
-                        <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-                            <!-- Filters -->
-                            <form class="hidden lg:block">
-                                <h3 class="sr-only">Blog Posts</h3>
-                                <ul role="list" class="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-white">
-                                    {% for topic in topics %}
-                                        <li><a href="{% url 'topics' topic.slug %}">{{ topic.name }}</a></li>
-                                    {% endfor %}
-                                </ul>
-                            </form>
-                            <!-- Product grid -->
-                            <div class="lg:col-span-3">
-                                <div class="grid grid-cols grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 
-                                text-center gap-4 transition-all duration-300">
-                                    <!-- Loop through blog post and include the post template -->
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="mt-8 lg:hidden">
-                            <form>
-                                <h3 class="">Topics</h3>
-                                <ul role="list" class="space-y-4 pt-6 text-sm font-medium text-white">
-                                    {% for topic in topics %}
-                                        <li><a href="{% url 'topics' topic.slug %}">{{ topic.name }}</a></li>
-                                    {% endfor %}
-                                </ul>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    {% include 'includes/main-navbar.html'%}
+    {% include 'blog/includes/blog-index-content.html' %}
+    {% include 'includes/footer.html'%}
 {% endblock %}
