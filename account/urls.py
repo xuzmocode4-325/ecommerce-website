@@ -1,4 +1,5 @@
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
@@ -22,4 +23,8 @@ urlpatterns = [
     path('profile', views.ProfileView.as_view(), name='profile'),
     path('delete', views.DeleteAccountView.as_view(), name='delete'),
     path('settings', views.SettingsView.as_view(), name='settings'),
+    path('password-reset', auth_views.PasswordResetView.as_view(), name='reset-password'), # allows users to submit an email form
+    path('reset-password-sent', auth_views.PasswordChangeDoneView.as_view(), name='password-reset-done'), # success message routing for password reset sent
+    path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(), name='password-reset-confirm'), # password reset confimation
+    path('password-reset-complete', auth_views.PasswordResetCompleteView.as_view(), name='password-reset-complete')
 ]
