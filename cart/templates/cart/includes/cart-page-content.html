@@ -18,7 +18,8 @@
                                 <i class="ri-emoji-sticker-line text-7xl"></i>
                                 <h1 class="text-center font-thin">You currently have no items in your cart.</h1>
                                 <hr>
-                                <p class="font-light">Proceed to the store to continue shopping.</p>
+                                <a href="{% url 'store' %}" class="text-sm hover:text-yellow-500">Proceed to the store to continue shopping.</a>
+                                <p class="font-light"></p>
                             </div>
                         </div>
                     {% else %}
