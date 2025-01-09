@@ -14,7 +14,7 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib.sites.shortcuts import get_current_site
 
-from . forms import CreateUserForm, LoginForm
+from . forms import CreateUserForm, LoginForm, UpdateUserForm
 from . helpers import send_email_with_fallback
 from . token import user_tokenizer_generate
 
@@ -31,6 +31,7 @@ def login_required_class(view):
     def wrapped_view(request, *args, **kwargs):
         return view(request, *args, **kwargs)
     return wrapped_view
+
 
 class UserRegisterView(FormView):
     template_name = 'account/registration/register.html'
@@ -140,11 +141,39 @@ class LoginView(FormView):
             form.add_error(None, "Invalid username or password.")
             return self.form_invalid(form)
 
+
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DashboardView(TemplateView):
     template_name = 'account/dashboard.html'
+
 
 class LogoutView(LogoutView):
 
     def get_success_url(self):
         return reverse_lazy('store') 
+    
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class ProfileView(FormView):
+    template_name = 'account/profile.html'
+    success_url = reverse_lazy('dashboard')
+    form_class = UpdateUserForm
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['instance'] = self.request.user
+        return kwargs
+    
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class DeleteAccountView(TemplateView):
+    template_name = 'account/delete.html'
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class SettingsView(TemplateView):
+    template_name = 'account/settings.html'
