@@ -1,5 +1,8 @@
 {% load static %}
 <header id="navbar" class="bg-green-950 fixed w-full top-0 left-0 z-50" id="navbar">
+  <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
+    {% csrf_token %}
+  </form>
   <div class="min-h-full">
     <nav class="bg-green-950">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -79,13 +82,20 @@
                       From: "transform opacity-100 scale-100"
                       To: "transform opacity-0 scale-95"
                   -->
+                  {% if user.is_authenticated %}
                   <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                    <!-- Active: "bg-gray-100 outline-none", Not Active: "" -->
-                    <a href="{% url 'dashboard' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Orders</a>
-                    <a href="{% url 'profile' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Profile</a>
-                    <a href="{% url 'settings' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                      <!-- Active: "bg-gray-100 outline-none", Not Active: "" -->
+                      <a href="{% url 'dashboard' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Orders</a>
+                      <a href="{% url 'profile' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Profile</a>
+                      <a href="{% url 'settings' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+                      <a href="#" onclick="document.getElementById('logout-form').submit();" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
                   </div>
+                  {% else %}
+                  <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                      <a href="{% url 'login' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1">Login</a>
+                      <a href="{% url 'register' %}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1">Register</a>
+                  </div>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -147,12 +157,10 @@
                   </span>
               </a>
               <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Settings</a>
-              <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Sign out</a>
+              <a href="#" onclick="document.getElementById('logout-form').submit();" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Sign Out</a>
             </div>
           </div>
         </div>
     </nav>
   </div>
 </header>
-
-  
