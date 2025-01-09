@@ -11,31 +11,43 @@
             <div class="bg-none text-white">
                 <div class="mx-auto max-w-7xl">
                     {% include 'cart/includes/elements/cart-subheader.html' with title="Cart Items" %}
-                    <div aria-labelledby="products-heading" class="pb-12 pt-6">
-                        <h2 id="products-heading" class="sr-only">Products</h2>
-                        <!-- Cart UI -->
-                        <div class="grid grid-cols-1 lg:gap-x-8 gap-y-10 lg:grid-cols-5">
-                            <!-- Checkout section large screen  -->
-                            <div class="hidden lg:block col-span-2">
-                                {% include 'cart/includes/elements/cart-checkout-section.html' %}
-                            </div>
-                            <!-- Cart item list -->
-                            <div class="col-span-3">
-                                <div class="grid grid-cols grid-cols-1
-                                text-center gap-4 transition-all duration-300">
-                                {% for item in cart %}
-                                    {% with product=item.product %}
-                                        {% include 'cart/includes/elements/cart-item-card.html' %}
-                                    {% endwith %}
-                                {% endfor %}
-                                </div>
-                            </div>
-                            <!-- Checkout section small -->
-                            <div class="lg:hidden">
-                                {% include 'cart/includes/elements/cart-checkout-section.html' %}
+                    {% if cart|length == 0 %}
+                        <!-- Message and link when cart is empty -->
+                        <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+                            <div class="col-span-4 flex flex-col items-center gap-4 p-8">
+                                <i class="ri-emoji-sticker-line text-7xl"></i>
+                                <h1 class="text-center font-thin">You currently have no items in your cart.</h1>
+                                <hr>
+                                <p class="font-light">Proceed to the store to continue shopping.</p>
                             </div>
                         </div>
-                    </div>
+                    {% else %}
+                        <div aria-labelledby="products-heading" class="pb-12 pt-6">
+                            <h2 id="products-heading" class="sr-only">Products</h2>
+                            <!-- Cart UI -->
+                            <div class="grid grid-cols-1 lg:gap-x-8 gap-y-10 lg:grid-cols-5">
+                                <!-- Checkout section large screen  -->
+                                <div class="hidden lg:block col-span-2">
+                                    {% include 'cart/includes/elements/cart-checkout-section.html' %}
+                                </div>
+                                <!-- Cart item list -->
+                                <div class="col-span-3">
+                                    <div class="grid grid-cols grid-cols-1
+                                    text-center gap-4 transition-all duration-300">
+                                    {% for item in cart %}
+                                        {% with product=item.product %}
+                                            {% include 'cart/includes/elements/cart-item-card.html' %}
+                                        {% endwith %}
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                                <!-- Checkout section small -->
+                                <div class="lg:hidden">
+                                    {% include 'cart/includes/elements/cart-checkout-section.html' %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
