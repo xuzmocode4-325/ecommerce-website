@@ -144,7 +144,7 @@ class LoginView(FormView):
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DashboardView(TemplateView):
-    template_name = 'account/dashboard.html'
+    template_name = 'account/dashboard/orders.html'
 
 
 class LogoutView(LogoutView):
@@ -155,7 +155,7 @@ class LogoutView(LogoutView):
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class ProfileView(FormView):
-    template_name = 'account/profile.html'
+    template_name = 'account/dashboard/profile.html'
     success_url = reverse_lazy('dashboard')
     form_class = UpdateUserForm
 
@@ -171,17 +171,17 @@ class ProfileView(FormView):
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DeleteAccountView(TemplateView):
-    template_name = 'account/delete.html'
+    template_name = 'account/dashboard/delete.html'
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class SettingsView(TemplateView):
-    template_name = 'account/settings.html'
+    template_name = 'account/dashboard/settings.html'
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DeleteAccountView(TemplateView):
-    template_name = 'account/delete.html'  # Ensure this template exists
+    template_name = 'account/dashboard/delete.html' 
 
     def post(self, request, *args, **kwargs):
         user = User.objects.get(id=request.user.id)
