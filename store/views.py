@@ -23,7 +23,7 @@ class HomePageView(TemplateView):
         return context
 
 class CategoryProductsView(ListView):
-    template_name = 'store/category-index.html'  # Create this template
+    template_name = 'store/store-index.html'  # Create this template
     model = Product
     context_object_name = 'products'
 
