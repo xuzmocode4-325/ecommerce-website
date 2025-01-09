@@ -8,7 +8,7 @@
         <i class="ri-checkbox-circle-line text-7xl"></i>
         <h1 class="text-center font-thin">Your e-mail has been verified successfully.</h1>
         <hr>
-        <p class="font-light">Proceed to login.</p>
+        <a href="{% url 'login' %}" class="text-sm hover:text-yellow-500" role="menuitem" tabindex="-1">Proceed to login.</a>
     </div>
 </section>
 {% endblock %}
