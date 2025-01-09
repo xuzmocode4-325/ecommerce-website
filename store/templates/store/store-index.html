@@ -1,63 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block styles %}
-<!-- Link to the external stylesheet for the store's styles -->
-<link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
-{% endblock %}
-
 {% block contents %}
-<section id="store-home" class="relative min-h-[90vh] mt-20">
-    <div class="container mb-16 md:mb-4 lg:mb-2">
-        <!-- Decorative blob 1: A blurred green circle positioned in the center -->
-        <div class="w-64 h-64 bg-green-700 rounded-full blur-3xl -z-10 opacity-40 absolute top-1/2 left-1/2 
-        transform -translate-x-1/2 -translate-y-1/2">
-        </div>
-        <!-- Decorative blob 2: A blurred green circle positioned at the bottom right -->
-        <div class="w-64 h-64 bg-green-700 rounded-full blur-3xl -z-10 opacity-40 absolute
-        transform right-0 bottom-0">
-        </div>
-        <div class="bg-none text-white w-full">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                {% include 'includes/subheader.html' with title="Full Catalogue" %}
-                <div aria-labelledby="products-heading" class="pb-12 pt-6">
-                    <h2 id="products-heading" class="sr-only">Products</h2>
-            
-                    <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-                        <!-- Filters -->
-                        <form class="hidden lg:block">
-                            <h3 class="sr-only">Categories</h3>
-                            <ul role="list" class="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-white">
-                                {% for category in categories %}
-                                    <li><a href="{% url 'categories' category.slug %}">{{ category.name }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </form>
-                        <!-- Product grid -->
-                        <div class="lg:col-span-3">
-                            <div class="grid grid-cols grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 
-                            text-center gap-4 transition-all duration-300">
-                                <!-- Loop through each product and include the product card template -->
-                                {% for product in products %}
-                                    {% include 'store/includes/product-card.html' %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 lg:hidden">
-                        <form>
-                            <h3 class="">Categories</h3>
-                            <ul role="list" class="space-y-4 pt-6 text-sm font-medium text-white">
-                                {% for category in categories %}
-                                    <li><a href="{% url 'categories' category.slug %}">{{ category.name }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    {% include 'includes/main-navbar.html'%}
+    {% include 'store/includes/elements/store-page-content.html' %}
+    {% include 'includes/footer.html'%}
 {% endblock %}
