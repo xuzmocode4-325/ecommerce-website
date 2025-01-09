@@ -1,0 +1,20 @@
+{% extends 'account/includes/dashboard-base.html' %}
+{% load static %}
+
+{% block subtext %}
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    {% include 'includes/subheader.html' with title="Delete Account" %}
+    <div aria-labelledby="products-heading" class="pb-12 pt-6">
+        <h2 id="products-heading" class="sr-only">Orders</h2>
+
+        <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+            <div class="col-span-4 flex flex-col items-center gap-4 p-8">
+                <i class="ri-error-warning-line text-7xl"></i>
+                <h1 class="text-center font-thin">Your are about to permanently delete your account.</h1>
+                <hr>
+                <p class="font-light">Are you sure that you would like to proceed?</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

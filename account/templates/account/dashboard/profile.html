@@ -1,0 +1,56 @@
+{% extends 'account/includes/dashboard-base.html' %}
+{% load static %}
+
+{% block subtext %}
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    {% include 'includes/subheader.html' with title="Profile" %}
+    <div aria-labelledby="products-heading" class="pb-12 pt-6">
+        <h2 id="products-heading" class="sr-only">Profile</h2>
+
+        <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+            <!-- Filters -->
+            {% include 'account/includes/elements/sidebar-nav-links.html' %}
+            <!-- Product grid -->
+            <div class="lg:col-span-3 py-7 m-auto">
+                    <!-- Loop through blog post and include the post template -->
+                    <h1 class="font-thin">Update You Account</h1>
+                    <form class="max-w-md" method="POST" autocomplete="off"
+                        id="{{form.form_id}}" action="{% url 'profile' %}" onsubmit="disableButton()">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div id="form-control" class="mb-2
+                                {% if field.errors %}
+                                text-sm
+                                {% endif %}"
+                            >
+                                <div id="form-labels" class="mt-4">
+                                    {{ field.label_tag }}
+                                    {% if field.help_text %}
+                                        <small class="block text-gray-300/70">{{ field.help_text }}</small>
+                                    {% endif %}
+                                </div> 
+                                <div class="flex rounded-md shadow-sm ring-1 ring-inset bg-none
+                                    ring-gray-300 focus-within:ring-2 focus-within:ring-inset 
+                                    focus-within:ring-emerald-600 {% if field.name == 'subscribe' %}
+                                    w-5 h-5 mb-4{% endif %}">
+                                    {{ field }}
+                                </div>
+                                <div id="form-errors" class="text-red-400">
+                                    {{ field.errors }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <br>
+                        {% include 'account/includes/elements/form-submit-btn.html' with prompt="Update" %}
+                    </form>
+                    <a class=" text-red-300 font-bold" href="{% url 'delete' %}">
+                        <span class="text-sm">Delete Account</span>
+                    </a>
+            </div>
+        </div>  
+    </div>
+</div>
+{% endblock %}
+
+
+                
