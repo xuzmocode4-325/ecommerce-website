@@ -1,12 +1,13 @@
 from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
-from django.utils.encoding import force_bytes, force_str
+from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.decorators import method_decorator
 
 from django.views.generic import TemplateView, FormView, View
 
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.models import User
@@ -120,12 +121,13 @@ class EmailVerifiedView(TemplateView):
     template_name = 'account/registration/email-verified.html'
 
 
-class UserLoginView(FormView): 
+class UserLoginView(FormView):
     template_name = 'account/login.html'
-    success_url = reverse_lazy('dashboard')
     form_class = LoginForm
+    success_url = reverse_lazy('store')  # Redirect to the dashboard on successful login
 
     def form_valid(self, form):
+        # Extract username and password from the form
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password')
 
@@ -135,12 +137,18 @@ class UserLoginView(FormView):
         if user is not None:
             # Log the user in
             login(self.request, user)
-            return super().form_valid(form)  # Call to get_success_url will happen here
+            # Add a success message
+            messages.success(self.request, 'You are now logged in.')
+            return super().form_valid(form)  # Redirect to success_url
         else:
-            # If authentication fails, add an error to the form
-            form.add_error(None, "Invalid username or password.")
+            # If authentication fails, add an error message
+            messages.error(self.request, "Invalid username or password.")
             return self.form_invalid(form)
 
+    def form_invalid(self, form):
+        # Add a generic error message for invalid form submissions
+        messages.error(self.request, "There was an error with your login attempt.")
+        return super().form_invalid(form)
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DashboardView(TemplateView):
@@ -150,6 +158,9 @@ class DashboardView(TemplateView):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class CustomLogoutView(LogoutView):
     def get_context_data(self, **kwargs):
+        """
+        Preserves cart data during logout by clearing all session data except for the cart.
+        """
         try:
             # Preserve cart data
             cart_data = self.request.session.get('session_key', {})
@@ -170,6 +181,11 @@ class CustomLogoutView(LogoutView):
         return super().get_context_data(**kwargs)
 
     def get_success_url(self):
+        """
+        Adds a success message upon logout and returns the URL to redirect to.
+        """
+        # Add a success message
+        messages.success(self.request, 'Sign out successful.')
         return reverse_lazy('home')
     
 
