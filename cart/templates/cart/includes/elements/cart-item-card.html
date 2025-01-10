@@ -40,7 +40,7 @@
 
            <!-- Card controls-->
             <div class="hidden md:block">
-                {% include 'cart/includes/card-controls.html' %}
+                {% include 'cart/includes/elements/card-controls.html' %}
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@
         <p class="text-xs md:text-sm md:text-right font-semibold text-white p-1.5 items-end">Subtotal ${{product.price|mul:item.qty}}</p>
         <!-- Card controls-->
         <div class="md:hidden">
-            {% include 'cart/includes/card-controls.html' %}
+            {% include 'cart/includes/elements/card-controls.html' %}
         </div>
        
     </div>
