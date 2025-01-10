@@ -8,7 +8,9 @@
         <i class="ri-prohibited-line text-7xl"></i>
         <h1 class="text-center font-thin">E-mail verification failed.</h1>
         <hr>
-        <p class="font-light text-center">Please re-click the verification link or repeat the registration process if the issue persists.</p>
+        <p class="font-light text-center">Please re-try verification. If the issue persists contact admin support.</p>
+        <a href="{% url 'home' %}" class="text-sm hover:text-yellow-500" role="menuitem" tabindex="-1">Contact support.</a>
+        <a href="{% url 'home' %}" class="text-sm hover:text-yellow-500" role="menuitem" tabindex="-1">Back to home.</a>
     </div>
 </section>
 {% endblock %}
