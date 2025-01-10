@@ -89,6 +89,8 @@ const addToCart = async (event) => {
                 document.getElementById("cart-qty-mobile").innerText = `(${json.cart_qty})`;
                 document.getElementById("cart-qty-web").innerText = json.cart_qty;
                 //document.getElementById("item-quantity").innerText = json.product_qty
+
+                location.reload()
             }
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
