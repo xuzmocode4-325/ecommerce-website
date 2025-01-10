@@ -22,6 +22,7 @@ urlpatterns = [
     path('dashboard', views.DashboardView.as_view(), name='dashboard'),
     path('profile', views.ProfileView.as_view(), name='profile'),
     path('delete-account/<int:pk>/', views.UserDeleteView.as_view(), name='delete-account'),
+    path('account-deleted', views.AccountDeletedView.as_view(), name='account-deleted'),
     path('settings', views.SettingsView.as_view(), name='settings'),
     path('password-reset',
         auth_views.PasswordResetView.as_view(
