@@ -7,7 +7,7 @@
 {% endblock %}
 {% block scripts %}
 <script>
-    const disableButton = () => {
+    const disableButton = (notification) => {
         const submitBtn = document.getElementById('submit-button');
         const loadingSpinner = document.getElementById('loading-spinner');
         
@@ -15,8 +15,7 @@
         loadingSpinner.classList.add("inline");
     
         submitBtn.disabled = true;
-        submitBtn.innerText = 'Sending...';
+        submitBtn.innerText = notification;
     };
-    
 </script>
 {% endblock %}
