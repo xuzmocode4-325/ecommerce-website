@@ -21,3 +21,17 @@
     </div>
 </section>
 {% endblock %}
+{% block scripts %}
+<script>
+    const disableButton = (notification) => {
+        const submitBtn = document.getElementById('submit-button');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        
+        loadingSpinner.classList.remove("hidden");
+        loadingSpinner.classList.add("inline");
+    
+        submitBtn.disabled = true;
+        submitBtn.innerText = notification;
+    };
+</script>
+{% endblock %}
