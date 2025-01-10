@@ -43,22 +43,21 @@
                   </svg>
                 </button>
 
-                <button class="ml-3">
+                <button class="ml-3 relative">
                   <a href="{% url 'cart-summary' %}" class="hover:bg-yellow-500 border border-yellow-500 p-2 rounded-full
                   hover:scale-110 transition-all duration-500">
                       <i class="ri-shopping-cart-fill text-lg group-hover:scale-110"></i> 
                   </a>
-                  <p  id="cart-qty-web"
-                      class="bg-white origin-left text-left text-green-950 absolute right-0 top-0
-                      translate-x-2 -translate-y-3.5 text-xs border px-1 rounded-lg z-20">
-                      {% with qty_value=cart|length %}
-                          {% if qty_value > 0 %}
-                              {{qty_value}}
-                          {% else %}
-                              0
-                          {% endif %}
-                      {% endwith %}
-                  </p>
+                  {% with qty_value=cart|length %}
+                    {% if qty_value > 0 %}
+                    <p  id="cart-qty-web"
+                        class="bg-white origin-left text-left text-green-950 absolute right-0 top-0
+                        translate-x-2 -translate-y-2 text-sm px-1 rounded-lg z-20">
+                        {{qty_value}}
+                    </p>
+                      {% endif %}
+                  {% endwith %}
+                 
                 </button>
                 
     
