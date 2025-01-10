@@ -120,7 +120,7 @@ class EmailVerifiedView(TemplateView):
     template_name = 'account/registration/email-verified.html'
 
 
-class LoginView(FormView): 
+class UserLoginView(FormView): 
     template_name = 'account/login.html'
     success_url = reverse_lazy('dashboard')
     form_class = LoginForm
@@ -146,11 +146,31 @@ class LoginView(FormView):
 class DashboardView(TemplateView):
     template_name = 'account/dashboard/orders.html'
 
+ 
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class CustomLogoutView(LogoutView):
+    def get_context_data(self, **kwargs):
+        try:
+            # Preserve cart data
+            cart_data = self.request.session.get('session_key', {})
 
-class LogoutView(LogoutView):
+            # Clear all session data except for the cart
+            for key in list(self.request.session.keys()):
+                if key == 'session_key':
+                    continue
+                else:
+                    del self.request.session[key]
+
+            # Restore cart data
+            self.request.session['session_key'] = cart_data
+
+        except KeyError:
+            pass
+
+        return super().get_context_data(**kwargs)
 
     def get_success_url(self):
-        return reverse_lazy('home') 
+        return reverse_lazy('home')
     
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
