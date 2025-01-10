@@ -6,16 +6,6 @@
 {% include 'account/includes/login-page-contents.html'%}
 {% endblock %}
 {% block scripts %}
-<script>
-    const disableButton = (notification) => {
-        const submitBtn = document.getElementById('submit-button');
-        const loadingSpinner = document.getElementById('loading-spinner');
-        
-        loadingSpinner.classList.remove("hidden");
-        loadingSpinner.classList.add("inline");
-    
-        submitBtn.disabled = true;
-        submitBtn.innerText = notification;
-    };
-</script>
+    <script src="{% static 'js/disableButton.js' %}">
+    </script>
 {% endblock %}
