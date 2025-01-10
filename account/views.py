@@ -215,14 +215,24 @@ class SettingsView(TemplateView):
 class UserDeleteView(DeleteView):
     model = User
     template_name = 'account/dashboard/delete-account.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('account-deleted')
 
     def get_queryset(self):
         # Ensure only the logged-in user can delete their own account
         return User.objects.filter(id=self.request.user.id)
 
     def delete(self, request, *args, **kwargs):
-        # Log out the user before deletion to avoid session issues
-        logout(request)
-        messages.error(request, 'Account deleted.')
-        return super().delete(request, *args, **kwargs)
+        # Attempt to delete the user
+        try:
+            user = self.get_object()
+            user.delete()  # Delete the user account
+            logout(request)  # Log out the user after deletion
+            messages.info(request, "Your account has been successfully deleted.")
+            return super().delete(request, *args, **kwargs)
+        except Exception as e:
+            messages.info(request, "There was an error deleting your account. Please try again.")
+            return redirect('dashboard')  
+        
+
+class AccountDeletedView(TemplateView):
+    template_name = 'account/dashboard/account-deleted.html'
