@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contents %}
+{% include 'includes/account-navbar.html'%}
+<section id="home" class="relative min-h-[90vh] mt-20 flex items-center justify-center p-4">
+    
+    <div class="flex flex-col items-center max-w-xl gap-4 p-8 border rounded-md shadow-md shadow-neutral-950"> 
+        <i class="ri-delete-bin-2-line text-7xl"></i>
+        <h1 class="text-center font-thin">Account Deleted.</h1>
+        <hr>
+        <p class="font-light text-center"></p>
+        <a href="{% url 'home' %}" class="text-sm hover:text-yellow-500" role="menuitem" tabindex="-1">Back to home.</a>
+    </div>
+    
+</section>
+{% endblock %}
