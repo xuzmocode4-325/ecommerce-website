@@ -17,8 +17,8 @@ urlpatterns = [
          name='email-verification-fail'
          ),
     path('email-verified', views.EmailVerifiedView.as_view(), name='email-verified'),
-    path('login', views.LoginView.as_view(), name='login'),
-    path('logout', views.LogoutView.as_view(), name='logout'),
+    path('login', views.UserLoginView.as_view(), name='login'),
+    path('logout', views.CustomLogoutView.as_view(), name='logout'),
     path('dashboard', views.DashboardView.as_view(), name='dashboard'),
     path('profile', views.ProfileView.as_view(), name='profile'),
     path('delete', views.DeleteAccountView.as_view(), name='delete'),
