@@ -7,13 +7,29 @@ const categoryBtn = document.getElementById('category-btn')
 const categoryList = document.getElementById('category-list')
 const sortBtn = document.getElementById('sort-button')
 const sortList = document.getElementById('sort-list')
+const dashBurger = document.getElementById('dash-burger')
+const mobileMenu = document.getElementById('mobile-menu')
+const dropdown = document.getElementById('dropdown-control')
+const profileBtn = document.getElementById('profile-button')
 
+if (dashBurger) {
+    dashBurger.addEventListener('click', () => {
+        console.log('dash burger!')
+        if (dashBurger.classList.contains('closed')) {
+            dashBurger.classList.remove('closed')
+            dashBurger.classList.add('open')
+            mobileMenu.classList.remove('hidden')
+        } else if (dashBurger.classList.contains('open')) {
+            dashBurger.classList.remove('open')
+            dashBurger.classList.add('closed')
+            mobileMenu.classList.add('hidden')
+        }
+    })
+}
 
-if (hamburger) {
-    hamburger.addEventListener('click', ()=> {
-        navMenu.classList.toggle('left-0')
-        navMenu.classList.toggle('left-[-100%]')
-        hamburger.classList.toggle('ri-close-large-fill')
+if (profileBtn) {
+    profileBtn.addEventListener('click', () => {
+        dropdown.classList.toggle('hidden')
     })
 }
 
@@ -103,9 +119,9 @@ window.addEventListener('scroll', scrollHeader)
 /* Scroll Dropdown */ 
 
 const hideListsOnScroll = () => {
-    if (categoryList) {
-        if (!categoryList.classList.contains('hidden')) {
-            categoryList.classList.add('hidden');
+    if (dropdown) {
+        if (!dropdown.classList.contains('hidden')) {
+            dropdown.classList.add('hidden');
         }
     }
 
