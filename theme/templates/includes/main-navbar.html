@@ -49,13 +49,14 @@
                       <i class="ri-shopping-cart-fill text-lg group-hover:scale-110"></i> 
                   </a>
                   {% with qty_value=cart|length %}
-                    {% if qty_value > 0 %}
+                    
                     <p  id="cart-qty-web"
                         class="bg-white origin-left text-left text-green-950 absolute right-0 top-0
-                        translate-x-2 -translate-y-2 text-sm px-1 rounded-lg z-20">
+                        translate-x-2 -translate-y-2 text-sm px-1 rounded-lg z-20 
+                        {% if qty_value < 1 %} scale-0 {% endif %} transition-all duration-500">
                         {{qty_value}}
                     </p>
-                      {% endif %}
+                      
                   {% endwith %}
                  
                 </button>
@@ -153,6 +154,17 @@
               <a href="{% url 'dashboard' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Orders</a>
               <a href="{% url 'profile' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Profile</a>
               <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Settings</a>
+              <a href="{% url 'cart-summary' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Cart
+                <span  id="cart-qty-mobile">
+                  ({% with qty_value=cart|length %}
+                      {% if qty_value > 0 %}
+                          {{qty_value}}
+                      {% else %}
+                          0
+                      {% endif %}
+                  {% endwith %})
+                  </span>
+              </a>
               <a href="#" onclick="document.getElementById('logout-form').submit();" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Sign Out</a>
               {% else %}
               <a href="{% url 'cart-summary' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Cart
