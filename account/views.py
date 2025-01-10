@@ -6,6 +6,7 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.decorators import method_decorator
 
 from django.views.generic import TemplateView, FormView, View
+from django.views.generic.edit import DeleteView
 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -205,22 +206,23 @@ class ProfileView(FormView):
         messages.success(self.request, 'Account updated.')
         return super().form_valid(form)
 
-
-@method_decorator(login_required(login_url='login'), name='dispatch')
-class DeleteAccountView(TemplateView):
-    template_name = 'account/dashboard/delete.html'
-
-
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class SettingsView(TemplateView):
     template_name = 'account/dashboard/settings.html'
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
-class DeleteAccountView(TemplateView):
-    template_name = 'account/dashboard/delete.html' 
+class UserDeleteView(DeleteView):
+    model = User
+    template_name = 'account/dashboard/delete-account.html'
+    success_url = reverse_lazy('home')
 
-    def post(self, request, *args, **kwargs):
-        user = User.objects.get(id=request.user.id)
-        user.delete()
-        return redirect('store')
+    def get_queryset(self):
+        # Ensure only the logged-in user can delete their own account
+        return User.objects.filter(id=self.request.user.id)
+
+    def delete(self, request, *args, **kwargs):
+        # Log out the user before deletion to avoid session issues
+        logout(request)
+        messages.error(request, 'Account deleted.')
+        return super().delete(request, *args, **kwargs)
