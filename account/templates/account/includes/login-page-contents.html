@@ -6,7 +6,7 @@
             <h1 class="font-barriecito text-center">Continue <span class="text-yellow-500">Growing</span> With Us!</h1>
             <form 
                 class="max-w-md" method="POST" autocomplete="off"
-                id="{{form.form_id}}" action="{% url 'login' %}" onsubmit="disableButton()">
+                id="{{form.form_id}}" action="{% url 'login' %}" onsubmit="disableButton('Logging In...')">
                 {% csrf_token %}
                 {% for field in form %}
                     <div id="form-control" class="mb-2
