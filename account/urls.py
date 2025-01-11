@@ -44,5 +44,8 @@ urlpatterns = [
         auth_views.PasswordResetCompleteView.as_view(
             template_name="account/password/password-reset-complete.html"
         ), 
-        name='password_reset_complete')
+        name='password_reset_complete'),
+    path('manage-shipping', 
+        views.ManageShippingView.as_view(), name='manage-shipping'
+    )
 ]
