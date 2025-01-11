@@ -20,6 +20,9 @@ from . forms import CreateUserForm, LoginForm, UpdateUserForm
 from . helpers import send_email_with_fallback
 from . token import user_tokenizer_generate
 
+from payment.forms import ShippingForm
+from payment.models import ShippingAddress
+
 
 import logging
 
@@ -155,6 +158,10 @@ class UserLoginView(FormView):
 class DashboardView(TemplateView):
     template_name = 'account/dashboard/orders.html'
 
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class SettingsView(TemplateView):
+    template_name = 'account/dashboard/settings.html'
  
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class CustomLogoutView(LogoutView):
@@ -207,11 +214,6 @@ class ProfileView(FormView):
         return super().form_valid(form)
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
-class SettingsView(TemplateView):
-    template_name = 'account/dashboard/settings.html'
-
-
-@method_decorator(login_required(login_url='login'), name='dispatch')
 class UserDeleteView(DeleteView):
     model = User
     template_name = 'account/dashboard/delete-account.html'
@@ -234,5 +236,29 @@ class UserDeleteView(DeleteView):
             return redirect('dashboard')  
         
 
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class AccountDeletedView(TemplateView):
     template_name = 'account/dashboard/account-deleted.html'
+
+
+class ManageShippingView(FormView):
+    template_name = 'account/manage-shipping.html'
+    success_url = reverse_lazy('dashboard')
+    form_class = ShippingForm
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        try: 
+            kwargs['instance'] = ShippingAddress.objects.get(user=self.request.user.id)
+        except ShippingAddress.DoesNotExist:
+            kwargs['instance'] = None
+        return kwargs
+    
+
+    def form_valid(self, form):
+        shipping_user = form.save(commit=False)
+        shipping_user.user = self.request.user
+        shipping_user.save() 
+        messages.info(self.request, 'Shipping details updated.')
+        return super().form_valid(form)
+
