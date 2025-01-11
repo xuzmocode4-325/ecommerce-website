@@ -5,7 +5,7 @@
   </form>
   <div class="min-h-full">
     <nav class="bg-green-950">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div class="flex h-16 items-center justify-between">
             <div class="flex items-center gap">
               <div class="shrink-0">
@@ -88,10 +88,14 @@
                     <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                         <!-- Active: "bg-gray-100 outline-none", Not Active: "" -->
                         <div class="text-base text-green-950 rounded-md px-4 py-1">@{{user.username}}</div>
-                        <a href="{% url 'dashboard' %}" class="hover:bg-yellow-500 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Orders</a>
-                        <a href="{% url 'profile' %}" class="hover:bg-yellow-500 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Profile</a>
-                        <a href="{% url 'settings' %}" class="hover:bg-yellow-500 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-                        <a href="#" onclick="document.getElementById('logout-form').submit();" class="hover:bg-yellow-500  block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                        <a href="{% url 'dashboard' %}" class="hover:bg-yellow-500 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                          <i class="ri-box-3-line"></i>&nbsp;Orders</a>
+                        <a href="{% url 'profile' %}" class="hover:bg-yellow-500 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                          <i class="ri-account-box-line"></i>&nbsp;Profile</a>
+                        <a href="{% url 'settings' %}" class="hover:bg-yellow-500 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">
+                          <i class="ri-settings-2-line"></i>&nbsp;Settings</a>
+                        <a href="#" onclick="document.getElementById('logout-form').submit();" class="hover:bg-yellow-500  block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">
+                          <i class="ri-logout-box-line">&nbsp;</i>Sign out</a>
                         
                     </div>
                     {% else %}
@@ -151,10 +155,14 @@
             {% endif %}
             <div class="mt-3 space-y-1 px-2">
               {% if user.is_authenticated %}
-              <a href="{% url 'dashboard' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Orders</a>
-              <a href="{% url 'profile' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Profile</a>
-              <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Settings</a>
-              <a href="{% url 'cart-summary' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Cart
+              <a href="{% url 'dashboard' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">
+                <i class="ri-box-3-line"></i>&nbsp;Orders</a>
+              <a href="{% url 'profile' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">
+                <i class="ri-account-box-line"></i>&nbsp;Profile</a>
+              <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">
+                <i class="ri-settings-2-line"></i>&nbsp;Settings</a>
+              <a href="{% url 'cart-summary' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">
+                <i class="ri-shopping-cart-2-line"></i>&nbsp;Cart
                 <span  id="cart-qty-mobile">
                   ({% with qty_value=cart|length %}
                       {% if qty_value > 0 %}
@@ -167,7 +175,8 @@
               </a>
               <a href="#" onclick="document.getElementById('logout-form').submit();" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Sign Out</a>
               {% else %}
-              <a href="{% url 'cart-summary' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Cart
+              <a href="{% url 'cart-summary' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">
+                <i class="ri-shopping-cart-2-line"></i>&nbsp;Cart
                 <span  id="cart-qty-mobile">
                   ({% with qty_value=cart|length %}
                       {% if qty_value > 0 %}
@@ -178,7 +187,8 @@
                   {% endwith %})
                   </span>
               </a>
-              <a href="{% url 'login' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">Login</a>
+              <a href="{% url 'login' %}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-green-900 hover:text-white">
+                <i class="ri-login-box-line"></i>&nbsp;Login</a>
               {% endif %}
             </div>
           </div>
@@ -195,17 +205,17 @@
 </header>
 {% for message in messages %}
   {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-    <div class="absolute top-[65px] bg-green-300 w-screen h-10 z-10 flex items-center justify-center text-center">
+    <div class="message absolute top-[65px] bg-green-300 w-screen h-10 z-10 flex items-center justify-center text-center">
       <h6 class="font-normal text-gray-900 mt-1">{{message}}</h6>
     </div>
   {% endif %}
   {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
-    <div class="absolute top-[65px] bg-blue-300 w-screen h-10 z-10 flex items-center justify-center text-center">
+    <div class="message absolute top-[65px] bg-blue-300 w-screen h-10 z-10 flex items-center justify-center text-center">
       <h6 class="font-normal text-gray-900 text-center">{{message}}</h6>
     </div> 
   {% endif %}
   {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-    <div class="absolute top-[65px] bg-red-300 w-screen h-10 z-10 flex items-center justify-center text-center">
+    <div class="message absolute top-[65px] bg-red-300 w-screen h-10 z-10 flex items-center justify-center text-center">
       <h6 class="font-normal text-gray-900">{{message}}</h6>
     </div>
   {% endif %}
