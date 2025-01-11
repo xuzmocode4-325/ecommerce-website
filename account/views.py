@@ -186,7 +186,7 @@ class CustomLogoutView(LogoutView):
         Adds a success message upon logout and returns the URL to redirect to.
         """
         # Add a success message
-        messages.info(self.request, 'You are now signed out.')
+        messages.success(self.request, 'You are now signed out.')
         return reverse_lazy('home')
     
 
@@ -203,7 +203,7 @@ class ProfileView(FormView):
     
     def form_valid(self, form):
         form.save()
-        messages.success(self.request, 'Account updated.')
+        messages.info(self.request, 'Account updated.')
         return super().form_valid(form)
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
