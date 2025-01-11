@@ -4,14 +4,14 @@
     </form>
     <h3 class="sr-only">Blog Posts</h3>
     <ul role="list" class="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-white">
-        <li><a href="{% url 'dashboard' %}">Orders</a></li>
-        <li><a href="{% url 'profile' %}">Profile</a></li>
-        <li><a href="{% url 'settings' %}">Settings</a></li>
+        <li><a href="{% url 'dashboard' %}"><i class="ri-box-3-line"></i>&nbsp;Orders</a></li>
+        <li><a href="{% url 'profile' %}"><i class="ri-account-box-line"></i>&nbsp;Profile</a></li>
+        <li><a href="{% url 'settings' %}"><i class="ri-settings-2-line"></i>&nbsp;Settings</a></li>
         <li>
             <a 
                 onclick="document.getElementById('sidebar-logout-form').submit();" 
                 href="#">
-                Sign Out
+                <i class="ri-logout-box-line"></i>&nbsp;Sign Out
             </a>
         </li>
     </ul>
