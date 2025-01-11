@@ -11,6 +11,15 @@ const dashBurger = document.getElementById('dash-burger')
 const mobileMenu = document.getElementById('mobile-menu')
 const dropdown = document.getElementById('dropdown-control')
 const profileBtn = document.getElementById('profile-button')
+const messages = document.querySelectorAll('.message')
+
+
+messages.forEach((message) => setTimeout(function() {
+   if (message) {
+        message.classList.add('hidden')
+   }
+}, 4500))
+
 
 if (dashBurger) {
     dashBurger.addEventListener('click', () => {
@@ -130,6 +139,15 @@ const hideListsOnScroll = () => {
         if (!sortList.classList.contains('hidden')) {
             sortList.classList.add('hidden')
         }
+    }
+
+    if (messages) {
+        messages.forEach(message => {
+            if (!message.classList.contains('hidden')) {
+                message.classList.add('hidden')
+            }
+        })
+        
     }
 };
 
