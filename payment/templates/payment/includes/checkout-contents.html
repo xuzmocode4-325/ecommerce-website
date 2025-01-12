@@ -1,0 +1,103 @@
+<section class="bg-none py-8 antialiased md:py-16 relative min-h-[90vh] mt-10">
+    <form action="#" class="mx-auto max-w-screen-xl px-4 2xl:px-0">  
+      {% csrf_token %}
+      <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
+        <div class="min-w-0 flex-1 space-y-8">
+          <div class="space-y-4">
+            <h2 class="text-xl font-semibold">Delivery Details</h2>
+
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div>
+                    <label for="first_name" class="mb-2 block text-sm font-medium"> First Name: </label>
+                    <input type="text" id="first_name" class="form-input" placeholder="Bonnie" value="{{shipping.name}}" required />
+                </div>
+                <div>
+                    <label for="surname" class="mb-2 block text-sm font-medium"> Surname: </label>
+                    <input type="text" id="surname" class="form-input" placeholder="Green" value="{{shipping.surname}}" required />
+                </div>
+                <div class="col-span-1 md:col-span-2">
+                    <label for="your_email" class="mb-2 block text-sm font-medium"> Your Email: </label>
+                    <input type="email" id="your_email" class="form-input" placeholder="bonniegreen@flowers.com" value="{{shipping.email}}" required />
+                  </div>
+                <div>
+                    <label for="address1" class="mb-2 block text-sm font-medium"> Street Address: </label>
+                    <input type="text" id="address1" class="form-input" placeholder="Your Street" value="{{shipping.address1}}" required />
+                </div>
+                <div>
+                    <label for="your_name" class="mb-2 block text-sm font-medium"> Suburb: </label>
+                    <input type="text" id="your_name" class="form-input" placeholder="Suburb" value="{{shipping.address2}}" required />
+                </div>
+                <div>
+                    <label for="city" class="mb-2 block text-sm font-medium"> Your City: </label>
+                    <input type="text" id="city" class="form-input" placeholder="City" value="{{shipping.city}}" required />
+                </div>
+                <div>
+                    <label for="state" class="mb-2 block text-sm font-medium"> Your State / Province: </label>
+                    <input type="text" id="state" class="form-input" placeholder="State / Provicnce" value="{{shipping.state}}" required />
+                </div>
+                <div>
+                    <label for="country" class="mb-2 block text-sm font-medium"> Your Country: </label>
+                    <input type="text" id="country" class="form-input" placeholder="Nation" value="{{shipping.country}}" required />
+                </div>
+                <div>
+                    <label for="zip code" class="mb-2 block text-sm font-medium"> Your Area / Zip Code: </label>
+                    <input type="text" id="zip code" class="form-input" placeholder="Code" value="{{shipping.zipcode}}" required />
+                </div>
+                
+      
+            </div>
+          </div>
+  
+          <div class="space-y-4">
+            <h3 class="text-xl font-semibold">Payment</h3>
+
+            
+  
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div class="rounded-lg border p-4 ps-4">
+                <div class="flex items-start">
+                  <div class="flex h-5 items-center">
+                    <input id="credit-card" aria-describedby="credit-card-text" type="radio" name="payment-method" value="" class="h-4 w-4 border-gray-300 bg-white text-yellow-600 focus:ring-2 focus:ring-yellow-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-yellow-600" checked />
+                  </div>
+  
+                  <div class="ms-4 text-sm">
+                    <label for="credit-card" class="font-medium leading-none"> Credit Card </label>
+                    <p id="credit-card-text" class="mt-1 text-xs font-normal">Pay with your credit card</p>
+                  </div>
+                </div>
+  
+                <div class="mt-4 flex items-center gap-2">
+                  <button type="button" class="text-sm font-medium text-gray-400">Delete</button>
+  
+                  <div class="h-3 w-px shrink-0"></div>
+  
+                  <button type="button" class="text-sm font-medium text-gray-400">Edit</button>
+                </div>
+              </div>
+  
+              <div class="rounded-lg border p-4 ps-4">
+                <div class="flex items-start">
+                  <div class="flex h-5 items-center">
+                    <input id="paypal-2" aria-describedby="paypal-text" type="radio" name="payment-method" value="" class="h-4 w-4" />
+                  </div>
+  
+                  <div class="ms-4 text-sm">
+                    <label for="paypal-2" class="font-medium leading-none text-gray-900 dark:text-white"> Paypal account </label>
+                    <p id="paypal-text" class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400">Connect to your account</p>
+                  </div>
+                </div>
+  
+                <div class="mt-4 flex items-center gap-2">
+                  <button type="button" class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Delete</button>
+  
+                  <div class="h-3 w-px shrink-0 bg-gray-200 dark:bg-gray-700"></div>
+  
+                  <button type="button" class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Edit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
