@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
@@ -162,6 +162,14 @@ class DashboardView(TemplateView):
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class SettingsView(TemplateView):
     template_name = 'account/dashboard/settings.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Retrieve the shipping address for the logged-in user
+        print(self.request.user.id)
+        context['shipping'] = get_object_or_404(ShippingAddress, user=self.request.user.id)
+        context['user'] = self.request.user
+        return context
  
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class CustomLogoutView(LogoutView):
