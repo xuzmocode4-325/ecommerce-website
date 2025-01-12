@@ -1,30 +1,40 @@
+<div class="mt-6 w-full space-y-6 sm:mt-8 lg:mt-0 lg:max-w-xs xl:max-w-md">
+    <h4 class="font-thin">Order Summary</h4>
+    <div class="flow-root">
+      <div class="-my-3 divide-y divide-gray-200">
+        <dl class="flex items-center justify-between gap-4 py-3">
+          <dt class="text-base font-normal text-gray-400">Subtotal</dt>
+          <dd class="text-base font-medium">$8,094.00</dd>
+        </dl>
 
-<!-- Promo code input -->
-<div class="active:scale-95 flex border duration-300 transition-all border-green-900 bg-green-900 hover:border-blue-500 hover:bg-blue-500 overflow-hidden rounded-md">
-    <input type="text" placeholder="Promo Code"
-        class="w-full rounded-md outline-none bg-white text-gray-600 text-sm px-4 py-2 m-[1px]" />
-    <button type='button' class="relative group px-2 text-sm text-white">
-        Apply
-    </button>
-</div>
+        <dl class="flex items-center justify-between gap-4 py-3">
+          <dt class="text-base font-normal text-gray-400">Savings</dt>
+          <dd class="text-base font-medium text-green-500">0</dd>
+        </dl>
 
-<!-- Order summary -->
-<ul class="text-gray-50 mt-8 space-y-4">
-    <li class="flex flex-wrap gap-4 text-base">Discount <span class="ml-auto font-bold">$0.00</span></li>
-    <li class="flex flex-wrap gap-4 text-base">Shipping <span class="ml-auto font-bold">$2.00</span></li>
-    <li class="flex flex-wrap gap-4 text-base">Tax <span class="ml-auto font-bold">$4.00</span></li>
-    <li class="flex flex-wrap gap-4 text-base font-bold">Total <span id="total" class="ml-auto">${{cart.get_total}}</span></li>
-</ul>
+        <dl class="flex items-center justify-between gap-4 py-3">
+          <dt class="text-base font-normal text-gray-400">Tax</dt>
+          <dd class="text-base font-medium ">$199</dd>
+        </dl>
 
-<!-- Checkout and continue shopping buttons -->
-<div class="mt-8 space-y-2 flex flex-col text-center">
-    <a href="{% url 'checkout' %}" 
-        class="btn text-sm py-2.5 w-full font-semibold tracking-wide bg-yellow-500 active:scale-95
-        hover:text-green-950 text-white rounded-md  transition-colors duration-300">Checkout</button>
-    <a href="{% url 'store' %}" 
-        class="
-        text-sm py-2.5 w-full font-semibold tracking-wide bg-transparent hover-border  transition-colors duration-300
-        text-white border border-yellow-500 rounded-md hover:bg-green-900 active:scale-95">
-        Continue Shopping  
-    </a>
-</div>
+        <dl class="flex items-center justify-between gap-4 py-3">
+          <dt class="text-base font-bold ">Total</dt>
+          <dd class="text-base font-bold ">${{cart.get_total}}</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div>
+        <label for="voucher" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Enter a gift card, voucher or promotional code </label>
+        <div class="flex max-w-md items-center gap-4">
+          <input type="text" id="voucher" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500" placeholder="" required />
+          <button type="button" class="flex items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Apply</button>
+        </div>
+    </div>
+
+    <div class="space-y-3">
+      <a href="{% url 'checkout' %}" class=" text-center flex w-full items-center justify-center border border-yellow-500 transition duration-300 rounded-lg px-5 py-2.5 text-sm font-medium hover:bg-yellow-500 hover:text-green-950 focus:outline-none focus:ring-4  focus:ring-green-900">Proceed to Payment</a>
+
+      <!-- <p class="text-sm font-normal text-gray-400">One or more items in your cart require an account. <a href="#" title="" class="font-medium text-primary-700 underline hover:no-underline">Sign in or create an account now.</a>.</p> -->
+    </div>
+  </div>
