@@ -17,14 +17,14 @@
 </ul>
 
 <!-- Checkout and continue shopping buttons -->
-<div class="mt-8 space-y-2">
-    <button type="button" 
-        class="text-sm py-2.5 w-full font-semibold tracking-wide bg-yellow-500 active:scale-95
+<div class="mt-8 space-y-2 flex flex-col text-center">
+    <a href="{% url 'checkout' %}" 
+        class="btn text-sm py-2.5 w-full font-semibold tracking-wide bg-yellow-500 active:scale-95
         hover:text-green-950 text-white rounded-md  transition-colors duration-300">Checkout</button>
-    <button href="{% url 'store' %}" 
+    <a href="{% url 'store' %}" 
         class="
         text-sm py-2.5 w-full font-semibold tracking-wide bg-transparent hover-border  transition-colors duration-300
-        text-white border border-yellow-500 rounded-md hover:text-yellow-500 active:scale-95">
+        text-white border border-yellow-500 rounded-md hover:bg-green-900 active:scale-95">
         Continue Shopping  
-    </button>
+    </a>
 </div>
