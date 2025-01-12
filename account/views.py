@@ -249,9 +249,11 @@ class AccountDeletedView(TemplateView):
     template_name = 'account/dashboard/account-deleted.html'
 
 
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
 class ManageShippingView(FormView):
     template_name = 'account/manage-shipping.html'
-    success_url = reverse_lazy('dashboard')
+    success_url = reverse_lazy('settings')
     form_class = ShippingForm
 
     def get_form_kwargs(self):
