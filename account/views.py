@@ -167,9 +167,14 @@ class SettingsView(TemplateView):
         context = super().get_context_data(**kwargs)
         # Retrieve the shipping address for the logged-in user
         print(self.request.user.id)
-        context['shipping'] = get_object_or_404(ShippingAddress, user=self.request.user.id)
-        context['user'] = self.request.user
-        return context
+        try:
+            shipping = ShippingAddress.objects.get(user=self.request.user.id)
+            context['shipping'] = shipping
+            context['user'] = self.request.user
+            return context
+        except:
+            context['user'] = self.request.user
+            return context
  
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class CustomLogoutView(LogoutView):
