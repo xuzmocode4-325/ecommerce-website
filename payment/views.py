@@ -8,3 +8,7 @@ class PaymentSuccessView(TemplateView):
 
 class PaymentFailView(TemplateView):
     template_name = 'payment/payment-fail.html'
+
+
+class CheckoutView(TemplateView):
+    template_name = 'payment/checkout.html'
