@@ -12,11 +12,26 @@
             <!-- Filters -->
             {% include 'account/includes/elements/sidebar-nav-links.html' %}
             <!-- Product grid -->
-            <div class="lg:col-span-3">
-                <div class="grid grid-cols grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 
-                text-center gap-4 transition-all duration-300">
-                    <!-- Loop through blog post and include the post template -->
+            <div class="lg:col-span-3 py-4 m-auto">
+                <h1 class="font-thin">Shipping Details</h1>
+                <div class="mt-4">
+                    <br>
+                    <p>User Details</p>
+                    <br>
+                    <p class="text-sm font-semibold">Full Name</p>
+                    <p class="text-sm">{{ shipping.name }} {{ shipping.surname }}</p>
+                    <br>
+                    <p class="text-sm font-semibold">Address</p>
+                    <p class="text-sm">{{ shipping.address1 }}</p>
+                    <p class="text-sm">{{ shipping.address2 }}</p>
+                    <p class="text-sm">{{ shipping.city }}</p>
+                    <p class="text-sm">{{ shipping.state }}</p>
+                    <p class="text-sm">{{ shipping.zipcode }}</p>
                 </div>
+                <br>
+                <a class="font-bold hover:text-yellow-500" href="{% url 'manage-shipping'%}">
+                    <span class="text-sm">Manage Shipping Details</span>
+                </a>
             </div>
         </div>
     </div>
