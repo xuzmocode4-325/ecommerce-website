@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contents %}
+{% include 'includes/main-navbar.html'%}
+{% include 'payment/includes/checkout-contents.html' %}
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'js/disableButton.js' %}">
+    </script>
+{% endblock %}
