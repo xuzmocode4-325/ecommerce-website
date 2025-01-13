@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from . models import ShippingAddress
+from django_countries import countries
 
 # Create your views here.
 
@@ -16,6 +17,8 @@ class CheckoutView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        country_choices = list(countries)
+        context['countries'] = country_choices
         if self.request.user.is_authenticated:
             try:
                 context['shipping'] = ShippingAddress.objects.get(
