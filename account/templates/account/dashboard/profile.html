@@ -41,7 +41,7 @@
                             </div>
                         {% endfor %}
                         <br>
-                        {% include 'account/includes/elements/form-submit-btn.html' with prompt="Update" %}
+                        {% include 'includes/elements/form-submit-btn.html' with prompt="Update" %}
                     </form>
                     <a class=" text-red-300 font-bold" href="{% url 'delete-account' user.pk %}">
                         <span class="text-sm">Delete Account</span>
