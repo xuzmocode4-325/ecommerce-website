@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import os
+# import logging.config
 from pathlib import Path
 
 from django.core.management.utils import get_random_secret_key
@@ -216,3 +217,38 @@ else:
 EMAIL_SUBJECT_PREFIX = os.getenv('EMAIL_SUBJECT', '[Django]')
 EMAIL_USE_SSL = True #os.getenv('SSL') == 'True'
 EMAIL_PORT = 465 #if EMAIL_USE_SSL else 587 
+# LOGGING = {
+#     'version': 1,  # The version of the logging configuration schema
+#     'disable_existing_loggers': True,  # Retain existing loggers
+#     'formatters': {
+#         'verbose': {
+#             'format': '{levelname} {asctime} {module} {message}',
+#             'style': '{',
+#         },
+#         'simple': {
+#             'format': '{levelname} {message}',
+#             'style': '{',
+#         },
+#     },
+#     'handlers': {
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': os.path.join(BASE_DIR, 'debug.log'),  # Log file path
+#             'formatter': 'verbose',  # Use the verbose formatter
+#         },
+#         'console': {
+#             'class': 'logging.StreamHandler',  # Output logs to console
+#             'formatter': 'simple',  # Use the simple formatter
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console'],  # Use both file and console handlers
+#             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),  # Set log level
+#         },
+#     },
+# }
+
+# Apply the logging configuration
+# logging.config.dictConfig(LOGGING)
