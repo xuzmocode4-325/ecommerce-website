@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     'payment', # django app
     'tailwind', # django package
     'mathfilters', # django package
+    'django_countries', #django package
     'django_browser_reload',
     'django.contrib.admin',
     'django.contrib.auth',
