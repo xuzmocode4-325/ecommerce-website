@@ -31,8 +31,7 @@
     }
 }
 
-.form-input, #id_password1, #id_password2, #id_new_password1, 
-#id_new_password2, #id_email
+.form-input, #id_password1, #id_password2, #id_new_password1, #id_new_password2, #id_email, #id_country
 {
     @apply block flex-1 bg-transparent
     focus:outline focus:outline-0 focus:ring-0 sm:text-sm 
