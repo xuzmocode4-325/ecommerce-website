@@ -36,9 +36,14 @@
                     <input type="text" id="state" class="form-input" placeholder="State / Provicnce" value="{{shipping.state}}" required />
                 </div>
                 <div>
-                    <label for="country" class="mb-2 block text-sm font-medium"> Your Country: </label>
-                    <input type="text" id="country" class="form-input" placeholder="Nation" value="{{shipping.country}}" required />
-                </div>
+                  <label for="country" class="mb-2 block text-sm font-medium">Your Country:</label>
+                  <select id="country" class="form-input" required>
+                      <option value="" disabled selected>Select your country</option>
+                      {% for code, name in countries %}
+                          <option value="{{ code }}">{{ name }}</option>
+                      {% endfor %}
+                  </select>
+              </div>
                 <div>
                     <label for="zip code" class="mb-2 block text-sm font-medium"> Your Area / Zip Code: </label>
                     <input type="text" id="zip code" class="form-input" placeholder="Code" value="{{shipping.zipcode}}" required />
@@ -50,49 +55,49 @@
   
           <div class="space-y-4">
             <h3 class="text-xl font-semibold">Payment</h3>
-
             
-  
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div class="rounded-lg border p-4 ps-4">
                 <div class="flex items-start">
                   <div class="flex h-5 items-center">
-                    <input id="credit-card" aria-describedby="credit-card-text" type="radio" name="payment-method" value="" class="h-4 w-4 border-gray-300 bg-white text-yellow-600 focus:ring-2 focus:ring-yellow-600 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-yellow-600" checked />
+                    <input id="credit-card" aria-describedby="credit-card-text" type="radio" name="payment-method" value="" 
+                    class="h-4 w-4 border-gray-300 bg-white text-yellow-600 focus:ring-2 focus:ring-yellow-500" checked />
                   </div>
   
                   <div class="ms-4 text-sm">
-                    <label for="credit-card" class="font-medium leading-none"> Credit Card </label>
+                    <label for="credit-card" class="font-medium leading-none">Credit Card</label>
                     <p id="credit-card-text" class="mt-1 text-xs font-normal">Pay with your credit card</p>
                   </div>
                 </div>
   
                 <div class="mt-4 flex items-center gap-2">
-                  <button type="button" class="text-sm font-medium text-gray-400">Delete</button>
+                  <button type="button" class="text-sm font-medium text-gray-500 hover:text-white">Delete</button>
   
-                  <div class="h-3 w-px shrink-0"></div>
+                  <div class="h-3 w-px shrink-0 bg-gray-200"></div>
   
-                  <button type="button" class="text-sm font-medium text-gray-400">Edit</button>
+                  <button type="button" class="text-sm font-medium text-gray-500 hover:text-white">Edit</button>
                 </div>
               </div>
   
               <div class="rounded-lg border p-4 ps-4">
                 <div class="flex items-start">
                   <div class="flex h-5 items-center">
-                    <input id="paypal-2" aria-describedby="paypal-text" type="radio" name="payment-method" value="" class="h-4 w-4" />
+                    <input id="paypal-2" aria-describedby="paypal-text" type="radio" name="payment-method" value="" 
+                    class="h-4 w-4 border-gray-300 bg-white text-yellow-600 focus:ring-2 focus:ring-yellow-500"/>
                   </div>
   
                   <div class="ms-4 text-sm">
-                    <label for="paypal-2" class="font-medium leading-none text-gray-900 dark:text-white"> Paypal account </label>
-                    <p id="paypal-text" class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-400">Connect to your account</p>
+                    <label for="paypal-2" class="font-medium leading-none">Paypal Account</label>
+                    <p id="paypal-text" class="mt-1 text-xs font-normal">Connect to your account</p>
                   </div>
                 </div>
   
                 <div class="mt-4 flex items-center gap-2">
-                  <button type="button" class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Delete</button>
+                  <button type="button" class="text-sm font-medium text-gray-500 hover:text-white">Delete</button>
   
-                  <div class="h-3 w-px shrink-0 bg-gray-200 dark:bg-gray-700"></div>
+                  <div class="h-3 w-px shrink-0 bg-gray-200"></div>
   
-                  <button type="button" class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Edit</button>
+                  <button type="button" class="text-sm font-medium text-gray-500 hover:text-white">Edit</button>
                 </div>
               </div>
             </div>
