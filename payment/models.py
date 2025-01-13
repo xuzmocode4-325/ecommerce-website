@@ -44,6 +44,9 @@ class OrderItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     quantity = models.PositiveBigIntegerField(default=1)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+
+    class Meta:
+        verbose_name_plural = 'Order Items'
     
     def __str__(self):
         return 'Order Item - #' + str(self.id)
