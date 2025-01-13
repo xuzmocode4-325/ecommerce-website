@@ -8,4 +8,9 @@
 {% block scripts %}
     <script src="{% static 'js/disableButton.js' %}">
     </script>
+    <script 
+        src="{% static 'paymen/js/handle-payment.js' %}" 
+        data-cart-add-url="{% url 'complete-order' %}"
+        data-csrf-token="{{ csrf_token }}">
+    </script>
 {% endblock %}
