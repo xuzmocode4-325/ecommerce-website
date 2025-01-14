@@ -217,6 +217,9 @@ else:
 EMAIL_SUBJECT_PREFIX = os.getenv('EMAIL_SUBJECT', '[Django]')
 EMAIL_USE_SSL = True #os.getenv('SSL') == 'True'
 EMAIL_PORT = 465 #if EMAIL_USE_SSL else 587 
+
+SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
+
 # LOGGING = {
 #     'version': 1,  # The version of the logging configuration schema
 #     'disable_existing_loggers': True,  # Retain existing loggers
