@@ -1,5 +1,5 @@
 <section class="bg-none py-8 antialiased md:py-16 relative min-h-[90vh] mt-10">
-    <form id="checkout-form" class="mx-auto max-w-screen-xl px-4 2xl:px-0">  
+    <form id="checkout-form" class="mx-auto max-w-screen-xl px-4 2xl:px-0" onsubmit="event.preventDefault();">  
       {% csrf_token %}
       <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
         <div class="min-w-0 flex-1 space-y-8">
@@ -9,55 +9,55 @@
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
                     <label for="firstname" class="mb-2 block text-sm font-medium"> First Name: </label>
-                    <input type="text" id="firstname" class="form-input" placeholder="Bonnie" value="{{shipping.name}}" required />
+                    <input type="text" id="firstname" class="form-input validate" placeholder="Bonnie" value="{{shipping.name}}" required />
                 </div>
                 <div>
                     <label for="surname" class="mb-2 block text-sm font-medium"> Surname: </label>
-                    <input type="text" id="surname" class="form-input" placeholder="Green" value="{{shipping.surname}}" required />
+                    <input type="text" id="surname" class="form-input validate" placeholder="Green" value="{{shipping.surname}}" required />
                 </div>
                 <div class="col-span-1 md:col-span-2">
                     <label for="email" class="mb-2 block text-sm font-medium"> Your Email: </label>
-                    <input type="email" id="email" class="form-input" placeholder="bonniegreen@flowers.com" value="{{shipping.email}}" required />
+                    <input type="email" id="email" class="form-input validate" placeholder="bonniegreen@flowers.com" value="{{shipping.email}}" required />
                   </div>
                 <div>
                     <label for="address1" class="mb-2 block text-sm font-medium"> Street Address: </label>
-                    <input type="text" id="address1" class="form-input" placeholder="Your Street" value="{{shipping.address1}}" required />
+                    <input type="text" id="address1" class="form-input validate" placeholder="Your Street" value="{{shipping.address1}}" required />
                 </div>
                 <div>
                     <label for="address2" class="mb-2 block text-sm font-medium"> Suburb: </label>
-                    <input type="text" id="address2" class="form-input" placeholder="Suburb" value="{{shipping.address2}}" required />
+                    <input type="text" id="address2" class="form-input validate" placeholder="Suburb" value="{{shipping.address2}}" required />
                 </div>
                 <div>
                     <label for="city" class="mb-2 block text-sm font-medium"> Your City: </label>
-                    <input type="text" id="city" class="form-input" placeholder="City" value="{{shipping.city}}" required />
+                    <input type="text" id="city" class="form-input validate" placeholder="City" value="{{shipping.city}}" required />
                 </div>
                 <div>
                     <label for="state" class="mb-2 block text-sm font-medium"> Your State / Province: </label>
-                    <input type="text" id="state" class="form-input" placeholder="State / Provicnce" value="{{shipping.state}}" required />
+                    <input type="text" id="state" class="form-input validate" placeholder="State / Provicnce" value="{{shipping.state}}" required />
                 </div>
                 <div>
                   <label for="country" class="mb-2 block text-sm font-medium">Your Country:</label>
-                  <select id="country" class="form-input" required>
+                  <select id="country" class="form-input validate" required>
                       <option value="" disabled selected>Select your country</option>
                       {% for code, name in countries %}
                           <option value="{{ code }}">{{ name }}</option>
                       {% endfor %}
                   </select>
+                 
               </div>
                 <div>
                     <label for="zipcode" class="mb-2 block text-sm font-medium"> Your Area / Zip Code: </label>
-                    <input type="text" id="zipcode" class="form-input" placeholder="Code" value="{{shipping.zipcode}}" required />
+                    <input type="text" id="zipcode" class="form-input validate" placeholder="Code" value="{{shipping.zipcode}}" required />
                 </div>
-                
-      
             </div>
           </div>
   
           <div class="space-y-4">
-            <h3 class="text-xl font-semibold">Payment</h3>
-
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div class="rounded-lg border p-4 ps-4">
+            <!-- <h3 class="text-xl font-semibold">Payment</h3> -->
+            {% include 'payment/includes/elements/paypal-sdk.html' %}
+            
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+              <!-- <div class="rounded-lg border p-4 ps-4">
                 <div class="flex items-start">
                   <div class="flex h-5 items-center">
                     <input id="credit-card" aria-describedby="credit-card-text" type="radio" name="payment-method" value="" 
@@ -99,12 +99,12 @@
   
                   <button type="button" class="text-sm font-medium text-gray-500 hover:text-white">Edit</button>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
       </div>
       <br>
-      {% include 'includes/elements/form-submit-btn.html' with prompt="Submit" %}
+      <!-- {% include 'includes/elements/form-submit-btn.html' with prompt="Submit" %} -->
     </form>
   </section>
