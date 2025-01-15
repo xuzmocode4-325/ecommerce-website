@@ -1,5 +1,5 @@
-<section class="bg-none py-8 antialiased md:py-16 relative min-h-[90vh] mt-10">
-    <form id="checkout-form" class="mx-auto max-w-screen-xl px-4 2xl:px-0" onsubmit="event.preventDefault();">  
+<section class="bg-none py-8 antialiased md:py-16 relative min-h-[90vh] bg-green-700 m-10 rounded-md">
+    <form id="checkout-form" class="mx-auto max-w-screen-xl px-4 2xl:px-0 p-2 z-50" onsubmit="event.preventDefault();">  
       {% csrf_token %}
       <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
         <div class="min-w-0 flex-1 space-y-8">
@@ -55,9 +55,8 @@
           <div class="space-y-4">
             <!-- <h3 class="text-xl font-semibold">Payment</h3> -->
             {% include 'payment/includes/elements/paypal-sdk.html' %}
-            
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-              <!-- <div class="rounded-lg border p-4 ps-4">
+            <!-- <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+              <div class="rounded-lg border p-4 ps-4">
                 <div class="flex items-start">
                   <div class="flex h-5 items-center">
                     <input id="credit-card" aria-describedby="credit-card-text" type="radio" name="payment-method" value="" 
@@ -99,12 +98,14 @@
   
                   <button type="button" class="text-sm font-medium text-gray-500 hover:text-white">Edit</button>
                 </div>
-              </div> -->
-            </div>
+              </div>
+            </div> -->
           </div>
         </div>
       </div>
       <br>
       <!-- {% include 'includes/elements/form-submit-btn.html' with prompt="Submit" %} -->
+      <a href="{% url 'cart-summary' %}" class="text-sm hover:text-yellow-500" role="menuitem" tabindex="-1">Back to cart</a>
     </form>
+
   </section>
