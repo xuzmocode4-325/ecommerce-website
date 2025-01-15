@@ -2,15 +2,16 @@
 {% load static %}
 
 {% block contents %}
-{% include 'includes/main-navbar.html'%}
 {% include 'payment/includes/checkout-contents.html' %}
 {% endblock %}
 {% block scripts %}
-    <!-- <script src="{% static 'js/disableButton.js' %}">
-    </script> -->
     <script 
-        src="{% static 'payment/js/handle-payment.js' %}" 
+        src="https://www.paypal.com/sdk/js?client-id=AStAy9o0KUwDhIxwEqS_J5eAo548cwLklO11RAhyukt-uX1OAJ4bL6W864Iq0GUdIV6m4Mr_kDBDnNNq&currency=USD&intent=capture&enable-funding=venmo" 
+        data-sdk-integration-source="integrationbuilder">
+    </script>   
+    <script src="{% static 'payment/js/paypal-sdk.js' %}"
         data-cart-submit-url="{% url 'complete-order' %}"
+        data-cart-total="{{cart.get_total}}"
         data-csrf-token="{{ csrf_token }}">
     </script>
 {% endblock %}
