@@ -1,9 +1,9 @@
 {% load static %}
-<header id="navbar" class="bg-green-950 fixed w-full top-0 left-0 z-50" id="navbar">
+<header id="navbar" class="bg-green-950 fixed w-full top-0 left-0 z-10" id="navbar">
   <form id="logout-form" action="{% url 'logout' %}" method="POST" style="display: none;">
     {% csrf_token %}
   </form>
-  <div class="min-h-full">
+  <div class="min-w-full">
     <nav class="bg-green-950">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div class="flex h-16 items-center justify-between">
