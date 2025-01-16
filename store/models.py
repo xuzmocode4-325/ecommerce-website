@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.validators import MinValueValidator, MaxValueValidator
 # Create your models here.
 
 class Tag(models.Model):
@@ -31,6 +31,9 @@ class Product(models.Model):
     slug = models.SlugField(max_length=150, unique=True)
     price = models.DecimalField(max_digits=4, decimal_places=2)
     image = models.ImageField(upload_to='images/products')
+    discount = models.SmallIntegerField(default=0,
+        validators=[MinValueValidator(0), MaxValueValidator(33)])
+
 
     class Meta:
         verbose_name_plural = 'products'
