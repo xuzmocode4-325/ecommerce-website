@@ -13,7 +13,7 @@
             <!-- Product grid -->
             <div class="lg:col-span-3 py-4 m-auto">
                     <!-- Loop through blog post and include the post template -->
-                    <h1 class="font-thin">Update You Account</h1>
+                    <h3 class="font-thin">Update You Account</h3>
                     <form class="max-w-md" method="POST" autocomplete="off"
                         id="{{form.form_id}}" action="{% url 'profile' %}" onsubmit="disableButton()">
                         {% csrf_token %}
