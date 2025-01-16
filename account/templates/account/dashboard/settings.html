@@ -15,30 +15,41 @@
             <div class="lg:col-span-3 py-1 m-auto w-full">
                 <div class="group setting bg-transparent relative overflow-hidden duration-500 ease-in-out
                     shadow-md shadow-black border rounded-md px-2 py-4 w-full">
+                    
                     <div class="m-2">
                         <h3 class="font-thin" id="title">
                             Shipping Details
                         </h3>
                         <br>
-                        <div class="setting-text grid-cols-1 lg:grid-cols-2 items-start hidden">
-                            <div>
-                                <p class="font-semibold">User Details</p>
-                                <p class="text-sm">{{ shipping.name }} {{ shipping.surname }}</p>
+                        {% if shipping %}
+                            <div class="setting-text grid-cols-1 lg:grid-cols-2 items-start hidden">
+                                <div>
+                                    <p class="font-semibold">User Details</p>
+                                    <p class="text-sm">{{ shipping.name }} {{ shipping.surname }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Address</p>
+                                    <p class="text-sm">{{ shipping.address1 }}</p>
+                                    <p class="text-sm">{{ shipping.address2 }}</p>
+                                    <p class="text-sm">{{ shipping.city }}</p>
+                                    <p class="text-sm">{{ shipping.state }}</p>
+                                    <p class="text-sm">{{ shipping.zipcode }}</p>
+                                </div>
                             </div>
-                            <div>
-                                <p class="font-semibold">Address</p>
-                                <p class="text-sm">{{ shipping.address1 }}</p>
-                                <p class="text-sm">{{ shipping.address2 }}</p>
-                                <p class="text-sm">{{ shipping.city }}</p>
-                                <p class="text-sm">{{ shipping.state }}</p>
-                                <p class="text-sm">{{ shipping.zipcode }}</p>
+                            <br>
+                            <a class="font-bold hover:text-yellow-500" href="{% url 'manage-shipping'%}">
+                                <span class="text-sm">Manage Shipping Details</span>
+                            </a>
+                        {% else %}
+                            <div class="setting-text grid-cols-1 lg:grid-cols-2 items-start hidden">
+                                No shipping details to display.
                             </div>
-                        </div>
-                        <br>
-                        <a class="font-bold hover:text-yellow-500" href="{% url 'manage-shipping'%}">
-                            <span class="text-sm">Manage Shipping Details</span>
-                        </a>
-                      
+                            <br>
+                            <a class="font-bold hover:text-yellow-500" href="{% url 'manage-shipping'%}">
+                                <span class="text-sm">Add Shipping Details</span>
+                            </a>
+                            
+                        {% endif %}
                     </div>
                     <button class="settings-toggle absolute top-4 right-4 ursor-pointer flex items-center justify-center 
                         h-7 w-7 text-lg hover:scale-150">
