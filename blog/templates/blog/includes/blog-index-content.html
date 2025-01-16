@@ -34,6 +34,9 @@
                             <div class="grid grid-cols grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 
                             text-center gap-4 transition-all duration-300">
                                 <!-- Loop through blog post and include the post template -->
+                                 {% for post in posts %}
+                                    {% include 'blog/includes/elements/blog-post-card.html' %}
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
