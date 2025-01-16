@@ -21,7 +21,7 @@ from . helpers import send_email_with_fallback
 from . token import user_tokenizer_generate
 
 from payment.forms import ShippingForm
-from payment.models import ShippingAddress
+from payment.models import ShippingAddress, Order, OrderItem
 
 
 import logging
@@ -156,7 +156,7 @@ class UserLoginView(FormView):
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DashboardView(TemplateView):
-    template_name = 'account/dashboard/orders.html'
+    template_name = 'account/dashboard/index.html'
 
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
@@ -276,4 +276,18 @@ class ManageShippingView(FormView):
         shipping_user.save() 
         messages.info(self.request, 'Shipping details updated.')
         return super().form_valid(form)
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class TrackOrdersView(TemplateView): 
+    template_name = 'account/dashboard/orders.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try: 
+            context['orders'] = OrderItem.objects.filter(user=self.request.user)
+            return context
+        except:
+            return context
+
+
 
