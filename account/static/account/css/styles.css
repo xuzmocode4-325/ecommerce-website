@@ -1,0 +1,35 @@
+.setting.activated .setting-text {
+    display: grid;
+}
+
+.setting.activated .ri-arrow-down-s-line {
+    display: none;
+}
+
+.setting.activated .ri-close-line {
+    display: block;
+}
+
+
+
+/* .setting.activated::before, 
+.setting.activated::after { 
+    content: '\f075';
+    font-family: 'Font Awesome 5 Free';
+    color: #0ea5e9;
+    position: absolute;
+    top: 20px;
+    left:20px;
+    z-index: 0;
+    font-size: 7rem;
+    opacity: 0.2;
+} */
+
+/* .settings.activated::before {
+    color: #16a34a;
+    top: -10px;
+    left: 75px;
+    transform: rotateY(180deg);
+} */
+
+
