@@ -14,7 +14,29 @@
             <div class="lg:col-span-3">
                 <div class="grid grid-cols grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 
                 text-center gap-4 transition-all duration-300">
-                    <!-- Loop through blog post and include the post template -->
+                {% if orders|length == 0 %}
+                <!-- Message and link when cart is empty -->
+                    <div class="xl:col-span-3">
+                        <i class="ri-emoji-sticker-line text-7xl"></i>
+                        <h1 class="text-center font-thin">You currently have no orders to review.</h1>
+                        <br>
+                        <a href="{% url 'store' %}" class="text-sm hover:text-yellow-500">Proceed to the store to continue shopping.</a>
+                        <p class="font-light"></p>
+                    </div>
+                {% else %}      
+                    {% for order in orders %}
+                    <div class="xl:col-span-3 w-full">
+                        <div class="">
+                            <strong>Order ID# {{order.id}}</strong>
+                            <br>
+                            {{order.product}} | ${{order.price}}
+                            <br>
+                            Quantity {{order.quantity}} 
+                            <hr>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
                 </div>
             </div>
         </div>
