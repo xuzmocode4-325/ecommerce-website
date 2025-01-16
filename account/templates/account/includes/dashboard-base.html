@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block styles %}
+<link rel="stylesheet" href="{% static 'account/css/styles.css' %}">
+{% endblock %}
+
 {% block contents %}
 {% include 'includes/main-navbar.html'%}
 <section id="home" class="relative min-h-[90vh] mt-10">
@@ -24,4 +28,5 @@
 {% block scripts %}
 <script src="{% static 'js/disableButton.js' %}">
 </script>
+<script src="{% static 'account/js/settings-toggle.js' %}"></script>
 {% endblock %}
