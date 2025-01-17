@@ -4,14 +4,18 @@ const deleteButtons = document.querySelectorAll('.delete-button');
 const scriptTag = document.querySelector('script[src*="handle-cart.js"]');
 const cartDeleteUrl = scriptTag.dataset.cartDeleteUrl;
 const cartUpdateUrl = scriptTag.dataset.cartUpdateUrl;
+const cartCouponUrl = scriptTag.dataset.cartCouponUrl;
 const csrfToken = scriptTag.dataset.csrfToken;
+const promoButton =  document.getElementById('promo-button')
+const voucherInput = document.getElementById('voucher');
+const promoNotes =  document.getElementById('coupon-notes')
+
+
+console.log(promoButton)
 
 const deleteFromCart = async function(event) {
     event.preventDefault();
-
     const productId = this.dataset.index;
-
-    console.log(cartDeleteUrl)
 
     try {
         const response = await fetch(cartDeleteUrl, {
@@ -44,12 +48,9 @@ const deleteFromCart = async function(event) {
     }
 };
 
-deleteButtons.forEach(button => button.addEventListener('click', deleteFromCart));
-
 
 const updateCart = async function(event, value) {
     event.preventDefault(); // Prevent default action of the event
-    console.log(value); // This will log '1' for plus and '-1' for minus
 
     //const productId = this.dataset.index;
     const productId = event.currentTarget.dataset.index; 
@@ -111,6 +112,47 @@ const updateCart = async function(event, value) {
 };
 // Attach event listeners to delete buttons
 
+const applyCoupon = async function(event) {
+   
+   
+    const couponCode = voucherInput.value.trim();
+
+    if (couponCode) {
+        try {
+            const response = await fetch(cartCouponUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken  // Ensure CSRF token is included
+                },
+                body: JSON.stringify({ coupon_code: couponCode })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // Update the cart total on the page
+                document.getElementById('cart-total').innerText = `Total: $${data.new_total}`;
+                //alert('Coupon applied successfully!');
+            } else {
+                promoNotes.innerText = 'Invalid coupon code.'
+                //alert('Invalid coupon code.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            //alert('An error occurred while applying the coupon.');
+        }
+    } else {
+        //alert('Please enter a coupon code.');
+        promoNotes.innerText = 'Please enter a coupon code.'
+    }
+}
+
+voucherInput.addEventListener('input', () => promoNotes.innerHTML = '&nbsp;')
+
+deleteButtons.forEach(button => button.addEventListener('click', deleteFromCart));
+
+promoButton.addEventListener('click', applyCoupon)
 
 cartPlusButtons.forEach(button => 
     button.addEventListener('click', (event) => updateCart(event, 1))
