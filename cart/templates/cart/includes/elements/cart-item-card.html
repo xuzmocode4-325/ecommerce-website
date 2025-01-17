@@ -1,57 +1,43 @@
 {% load mathfilters %}
 <!-- Individual cart item -->
-<div class="grid grid-cols-3 items-center gap-2 bg-green-900 rounded-md">
-    <div class="col-span-2 flex md:items-center items-start md:gap-4 gap-2">
+<div class="items-center gap-2 bg-green-900/50 rounded-md shadow-sm shadow-black/50 flex flex-col md:flex-row">
         <!-- Product image -->
-        <div class="w-32 h-32 shrink-0 bg-green-900 p-1 rounded-md">
+        <div class="w-full md:w-48 aspect-1 shrink-0 bg-green-900 rounded-md">
             <img src="{{product.image.url}}" class="w-full h-full object-cover rounded-md" />
         </div>
 
         <!-- Product details -->
-        <div>
-            <div class="flex flex-wrap lg:flex-col">
+        <div class="flex flex-col gap-4 md:ml-4 p-2 items-start w-full">
+            <div class="flex flex-col">
                 <a href="{{item.url}}">
-                    <p class="text-base text-left font-bold text-white font-barriecito hover:text-yellow-500">{{product.title}}</p>
+                    <p class="text-lg text-left text-white font-normal hover:text-yellow-500">{{product.title}}</p>
                 </a>
                 <p class="font-thin text-sm text-left">{{product.description}}</p>
+                <p class="font-thin text-sm text-left md:text-sm text-white rounded-md w-3/4 block">Price ${{product.price}}</p>
             </div>
+            
+            
           
             <!-- Size and quantity controls -->
-            <div class="flex gap-4 mt-2">
+            <div class="flex gap-4">
                 <!-- Quantity selector -->
-                <div>
-                    <div class="flex divide-x border w-max m-1 rounded overflow-hidden">
-                        <button data-index="{{product.id}}" type="button" class="cart-qty-minus hover:bg-yellow-500 w-8 h-6 font-bold flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-2 fill-current inline" viewBox="0 0 124 124">
-                                <path d="M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z" data-original="#000000"></path>
-                            </svg>
-                        </button>
-                        <div id="item-qty-{{product.id}}" class="w-8 h-6 font-normal flex items-center justify-center text-white text-base">
-                            {{item.qty}}
-                        </div>
-                        <button data-index="{{product.id}}" type="button" class="cart-qty-plus hover:bg-yellow-500 text-white w-8 h-6 font-bold flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-2 fill-current inline" viewBox="0 0 42 42">
-                                <path d="M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z" data-original="#000000"></path>
-                            </svg>
-                        </button>
+                <div class="flex divide-x border w-max rounded overflow-hidden">
+                    <button data-index="{{product.id}}" type="button" class="group cart-qty-minus transition-colors duration-300 hover:bg-yellow-500 w-7 h-5 flex items-center justify-center">
+                        <i class="ri-subtract-line"></i>
+                    </button>
+                    <div id="item-qty-{{product.id}}" class="w-7 h-5 font-normal flex items-center justify-center text-white text-sm">
+                        {{item.qty}}
                     </div>
+                    <button data-index="{{product.id}}" type="button" class="group cart-qty-plus transition-colors duration-300 hover:bg-yellow-500 text-white w-7 h-5 flex items-center justify-center">
+                        <i class="ri-add-line"></i>
+                    </button>
                 </div>
             </div>
-
-           <!-- Card controls-->
-            <div class="hidden md:block">
+            
+            <!-- Card controls--> 
+            <div class="">
+                <p class="text-left text-sm">Subtotal <span class="">${{product.price|mul:item.qty}}</span></p>
                 {% include 'cart/includes/elements/card-controls.html' %}
             </div>
         </div>
-    </div>
-    <!-- Product price -->
-    <div class=" col-span-3 md:col-span-1 flex flex-col items-center md:ml-auto md:block leading-tight md:mr-2">
-        <p class="text-xs text-left md:text-sm bg-white text-green-950 p-1 rounded-md items-start">Price ${{product.price}}</p>
-        <p class="text-xs md:text-sm md:text-right font-semibold text-white p-1.5 items-end">Subtotal ${{product.price|mul:item.qty}}</p>
-        <!-- Card controls-->
-        <div class="md:hidden">
-            {% include 'cart/includes/elements/card-controls.html' %}
-        </div>
-       
-    </div>
 </div>
