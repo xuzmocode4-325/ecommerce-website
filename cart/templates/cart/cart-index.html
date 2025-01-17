@@ -11,6 +11,7 @@
         src="{% static 'cart/js/handle-cart.js' %}" 
         data-cart-delete-url="{% url 'cart-delete' %}"
         data-cart-update-url="{% url 'cart-update' %}"
+        data-cart-coupon-url="{% url 'apply-coupon' %}"
         data-csrf-token="{{ csrf_token }}">
     </script>
 {% endblock %}
