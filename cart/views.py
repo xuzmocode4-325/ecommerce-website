@@ -4,7 +4,6 @@ from .cart import Cart
 from store.models import Product
 from django.views import View
 from django.http import JsonResponse
-from django.views.generic import TemplateView, ListView, DetailView
 
 # Create your views here.
 
@@ -117,4 +116,37 @@ class CartUpdateView(View):
             # Handle JSON parsing errors and invalid data types
             return JsonResponse({'status': 'error', 'message': str(e)}, status=400)
 
+
+class ApplyCouponView(View):
+    """
+    Class-based view to apply a coupon to the cart. It expects a POST request with a JSON body containing the coupon code.
+    """
+
+    def post(self, request, *args, **kwargs):
+        """
+        Handle POST requests to apply a coupon.
         
+        :param request: The HTTP request object.
+        :return: JsonResponse indicating success or failure and the new total if successful.
+        """
+        try:
+            # Parse the JSON body to get the coupon code
+            data = json.loads(request.body)
+            coupon_code = data.get('coupon_code', '')
+
+            # Initialize the cart and apply the coupon
+            cart = Cart(request)
+            cart.apply_coupon(coupon_code)
+
+            # Calculate the new total after applying the coupon
+            new_total = cart.get_total()
+
+            # Check if the coupon was successfully applied
+            if cart.coupon:
+                return JsonResponse({'success': True, 'new_total': str(new_total)})
+            else:
+                return JsonResponse({'success': False, 'message': 'Invalid coupon code.'})
+        except json.JSONDecodeError:
+            return JsonResponse({'success': False, 'message': 'Invalid JSON data.'})
+        except Exception as e:
+            return JsonResponse({'success': False, 'message': str(e)})
