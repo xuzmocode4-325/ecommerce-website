@@ -32,7 +32,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=4, decimal_places=2)
     image = models.ImageField(upload_to='images/products')
     discount = models.SmallIntegerField(default=0,
-        validators=[MinValueValidator(0), MaxValueValidator(33)])
+        validators=[MinValueValidator(0), MaxValueValidator(50)])
 
 
     class Meta:
