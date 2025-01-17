@@ -4,17 +4,12 @@
       <div class="-my-3 divide-y divide-gray-200">
         <dl class="flex items-center justify-between gap-4 py-3">
           <dt class="text-base font-normal text-gray-400">Subtotal</dt>
-          <dd class="text-base font-medium">$8,094.00</dd>
+          <dd class="text-base font-medium">${{cart.get_total}}</dd>
         </dl>
 
         <dl class="flex items-center justify-between gap-4 py-3">
           <dt class="text-base font-normal text-gray-400">Savings</dt>
           <dd class="text-base font-medium text-green-500">0</dd>
-        </dl>
-
-        <dl class="flex items-center justify-between gap-4 py-3">
-          <dt class="text-base font-normal text-gray-400">Tax</dt>
-          <dd class="text-base font-medium ">$199</dd>
         </dl>
 
         <dl class="flex items-center justify-between gap-4 py-3">
@@ -26,10 +21,13 @@
 
     <div>
         <label for="voucher" class="mb-2 block text-sm font-medium"> Enter a gift card, voucher or promotional code </label>
+        <p id="coupon-notes" class="text-sm mb-2 text-blue-300">&nbsp;</p>
         <div class="flex max-w-md items-center gap-4">
           <input type="text" id="voucher" class="form-input" placeholder="PROMO CODE" required />
           <button type="button" id="promo-button"
-            class="flex items-center justify-center rounded-lg border border-green-900 bg-green-900 h-full px-5 py-3 text-sm font-medium text-white hover:bg-yellow-500 hover:text-green-950 active:scale-90 transition-all duration-300">
+            class="flex items-center justify-center rounded-lg border border-green-900 
+            bg-green-900 h-full px-5 py-3 text-sm font-medium text-white hover:bg-yellow-500 
+            hover:text-green-950 active:scale-90 transition-all duration-300">
             Apply
           </button>
         </div>
