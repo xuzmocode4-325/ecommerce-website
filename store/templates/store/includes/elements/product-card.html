@@ -3,7 +3,7 @@
     <a class="relative flex w-full aspect-1 overflow-hidden rounded-xl" href="{% url 'product-info' product.slug %}">
       <img class="object-cover hover:scale-110 transition-all duration-300 rounded-md" src="{{product.image.url}}" alt="product image" />
 
-      {% if product.discount > 0 %}
+      {% if product.discount %}
       <span class="absolute top-0 left-0 m-2 rounded-full bg-yellow-500 px-1 text-center text-xs font-medium text-green-950">{{product.discount}}% 0FF</span>
       {% endif %}
       
@@ -17,9 +17,11 @@
         <i class="ri-star-line text-gray-400"></i>
       </div>
       <p class="text-left text-xs font-thin ml-1">{{ product.title }}</p>
-      {% if product.discount > 0 %}
-      <p class="text-xs text-left m-0 font-bold text-white ml-1"></p>
-      <p class="text-[9px] text-left m-0 text-white line-through ml-1">$ {{product.price}}</p>
+      {% if product.discount %}
+      <div class="flex items-center">
+        <p class="text-xs text-left m-0 font-bold text-white ml-1">{{product.discount_price}}</p>
+        <p class="text-[9px] text-left m-0 text-white line-through ml-1">$ {{product.price}}</p>
+      </div>
       {% else %}
       <p class="text-xs text-left m-0 font-bold text-white ml-1">$ {{product.price}}</p>
     {% endif %}
