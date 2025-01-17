@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from decimal import Decimal
 # Create your models here.
 
 class Tag(models.Model):
@@ -41,3 +42,9 @@ class Product(models.Model):
     def __str__(self):
         return self.title
     
+    def discount_decimal(self):
+        """Convert discount percentage to a decimal."""
+        return Decimal(self.discount) / Decimal(100)
+    
+    def discount_price(self):
+        return Decimal(self.price) - (Decimal(self.price)  *  Decimal(self.discount) / Decimal(100))
