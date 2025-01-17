@@ -1,13 +1,9 @@
-<div class="max-w-lg mx-auto popular-card">
-    <div class="bg-green-900 shadow-md border border-green-900 rounded-lg max-w-sm mb-5">
-        <a href="#">
-            <img class="w-full h-48 object-cover rounded-t-lg" src="{{post.image.url}}" alt="">
-        </a>
-        <div class="p-4">
-            <a href="#">
-                <h5 class="text-gray-50 font-bold tracking-tight mb-2">{{post.title}}</h5>
-            </a>
-            <p class="font-xs text-gray-100 mb-1 font-thin">{{post.excerpt}}</p>
-        </div>
+<a href="#" class="group relative flex flex-col items-center bg-green-900 border border-transparent hover:border-yellow-500 rounded-lg shadow md:flex-row
+        col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4 popular-card">
+    <img class="object-cover aspect-1 rounded-lg md:rounded-r-none h-full w-full md:rounded-l-lg md:w-[33%] xl:w-[25%]" src="{{post.image.url}}" alt="">
+    <div class="absolute origin-center transition-all duration-300 m-2  bottom-2 xl:-translate-y-2/3  md:flex md:items-center 
+        md:justify-center md:flex-col md:ml-[33%] p-2 rounded-lg bg-green-900 md:bg-opacity-0">
+        <h5 class="mb-1 font-bold tracking-tight">{{post.title}}</h5>
+        <p class="mb-3 font-normal text-md">{{post.excerpt}}</p>
     </div>
-</div>
+</a>
