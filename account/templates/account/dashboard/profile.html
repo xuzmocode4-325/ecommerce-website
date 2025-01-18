@@ -11,10 +11,17 @@
             <!-- Filters -->
             {% include 'account/includes/elements/sidebar-nav-links.html' %}
             <!-- Product grid -->
-            <div class="lg:col-span-3 py-4 m-auto">
+            <div class="lg:col-span-3 py-4 m-auto w-full">
                     <!-- Loop through blog post and include the post template -->
-                    <h3 class="font-thin">Update You Account</h3>
-                    <form class="max-w-md" method="POST" autocomplete="off"
+                    <h3 class="font-thin mb-4 w-full">Update You Account</h3>
+                    <div class="w-full flex gap-4 flex-col lg:flex-row">
+
+                   
+                        <div class="rounded-full border aspect-1 my-auto lg:w-1/3 lg:my-16 relative">
+                            <img class="rounded-full bg-gray-700 absolute" src="" alt="">
+                        </div>
+                    
+                        <form class="lg:w-2/3" method="POST" autocomplete="off"
                         id="{{form.form_id}}" action="{% url 'profile' %}" onsubmit="disableButton()">
                         {% csrf_token %}
                         {% for field in form %}
@@ -42,8 +49,10 @@
                         {% endfor %}
                         <br>
                         {% include 'includes/elements/form-submit-btn.html' with prompt="Update" %}
-                    </form>
-                    <a class=" text-red-300 font-bold" href="{% url 'delete-account' user.pk %}">
+                        </form>                
+                    </div>
+                    <a class=" text-red-400 font-bold mt-4" href="{% url 'delete-account' user.pk %}">
+                        <i class="ri-user-unfollow-line"></i>
                         <span class="text-sm">Delete Account</span>
                     </a>
             </div>
