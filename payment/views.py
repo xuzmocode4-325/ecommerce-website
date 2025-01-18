@@ -34,6 +34,7 @@ class CheckoutView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         country_choices = list(countries)
+        context['cart'] = Cart(self.request)  # Initialize the cart using the request
         context['countries'] = country_choices
         if self.request.user.is_authenticated:
             try:
