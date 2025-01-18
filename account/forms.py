@@ -1,11 +1,10 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django import forms
-
+from . models import Profile
 
 # Registration Form
 class CreateUserForm(UserCreationForm):
-     
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
@@ -63,9 +62,10 @@ class LoginForm(AuthenticationForm):
 
 
 class UpdateUserForm(forms.ModelForm):
+    profile_picture = forms.ImageField(required=False, widget=forms.FileInput(attrs={'class': 'form-input'}))
     class Meta: 
         model = User
-        fields = ['username', 'email']
+        fields = ['profile_picture','username', 'email']
         exclude = ['password1', 'password2']
         widgets = {
             'username': forms.TextInput(
@@ -94,3 +94,11 @@ class UpdateUserForm(forms.ModelForm):
             raise forms.ValidationError('An account with this email already exists.')
         
         return email
+    
+    def save(self, commit=True):
+        user = super(CreateUserForm, self).save(commit=False)
+        if commit:
+            user.save()
+            profile = Profile(user=user, profile_picture=self.cleaned_data['profile_picture'])
+            profile.save()
+        return user
