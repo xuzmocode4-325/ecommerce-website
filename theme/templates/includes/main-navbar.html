@@ -67,7 +67,15 @@
                       <span class="absolute -inset-1.5"></span>
                       <span class="sr-only">Open user menu</span>
                       {% if user.is_authenticated %}
-                      <img class="size-9 rounded-full" src="" alt="">
+                      <img class="size-9 rounded-full bg-cover m-auto" 
+                        {% if profile.profile_picture %}
+                        src="{{ profile.profile_picture.url }}"
+                        alt=""
+                        {% else %}
+                        src="{% static 'account/img/default-profile.png' %}" 
+                        alt="Default Profile Picture"
+                        {% endif %}
+                      >
                       {% else %}
                         <i class="ri-user-line text-lg absolute left-0 right-0"></i>
                       {% endif %}
