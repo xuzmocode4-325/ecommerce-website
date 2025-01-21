@@ -1,0 +1,8 @@
+Steps to launch: 
+
+1. Fix file upload functionality.
+2. Verify multi-product item listing for multi-product orders.
+3. Redesign the cart summary field. 
+4. Add meaningful visuals and cards to the dashboard. 
+5. Add blog posts. 
+6. Add products. 
