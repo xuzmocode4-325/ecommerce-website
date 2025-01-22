@@ -209,9 +209,8 @@ class CustomLogoutView(LogoutView):
         messages.success(self.request, 'You are now signed out.')
         return reverse_lazy('home')
     
-
 @method_decorator(login_required(login_url='login'), name='dispatch')
-class ProfileView(FormView):
+class UpdateProfileView(FormView):
     template_name = 'account/dashboard/profile.html'
     success_url = reverse_lazy('dashboard')
     form_class = UpdateUserForm
