@@ -75,6 +75,7 @@ class UpdateUserForm(forms.ModelForm):
             ),
         }
 
+
     password = None
 
     email = forms.EmailField(
@@ -89,16 +90,16 @@ class UpdateUserForm(forms.ModelForm):
 
     def clean_email(self):
         email = self.cleaned_data.get("email")
-
         if User.objects.filter(email=email).exclude(pk=self.instance.pk).exists():
             raise forms.ValidationError('An account with this email already exists.')
-        
         return email
     
     def save(self, commit=True):
-        user = super(CreateUserForm, self).save(commit=False)
+        user = super().save(commit=False)  # Get the user instance
         if commit:
-            user.save()
-            profile = Profile(user=user, profile_picture=self.cleaned_data['profile_picture'])
-            profile.save()
+            user.save()  # Save the user instance
+            # Update or create the profile instance
+            profile, created = Profile.objects.get_or_create(user=user)
+            profile.profile_picture = self.cleaned_data.get('profile_picture')
+            profile.save()  # Save the profile instance
         return user
