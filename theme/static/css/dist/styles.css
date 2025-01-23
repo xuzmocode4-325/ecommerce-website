@@ -1493,6 +1493,14 @@ h6 {
   width: 100vw;
 }
 
+.w-11 {
+  width: 2.75rem;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
 .min-w-0 {
   min-width: 0px;
 }
@@ -1867,6 +1875,10 @@ h6 {
   border-width: 1px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1945,11 +1957,6 @@ h6 {
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 
-.bg-gray-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-}
-
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
@@ -2014,6 +2021,10 @@ h6 {
 
 .bg-none {
   background-image: none;
+}
+
+.bg-cover {
+  background-size: cover;
 }
 
 .object-cover {
@@ -3072,6 +3083,11 @@ section {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
+
+  .sm\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
 }
 
 @media (min-width: 540px) {
@@ -3212,6 +3228,11 @@ section {
     line-height: 1.75rem;
   }
 
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
   .md\:backdrop-blur-none {
     --tw-backdrop-blur:  ;
     -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -3251,11 +3272,6 @@ section {
   .lg\:my-16 {
     margin-top: 4rem;
     margin-bottom: 4rem;
-  }
-
-  .lg\:my-12 {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
   }
 
   .lg\:mb-0 {
@@ -3408,19 +3424,6 @@ section {
 
   .xl\:col-span-4 {
     grid-column: span 4 / span 4;
-  }
-
-  .xl\:mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .xl\:ml-\[20\%\] {
-    margin-left: 20%;
-  }
-
-  .xl\:ml-\[25\%\] {
-    margin-left: 25%;
   }
 
   .xl\:ml-\[30\%\] {

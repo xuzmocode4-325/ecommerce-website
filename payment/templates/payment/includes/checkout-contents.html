@@ -55,13 +55,13 @@
                 </div>
                 <div class="shadow h-full w-full col-span-1 bg-green-900 rounded-lg relative overflow-y-scroll p-4 mb-6">
                   <h4 class="mx-2 font-thin">Cart Summary</h4>
-                  <div class="mx-2 mt-2">
+                  <div class="m-2">
                     {% for item in cart %}
                     {% with product=item.product %}
-                        <p><span>{{product.title}}</span> <span class="font-semibold">${{product.price}}</span></p>
+                        {% include 'payment/includes/elements/cart-summary-item.html' %}
                     {% endwith %}
                     {% endfor %}
-                    <div class="absolute bottom-4"><span>Total:</span> <span>{{cart.get_total}}</span></div>
+                    <div class="absolute bottom-4"><span class="font-bold">Total</span> <span>${{cart.get_total}}</span></div>
                   </div>
                  
                 </div>
