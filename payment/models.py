@@ -3,8 +3,6 @@ from django.contrib.auth.models import User
 from store.models import Product
 from django_countries.fields import CountryField
 
-# Create your models here.
-
 
 class ShippingAddress(models.Model):
     name = models.CharField(max_length=50)
@@ -24,18 +22,18 @@ class ShippingAddress(models.Model):
         verbose_name_plural = 'Shipping Address'
 
     def __str__(self):
-        return 'Shipping Address - ' + str(self.id)
+        return 'Shipping Address - ' + str(self.pk)
     
 class Order(models.Model): 
     full_name = models.CharField(max_length=300)
     email = models.EmailField(max_length=255)
     shipping_address = models.TextField(max_length=10000)
-    amount_paid = models.DecimalField(max_digits=8, decimal_places=2)
+    amount_papk = models.DecimalField(max_digits=8, decimal_places=2)
     date_ordered = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return 'Order - #' + str(self.id)
+        return 'Order - #' + str(self.pk)
     
 
 class OrderItem(models.Model): 
@@ -49,5 +47,5 @@ class OrderItem(models.Model):
         verbose_name_plural = 'Order Items'
     
     def __str__(self):
-        return 'Order Item - #' + str(self.id)
+        return 'Order Item - #' + str(self.pk)
 

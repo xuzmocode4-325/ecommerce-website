@@ -7,7 +7,7 @@ from django.views.generic import TemplateView, FormView
 from django_countries import countries
 
 from . models import ShippingAddress, Order, OrderItem
-from cart.cart import Cart
+from ecommerce.cart.utils.cart import Cart
 
 import logging
 logger = logging.getLogger(__name__)

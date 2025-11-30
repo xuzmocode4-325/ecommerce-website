@@ -1,4 +1,4 @@
-<section class="bg-none py-8 antialiased md:py-16 relative min-h-[90vh] bg-green-700 m-10 rounded-md">
+<section class="bg-none antialiased md:py-16 relative h-[90vh] bg-green-950 py-12 rounded-md">
     <form id="checkout-form" class="mx-auto max-w-screen-xl px-4 2xl:px-0 p-2 z-50" onsubmit="event.preventDefault();">  
       {% csrf_token %}
       <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
@@ -6,7 +6,7 @@
           <div class="space-y-4">
 
             <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-               
+
                 <div class="col-span-1 lg:col-span-2 grid lg:grid-cols-2 gap-4">
                   <div class="lg:col-span-2">
                     <h4 class="font-thin">Delivery Details</h4>
@@ -53,17 +53,16 @@
                     <input type="text" id="zipcode" class="form-input validate" placeholder="Code" value="{{shipping.zipcode}}" required />
                   </div>
                 </div>
-                <div class="shadow h-full w-full col-span-1 bg-green-900 rounded-lg relative overflow-y-scroll p-4 mb-6">
-                  <h4 class="mx-2 font-thin">Cart Summary</h4>
-                  <div class="m-2">
+                <div class="shadow h-full w-full col-span-1 bg-green-900 rounded-lg lg:absolute  overflow-y-scroll p-2">
+                  <h4 class="mx-2 font-thin static">Cart Summary</h4>
+                  <div class="m-2 mb-4  relative h-full">
                     {% for item in cart %}
                     {% with product=item.product %}
                         {% include 'payment/includes/elements/cart-summary-item.html' %}
                     {% endwith %}
                     {% endfor %}
-                    <div class="absolute bottom-4"><span class="font-bold">Total</span> <span>${{cart.get_total}}</span></div>
+                    <div class="absolute bottom-1 bg-black/50 p-2 rounded-md z-50"><span class="font-bold">Total</span> <span>${{cart.get_total}}</span></div>
                   </div>
-                 
                 </div>
             </div>
           </div>

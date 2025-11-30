@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from decimal import Decimal
-# Create your models here.
 
 class Tag(models.Model):
     tag = models.CharField(max_length=128)
@@ -9,7 +8,7 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.tag
-
+    
 
 class Category(models.Model):
     name = models.CharField(max_length=128, db_index=True)
@@ -18,8 +17,7 @@ class Category(models.Model):
     class Meta:
         ordering = ['name']
         verbose_name_plural = 'categories'
-
-
+ 
     def __str__(self):
         return self.name
 
@@ -33,8 +31,8 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=4, decimal_places=2)
     image = models.ImageField(upload_to='images/products')
     discount = models.SmallIntegerField(default=0,
-        validators=[MinValueValidator(0), MaxValueValidator(50)])
-
+        validators=[MinValueValidator(0), MaxValueValidator(50)]
+    )
 
     class Meta:
         verbose_name_plural = 'products'

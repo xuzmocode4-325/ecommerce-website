@@ -12,7 +12,7 @@ class CategoryAdmin(admin.ModelAdmin):
     pass
 
 class ProductAdmin(admin.ModelAdmin):
-    repopulated_fields = {'slug':('title',)}
+    prepopulated_fields = {'slug':('title',)}
     pass
 
 admin.site.register(Tag, TagAdmin)

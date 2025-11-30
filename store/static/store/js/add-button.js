@@ -9,14 +9,12 @@ const cartAddButton = document.getElementById('cart-add-button');
  * @type {HTMLElement}
  */
 const itemQtyPlus = document.getElementById('item-qty-plus');
-console.log(itemQtyPlus)
 
 /**
  * Retrieves the 'item-qty-minus' element from the DOM.
  * @type {HTMLElement}
  */
 const itemQtyMinus = document.getElementById('item-qty-minus');
-console.log(itemQtyMinus)
 
 /**
  * Retrieves the script tag that includes 'add-button.js' in its source attribute.
@@ -116,13 +114,15 @@ const handleItemQuantity = function(arg) {
     const productQuantity = document.querySelector('#item-qty')
     const currentValue = productQuantity.textContent;
 
-    console.log(`Current Quantity: ${currentValue}, Change: ${arg}`);
+   
 
     let newValue = Number(currentValue) + arg
+    
+    console.log(`New Value: ${newValue}, Change: ${arg}`);
 
-    if (newValue < 0 ) {
-        newValue = 0
-        console.log("You can't place an negative order, you knitwitt!")
+    if (newValue < 1 ) {
+        newValue = 1
+        console.log("You can't place a null or negative order, you knitwitt!")
     } 
 
     if (newValue > 10) {
@@ -130,6 +130,7 @@ const handleItemQuantity = function(arg) {
         console.log("Leave some product for other buyers, you knitwitt!")
     }
 
+    
     productQuantity.innerText = newValue
 }
 

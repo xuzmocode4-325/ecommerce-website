@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render, get_object_or_404
-from .cart import Cart
+from .utils.cart import Cart
 from store.models import Product
 from django.views import View
 from django.http import JsonResponse
@@ -9,7 +9,6 @@ from django.http import JsonResponse
 
 class CartSummaryView(View):
     template_name = 'cart/cart-index.html'
-
     def get(self, request, *args, **kwargs):
         cart = Cart(request)  # Initialize the cart using the request
         context = {

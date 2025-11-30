@@ -13,7 +13,14 @@
                     <p class="text-lg text-left text-white font-normal hover:text-yellow-500">{{product.title}}</p>
                 </a>
                 <p class="font-thin text-sm text-left">{{product.description}}</p>
-                <p class="font-thin text-sm text-left md:text-sm text-white rounded-md w-3/4 block">Price ${{product.price}}</p>
+                <p class="text-sm text-left md:text-sm text-white rounded-md w-3/4 block">
+                    {% if product.discount > 0 %}
+                    <span class="line-through text-xs">$ {{product.price}}</span>
+                    <span class="font-bold">$ {{product.discount_price}}</span>
+                    {% else %}
+                    <span class="font-bold">$ {{product.price}}</span>
+                    {% endif %}
+                </p>
             </div>
             
             
@@ -36,7 +43,11 @@
             
             <!-- Card controls--> 
             <div class="">
-                <p class="text-left text-sm">Subtotal <span class="">${{product.price|mul:item.qty}}</span></p>
+                {% if product.discount > 0 %}
+                    <p class="text-left text-sm">Subtotal <span class="">${{product.discount_price|mul:item.qty}}</span></p>
+                {% else %}
+                    <p class="text-left text-sm">Subtotal <span class="">${{product.price|mul:item.qty}}</span></p>
+                {% endif %}
                 {% include 'cart/includes/elements/card-controls.html' %}
             </div>
         </div>

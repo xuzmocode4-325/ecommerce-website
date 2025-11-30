@@ -4,28 +4,32 @@
       <div class="-my-3 divide-y divide-gray-200">
         <dl class="flex items-center justify-between gap-4 py-3">
           <dt class="text-base font-normal text-gray-400">Subtotal</dt>
-          <dd class="text-base font-medium">${{cart.get_total}}</dd>
+          <dd class="text-base font-medium">${{cart.get_total.total}}</dd>
         </dl>
 
         <dl class="flex items-center justify-between gap-4 py-3">
           <dt class="text-base font-normal text-gray-400">Savings</dt>
-          <dd class="text-base font-medium text-green-500">0</dd>
+          <dd class="text-base font-medium text-green-500">${{cart.get_total.savings}}</dd>
         </dl>
 
         <dl class="flex items-center justify-between gap-4 py-3">
           <dt class="text-base font-bold ">Total</dt>
-          <dd class="text-base font-bold ">${{cart.get_total}}</dd>
+          <dd class="text-base font-bold ">${{cart.get_total.discount_total}}</dd>
         </dl>
       </div>
     </div>
 
     <div>
-        <label for="voucher" class="mb-2 block text-sm font-medium"> Enter a gift card, voucher or promotional code </label>
-        <p id="coupon-notes" class="text-sm mb-2 text-blue-300">&nbsp;</p>
+        <label for="voucher" class="voucher mb-2 block text-sm font-medium"> Enter a gift card, voucher or promotional code </label>
+        <p id="coupon-notes" class="notes text-sm mb-2 text-blue-300">&nbsp;
+          {% if cart.coupon %}
+            {{cart.coupon.name}} for {{cart.coupon.discount}}% off applied.
+          {% endif %}
+        </p>
         <div class="flex max-w-md items-center gap-4">
-          <input type="text" id="voucher" class="form-input" placeholder="PROMO CODE" required />
+          <input type="text" id="voucher" class="form-input" placeholder="PROMO CODE" required/>
           <button type="button" id="promo-button"
-            class="flex items-center justify-center rounded-lg border border-green-900 
+            class="promo-button z-50 flex items-center justify-center rounded-lg border border-green-900 
             bg-green-900 h-full px-5 py-3 text-sm font-medium text-white hover:bg-yellow-500 
             hover:text-green-950 active:scale-90 transition-all duration-300">
             Apply
@@ -34,7 +38,13 @@
     </div>
 
     <div class="space-y-3">
-      <a href="{% url 'checkout' %}" class=" text-center flex w-full items-center justify-center border border-yellow-500 transition-all duration-300 rounded-lg px-5 py-2.5 text-sm font-medium hover:bg-yellow-500 hover:text-green-950 focus:outline-none focus:ring-4  focus:ring-green-900">Proceed to Payment</a>
+      <a href="{% url 'checkout' %}" class="
+        text-center flex w-full items-center justify-center border border-yellow-500 
+        transition-all duration-300 rounded-lg px-5 py-2.5 text-sm font-medium 
+        hover:bg-yellow-500 hover:text-green-950 focus:outline-none focus:ring-4  
+        focus:ring-green-900">
+        Proceed to Payment
+      </a>
 
       <!-- <p class="text-sm font-normal text-gray-400">One or more items in your cart require an account. <a href="#" title="" class="font-medium text-primary-700 underline hover:no-underline">Sign in or create an account now.</a>.</p> -->
     </div>

@@ -1,0 +1,83 @@
+{% extends 'gallery/base.html' %}
+
+{% block title %}Order Confirmation | Digital Art Gallery{% endblock %}
+
+{% block content %}
+<div class="bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto">
+    <div class="text-center mb-8">
+        <svg class="w-16 h-16 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <h1 class="text-2xl font-bold text-gray-900 mb-2">Thank You for Your Order!</h1>
+        <p class="text-gray-600">Your order has been received and is being processed.</p>
+    </div>
+    
+    <div class="mb-8">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Order Details</h2>
+        <div class="bg-gray-50 rounded p-4 mb-4">
+            <p class="text-gray-700"><span class="font-medium">Order ID:</span> {{ order.id }}</p>
+            <p class="text-gray-700"><span class="font-medium">Date:</span> {{ order.created_date|date:"F j, Y" }}</p>
+            <p class="text-gray-700"><span class="font-medium">Status:</span> {{ order.get_status_display }}</p>
+        </div>
+        
+        <h3 class="text-lg font-medium text-gray-800 mb-2">Items</h3>
+        <div class="border rounded-lg overflow-hidden mb-6">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Artwork
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Size
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Quantity
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Price
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    {% for item in order.items.all %}
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm font-medium text-gray-900">{{ item.artwork.title }}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm text-gray-900">{{ item.print_size.name }}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                            {{ item.quantity }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                            ${{ item.price }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr class="bg-gray-50">
+                        <td colspan="3" class="px-6 py-4 text-right font-medium">Total:</td>
+                        <td class="px-6 py-4 font-bold">${{ order.total_amount }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        
+        <h3 class="text-lg font-medium text-gray-800 mb-2">Shipping Information</h3>
+        <div class="bg-gray-50 rounded p-4">
+            <p class="text-gray-700"><span class="font-medium">Name:</span> {{ order.customer_name }}</p>
+            <p class="text-gray-700"><span class="font-medium">Email:</span> {{ order.customer_email }}</p>
+            <p class="text-gray-700"><span class="font-medium">Address:</span> {{ order.customer_address }}</p>
+        </div>
+    </div>
+    
+    <div class="text-center">
+        <a href="{% url 'gallery' %}" class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            Continue Shopping
+        </a>
+    </div>
+</div>
+{% endblock %}
